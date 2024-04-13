@@ -9,6 +9,7 @@ func _ready():
 
 func on_patron_survived(patron):
 	souls_survived += patron.souls
+	SurviveSignal.emit_signal("patron_survived_updated")
 	
 func on_patron_died(patron):
 	souls_captured += patron.souls
