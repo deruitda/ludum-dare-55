@@ -1,4 +1,4 @@
-extends Node2D
+extends HBoxContainer
 
 @export var _patrons_allowed_to_survive = 10
 

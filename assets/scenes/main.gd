@@ -1,7 +1,6 @@
 extends Node2D
 
-@onready var current_level = $CurrentLevel
-@onready var camera_2d = $Camera2D
+@onready var current_level = $Control/CurrentLevel
 
 @onready var current_level_index = 0
 @onready var status = "playing"

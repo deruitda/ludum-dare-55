@@ -9,6 +9,7 @@ _data = {
 point_count = 3
 
 [node name="Map" type="Node2D"]
+position = Vector2(609, 393)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_c4mh5")
