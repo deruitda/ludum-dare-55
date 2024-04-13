@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://y1ip7aabt7f3"]
+[gd_scene load_steps=8 format=3 uid="uid://y1ip7aabt7f3"]
 
 [ext_resource type="Script" path="res://assets/scenes/levels/map_path.gd" id="1_daq4a"]
 [ext_resource type="Script" path="res://assets/scenes/levels/level.gd" id="1_hyhgd"]
 [ext_resource type="PackedScene" uid="uid://s77jcgulruvm" path="res://assets/scenes/levels/wave.tscn" id="3_pm4jn"]
 [ext_resource type="PackedScene" uid="uid://db26rijuclxul" path="res://assets/scenes/monsters/monster_card.tscn" id="4_posmr"]
 [ext_resource type="PackedScene" uid="uid://ca4732islbtvc" path="res://assets/scenes/monsters/lost_soul.tscn" id="5_se3m6"]
+[ext_resource type="PackedScene" uid="uid://cotjl3nwss868" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
 
 [sub_resource type="Curve2D" id="Curve2D_c4mh5"]
 _data = {
@@ -30,5 +31,8 @@ autostart = true
 monster = NodePath("LostSoul")
 
 [node name="LostSoul" parent="MonsterCard" instance=ExtResource("5_se3m6")]
+
+[node name="Test-korn" parent="." instance=ExtResource("6_mt4h2")]
+position = Vector2(-835, -540)
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="_on_timer_timeout"]
