@@ -18,10 +18,11 @@ config/icon="res://assets/sprites/icon.svg"
 [autoload]
 
 SurviveSignal="*res://assets/scenes/signal_buses/survive_signal.gd"
-SoulsCapturedSignal="*res://assets/scenes/signal_buses/souls_captured_signal.gd"
+DeathSignal="*res://assets/scenes/signal_buses/death_signal.gd"
 GameState="*res://assets/scenes/game_state.gd"
 SummoningState="*res://assets/scenes/summoning_state.gd"
 SummoningSignal="*res://assets/scenes/signal_buses/summoning_signal.gd"
+SoulsCapturedSignal="*res://assets/scenes/signal_buses/souls_captured_signal.gd"
 
 [display]
 

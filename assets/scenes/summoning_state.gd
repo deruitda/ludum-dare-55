@@ -8,6 +8,7 @@ enum summoning_states {
 
 @onready var current_state = summoning_states.IDLE
 @onready var summoning_monster = null
+@onready var current_puzzle = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +40,7 @@ func _on_monster_selected(monster):
 func _on_location_selected():
 	if current_state == summoning_states.CHOOSING_LOCATION:
 		set_state(summoning_states.SUMMONING)
+		set_puzzle()
 		print("Current state: ", current_state)
 	else:
 		print("Cannot summon monster, current state: ", current_state)
@@ -64,6 +66,10 @@ func set_state(state):
 	SummoningSignal.emit_signal("state_changed", current_state)
 	print("Current state: ", current_state)
  
+func set_puzzle():
+	current_puzzle = summoning_monster.get_random_puzzle()
+	SummoningSignal.emit_signal("puzzle_set")
+
 #  The code is pretty simple. We have a state machine with three states: IDLE, CHOOSING_LOCATION, and SUMMONING. The state machine is controlled by the  set_state  function, which sets the current state to the one passed as an argument. 
 #  The  _on_monster_selected  function is called when a monster is selected. If the current state is IDLE, the state is set to CHOOSING_LOCATION, and the monster is saved in the  summoning_monster  variable. 
 #  The  _on_location_selected  function is called when a location is selected. If the current state is CHOOSING_LOCATION, the state is set to SUMMONING. 
