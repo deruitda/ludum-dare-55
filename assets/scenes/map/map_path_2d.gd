@@ -1,7 +1,7 @@
 extends Path2D
 
 const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
-const PATRON_2D_FOLLOW = preload("res://assets/scenes/patrons/patron_2d_follow.tscn")
+const PATRON_2D_FOLLOW = preload("res://assets/scenes/map/patron_2d_follow.tscn")
 
 const SUMMONING_POSITION = preload("res://assets/scenes/levels/resources/SummoningPosition.tscn")
 
