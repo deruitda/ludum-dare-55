@@ -2,21 +2,26 @@ extends Node
 const Monster = preload("res://assets/scenes/monsters/monster.gd")
 @export var monster: Node2D = null
 @export var summon_monster_input_action_number: int = 1
-@onready var sprite_2d = $Area2D/Sprite2D
+@onready var sprite_2d = $Area2D/Monster
+@onready var border_sprite = $Area2D/Border
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var area_2d = $Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite_2d.texture = monster._visual_resource
-	var sprite_width = sprite_2d.texture.get_width()
-	var sprite_height = sprite_2d.texture.get_height()
-	sprite_2d.offset = Vector2(sprite_width / -2, sprite_height / -2)
-	
-	var sprite_size = sprite_2d.texture.get_size()
-	var rect_shape = RectangleShape2D.new()
-	rect_shape.extents = sprite_size / 2
-	collision_shape_2d.shape = rect_shape
+	#var sprite_width = sprite_2d.texture.get_width()
+	#var sprite_height = sprite_2d.texture.get_height()
+	#sprite_2d.offset = Vector2(sprite_width / -2, sprite_height / -2)
+	#
+	#var border_sprite_width = border_sprite.texture.get_width()
+	#var border_sprite_height = border_sprite.texture.get_height()
+	#border_sprite.offset = Vector2(border_sprite_width / -2, border_sprite_height / -2)
+	#
+	#var border_sprite_size = border_sprite.texture.get_size()
+	#var rect_shape = RectangleShape2D.new()
+	#rect_shape.extents = border_sprite_size / 2
+	#collision_shape_2d.shape = rect_shape
 
 
 
