@@ -1,7 +1,7 @@
 extends TextureButton
 
 
-const Monster = preload("res://assets/scenes/monsters/monster.gd")
+const Monster = preload("res://assets/scenes/npcs/monster.gd")
 @export var monster: Node2D = null
 @export var summon_monster_input_action_number: int = 1
 

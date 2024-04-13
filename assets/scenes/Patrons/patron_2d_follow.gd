@@ -1,6 +1,5 @@
 extends PathFollow2D
 
-const Patron = preload("res://assets/scenes/patrons/patron.gd")
 @export var patron: Node2D = null
 @onready var sprite_2d = $Sprite2D
 
