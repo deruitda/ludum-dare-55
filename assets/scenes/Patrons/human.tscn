@@ -1,26 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4dticlbmv71t"]
 
 [ext_resource type="Texture2D" uid="uid://bhsbmrhwng2ga" path="res://assets/placeholders/138.jpeg" id="1_oj4ee"]
+[ext_resource type="Script" path="res://assets/scenes/Patrons/patron.gd" id="1_s5ps8"]
 
-[sub_resource type="GDScript" id="GDScript_vp68i"]
-script/source = "extends PathFollow2D
-
-
-@export var _speed = 100.0
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-func _physics_process(delta):
-	progress = progress + (delta * _speed)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
-[node name="Victim" type="PathFollow2D"]
-script = SubResource("GDScript_vp68i")
+[node name="Human" type="PathFollow2D"]
+script = ExtResource("1_s5ps8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
