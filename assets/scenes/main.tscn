@@ -25,6 +25,7 @@ color = Color(0.219608, 0.184314, 0.117647, 1)
 [node name="CurrentLevel" type="Node" parent="GameControl"]
 
 [node name="HUD" parent="GameControl" instance=ExtResource("2_br5t6")]
+top_level = true
 layout_mode = 1
 offset_bottom = 100.0
 
