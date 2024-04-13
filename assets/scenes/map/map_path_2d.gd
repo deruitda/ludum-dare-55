@@ -3,10 +3,10 @@ extends Path2D
 const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 const PATRON_2D_FOLLOW = preload("res://assets/scenes/map/patron_2d_follow.tscn")
 
-const SUMMONING_POSITION = preload("res://assets/scenes/levels/resources/SummoningPosition.tscn")
+const SUMMONING_PORTAL = preload("res://assets/scenes/levels/resources/summoning_portal.tscn")
 
 @onready var summoning_mouse_position_threshold: float = 100.0
-@onready var summoning_portal: Node2D = SUMMONING_POSITION.instantiate()
+@onready var summoning_portal: Node2D = SUMMONING_PORTAL.instantiate()
 
 func _ready():
 	summoning_portal.visible = false
@@ -20,7 +20,6 @@ func add_human():
 func _on_timer_timeout():
 	add_human()
 	
-
 func _process(delta):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
 		var mouse_position = get_global_mouse_position() - global_position
@@ -35,3 +34,12 @@ func _process(delta):
 func add_summoning_portal_to_position(position):
 	summoning_portal.position = position
 	summoning_portal.visible = true
+
+# func _input(event):
+# 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
+# 		if event is InputEventMouseButton:
+# 			if event.button_index == BUTTON_LEFT and event.pressed:
+# 				SummoningState.current_state = SummoningState.summoning_states.SUMMONING
+# 				SummoningState.summoning_position = summoning_portal.position
+# 				summoning_portal.visible = false
+# 				emit_signal("summoning_position_chosen")
