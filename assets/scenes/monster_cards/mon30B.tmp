@@ -7,7 +7,6 @@
 
 [node name="MonsterCard" parent="." node_paths=PackedStringArray("monster") instance=ExtResource("1_udpuv")]
 layout_mode = 2
-ignore_texture_size = true
 monster = NodePath("LostSoul")
 
 [node name="LostSoul" parent="MonsterCard" instance=ExtResource("2_5qwcl")]
