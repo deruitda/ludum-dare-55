@@ -9,6 +9,8 @@ const Monster = preload("res://assets/scenes/monsters/monster.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	texture_normal = monster._visual_resource
+	# Center the texture within the button
+	stretch_mode = TextureButton.STRETCH_KEEP_CENTERED
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
