@@ -25,5 +25,5 @@ func patron_survived():
 	queue_free()
 	
 func patron_died():
-	DeathSignal.emit_signal("patron_died", patron)
+	SoulsCapturedSignal.emit_signal("patron_died", patron)
 	
