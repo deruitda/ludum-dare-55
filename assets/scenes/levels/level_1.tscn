@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://y1ip7aabt7f3"]
+[gd_scene load_steps=3 format=3 uid="uid://y1ip7aabt7f3"]
 
 [ext_resource type="Script" path="res://assets/scenes/levels/map_path.gd" id="1_daq4a"]
-[ext_resource type="PackedScene" uid="uid://cjsjb2ymxf0mi" path="res://assets/scenes/Hud/hud.tscn" id="2_vefcn"]
 
 [sub_resource type="Curve2D" id="Curve2D_c4mh5"]
 _data = {
@@ -17,16 +16,5 @@ script = ExtResource("1_daq4a")
 
 [node name="Timer" type="Timer" parent="Path2D"]
 autostart = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Control" type="Control" parent="Camera2D"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HUD" parent="Camera2D/Control" instance=ExtResource("2_vefcn")]
-_patrons_allowed_to_survive = null
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="_on_timer_timeout"]

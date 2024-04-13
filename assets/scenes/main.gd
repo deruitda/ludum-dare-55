@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var current_level = $CurrentLevel
+@onready var camera_2d = $Camera2D
 
 @onready var current_level_index = 0
 @onready var status = "playing"
@@ -11,8 +12,8 @@ const LEVELS = [
 	
 ]
 func _ready():
-	var scene = load(LEVELS[current_level_index])
-	current_level.get_tree().change_scene_to_packed(scene)
+	var scene = load(LEVELS[current_level_index]).instantiate()
+	current_level.add_child(scene)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

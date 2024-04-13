@@ -5,7 +5,7 @@ var souls_survived: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SurviveSignal.connect("patron_survived", on_patron_survived)
-	DeathSignal.connect("on_patron_died", on_patron_died)
+	DeathSignal.connect("patron_died", on_patron_died)
 
 func on_patron_survived(patron):
 	souls_survived += patron.souls
