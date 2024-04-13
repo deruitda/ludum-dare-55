@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxttpm7edmq2w"]
+[gd_scene load_steps=4 format=3 uid="uid://cxttpm7edmq2w"]
 
 [ext_resource type="Script" path="res://assets/scenes/npcs/patron.gd" id="1_4angd"]
 [ext_resource type="Texture2D" uid="uid://caeqclrmesx" path="res://assets/sprites/test/138.jpeg" id="2_h20vs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgelr"]
+size = Vector2(200, 140)
 
 [node name="Human" type="Node2D"]
 script = ExtResource("1_4angd")
@@ -9,3 +12,11 @@ _visual_resource = ExtResource("2_h20vs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.2, 0.2)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 7.15256e-06)
+shape = SubResource("RectangleShape2D_qgelr")
