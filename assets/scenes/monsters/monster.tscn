@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://do5o7gy0x302d"]
+
+[ext_resource type="Script" path="res://assets/scenes/monsters/monster.gd" id="1_2rx4x"]
+
+[node name="Monster" type="PathFollow2D"]
+script = ExtResource("1_2rx4x")
+_speed = null
+_max_souls_to_consume = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
