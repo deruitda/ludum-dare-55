@@ -9,4 +9,3 @@ _visual_resource = ExtResource("2_jd80a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_jd80a")
