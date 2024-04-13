@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://y1ip7aabt7f3"]
+
+[ext_resource type="Script" path="res://assets/scenes/maps/map_path.gd" id="1_3ubxn"]
+[ext_resource type="PackedScene" uid="uid://d4dticlbmv71t" path="res://assets/scenes/Humans/basic_human.tscn" id="2_n8b34"]
+
+[sub_resource type="Curve2D" id="Curve2D_c4mh5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -524, -56, 0, 0, 0, 0, -483.629, -66.0284, 0, 0, 0, 0, 450, -143)
+}
+point_count = 3
+
+[node name="Map" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_c4mh5")
+script = ExtResource("1_3ubxn")
+
+[node name="Victim" parent="Path2D" instance=ExtResource("2_n8b34")]
+position = Vector2(-524, -56)
+rotation = -0.243479
+
+[node name="Camera2D" type="Camera2D" parent="."]
