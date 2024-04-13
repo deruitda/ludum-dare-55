@@ -1,6 +1,6 @@
 extends Node2D
 
-const PATRONS_ALLOWED_TO_SURVIVE = 10
+@export var _patrons_allowed_to_survive = 10
 
 @onready var patronsSurvived = 0
 @onready var totalSouls = 0
@@ -8,8 +8,9 @@ const PATRONS_ALLOWED_TO_SURVIVE = 10
 
 
 func _process(delta):
-	if (patronsSurvived >= PATRONS_ALLOWED_TO_SURVIVE):
-		getNode("Main").gameOver()
+	pass
+	#if (patronsSurvived >= _patrons_allowed_to_survive):
+		#getNode("Main").gameOver()
 
 
 func patronSurvived():

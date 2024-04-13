@@ -5,6 +5,7 @@
 [sub_resource type="GDScript" id="GDScript_vp68i"]
 script/source = "extends PathFollow2D
 
+
 @export var _speed = 100.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
