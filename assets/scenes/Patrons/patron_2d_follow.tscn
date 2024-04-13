@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4dticlbmv71t"]
+
+[ext_resource type="Script" path="res://assets/scenes/patrons/patron_2d_follow.gd" id="1_kjr8y"]
+
+[node name="Patron2dFollow" type="PathFollow2D"]
+script = ExtResource("1_kjr8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
