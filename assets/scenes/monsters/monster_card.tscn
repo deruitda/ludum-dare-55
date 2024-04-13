@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://db26rijuclxul"]
+[gd_scene load_steps=4 format=3 uid="uid://db26rijuclxul"]
 
 [ext_resource type="Script" path="res://assets/scenes/monsters/monster_card.gd" id="1_vbkea"]
+[ext_resource type="Texture2D" uid="uid://br3dkp11asl24" path="res://assets/sprites/temp_monster_card_border.png" id="2_xsx0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyyhh"]
 size = Vector2(0, 0)
@@ -17,7 +18,10 @@ summon_monster_input_action_number = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Border" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_xsx0r")
+
+[node name="Monster" type="Sprite2D" parent="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xyyhh")
