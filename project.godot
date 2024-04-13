@@ -18,6 +18,7 @@ config/icon="res://assets/sprites/icon.svg"
 [autoload]
 
 SurviveSignal="*res://assets/scenes/SignalBuses/survive_signal.gd"
+DeathSignal="*res://assets/scenes/SignalBuses/death_signal.gd"
 
 [rendering]
 
