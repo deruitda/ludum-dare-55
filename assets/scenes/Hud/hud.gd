@@ -6,12 +6,10 @@ extends Node2D
 @onready var totalSouls = 0
 @onready var currentSouls = 0
 
-
-func _process(delta):
-	pass
-	#if (patronsSurvived >= _patrons_allowed_to_survive):
-		#getNode("Main").gameOver()
+func _ready(): 
+	$PatronsSurvivedLabel.text = "Survivors: 100"
 
 
 func patronSurvived():
 	patronsSurvived += 1
+	$PatronsSurvivedLabel.text = "Survivors: " + str(patronsSurvived)
