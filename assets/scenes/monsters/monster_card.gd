@@ -2,12 +2,22 @@ extends Node
 const Monster = preload("res://assets/scenes/monsters/monster.gd")
 @export var monster: Node2D = null
 @export var summon_monster_input_action_number: int = 1
-@onready var sprite_2d = $Area2D/CollisionShape2D/Sprite2D
+@onready var sprite_2d = $Area2D/Sprite2D
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var area_2d = $Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite_2d.texture = monster._visual_resource
-	pass # Replace with function body.
+	var sprite_width = sprite_2d.texture.get_width()
+	var sprite_height = sprite_2d.texture.get_height()
+	sprite_2d.offset = Vector2(sprite_width / -2, sprite_height / -2)
+	
+	var sprite_size = sprite_2d.texture.get_size()
+	var rect_shape = RectangleShape2D.new()
+	rect_shape.extents = sprite_size / 2
+	collision_shape_2d.shape = rect_shape
+
 
 
 		

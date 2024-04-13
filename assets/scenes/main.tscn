@@ -37,10 +37,10 @@ anchor_bottom = 1.0
 offset_top = -240.0
 grow_horizontal = 2
 grow_vertical = 0
-alignment = 1
 
 [node name="MonsterCards" parent="GameControl/BottomControl" instance=ExtResource("3_iv0gn")]
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 8
 
 [connection signal="ready" from="." to="." method="_on_ready"]

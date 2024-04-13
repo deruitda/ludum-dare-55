@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca4732islbtvc"]
 
 [ext_resource type="Script" path="res://assets/scenes/monsters/monster.gd" id="1_ewq86"]
-[ext_resource type="Texture2D" uid="uid://bjw541ia1go5i" path="res://assets/sprites/icon.svg" id="2_e16yr"]
+[ext_resource type="Texture2D" uid="uid://d082hja5xhxw1" path="res://assets/sprites/monsters/lost-soul/lost-soul.png" id="2_1s4bg"]
 
 [node name="LostSoul" type="Node2D"]
 script = ExtResource("1_ewq86")
-_visual_resource = ExtResource("2_e16yr")
+_visual_resource = ExtResource("2_1s4bg")

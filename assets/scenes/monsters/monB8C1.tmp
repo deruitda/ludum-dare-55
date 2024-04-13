@@ -13,7 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vbkea")
-summon_monster_input_action_number = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
