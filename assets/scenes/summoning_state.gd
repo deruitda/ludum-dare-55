@@ -14,9 +14,9 @@ enum summoning_states {
 func _ready():
 	SummoningSignal.connect("monster_selected", _on_monster_selected)
 	SummoningSignal.connect("location_selected", _on_location_selected)
-	SummoningSignal.connect("monster_summoned_successfully", _on_monster_summoned_successfully)
+	SummoningSignal.connect("monster_summoned", _on_monster_summoned)
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
-
+	SummoningSignal.connect("puzzle_set", _temp_on_puzzle_set)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,6 +26,7 @@ func _process(delta):
 func reset_state():
 	summoning_monster = null
 	set_state(summoning_states.IDLE)
+	current_puzzle = null
 	print("State reset")
 	print("Current state: ", current_state)
 
@@ -34,8 +35,6 @@ func _on_monster_selected(monster):
 	if current_state == summoning_states.IDLE:
 		set_state(summoning_states.CHOOSING_LOCATION)
 		summoning_monster = monster
-		print("Monster selected: ", monster)
-		print("Current state: ", current_state)
 	else:
 		print("Cannot summon monster, current state: ", current_state)
 
@@ -49,18 +48,15 @@ func _on_location_selected():
 		print("Cannot summon monster, current state: ", current_state)
 
 
-func _on_monster_summoned_successfully():
-	if current_state == summoning_states.SUMMONING:
-		set_state(summoning_states.IDLE)
-		print("Monster summoned successfully")
-		print("Current state: ", current_state)
-	else:
-		print("Cannot summon monster, current state: ", current_state)
+func _on_monster_summoned():
+	reset_state()
 
 
 func _on_monster_summoned_failed():
 	if current_state == summoning_states.SUMMONING:
 		set_state(summoning_states.IDLE)
+		summoning_monster = null
+		current_puzzle = null
 		print("Monster summoning failed")
 		print("Current state: ", current_state)
 	else:
@@ -78,14 +74,6 @@ func set_puzzle():
 	SummoningSignal.emit_signal("puzzle_set")
 
 
-#  The code is pretty simple. We have a state machine with three states: IDLE, CHOOSING_LOCATION, and SUMMONING. The state machine is controlled by the  set_state  function, which sets the current state to the one passed as an argument. 
-#  The  _on_monster_selected  function is called when a monster is selected. If the current state is IDLE, the state is set to CHOOSING_LOCATION, and the monster is saved in the  summoning_monster  variable. 
-#  The  _on_location_selected  function is called when a location is selected. If the current state is CHOOSING_LOCATION, the state is set to SUMMONING. 
-#  The  _on_monster_summoned_successfully  function is called when the monster is summoned successfully. If the current state is SUMMONING, the state is set to IDLE. 
-#  The  _on_monster_summoned_failed  function is called when the monster summoning fails. If the current state is SUMMONING, the state is set to IDLE. 
-#  The  reset_state  function is used to reset the state machine to the IDLE state. 
-#  The  _on_monster_selected ,  _on_location_selected ,  _on_monster_summoned_successfully , and  _on_monster_summoned_failed  functions print the current state of the state machine. 
-#  Now, let’s create the signals that will be used to communicate between the different nodes. 
-#  Create the signals 
-#  In the  SummoningSignal  script, add the following code: 
-#  extends Node
+func _temp_on_puzzle_set():
+	SummoningSignal.emit_signal("puzzle_solved")
+

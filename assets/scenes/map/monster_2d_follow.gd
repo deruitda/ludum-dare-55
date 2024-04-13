@@ -5,8 +5,9 @@ extends PathFollow2D
 
 @onready var path_follow = get_parent()
 
-@export var speed = 100.0
+@export var speed = 20.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(monster._visual_resource)
 	sprite_2d.texture = monster._visual_resource
 	loop = false

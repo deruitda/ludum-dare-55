@@ -19,3 +19,7 @@ func setPosition(new_position: Vector2):
 
 func setSummoningPosition():
 	state = summoning_portal_states.POSITION_SELECTED
+	print(position)
+
+func reset_state():
+	state = summoning_portal_states.SELECTING_POSITION
