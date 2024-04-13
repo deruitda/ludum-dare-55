@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://assets/scenes/levels/map_path.gd" id="1_daq4a"]
 [ext_resource type="Script" path="res://assets/scenes/levels/level.gd" id="1_hyhgd"]
-[ext_resource type="PackedScene" path="res://assets/scenes/levels/wave.tscn" id="3_pm4jn"]
-[ext_resource type="PackedScene" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
+[ext_resource type="PackedScene" uid="uid://s77jcgulruvm" path="res://assets/scenes/levels/wave.tscn" id="3_pm4jn"]
+[ext_resource type="PackedScene" uid="uid://cotjl3nwss868" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
 
 [sub_resource type="Curve2D" id="Curve2D_c4mh5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -524, -56, 0, 0, 0, 0, -483.629, -66.0284, 0, 0, 0, 0, 450, -143)
+"points": PackedVector2Array(0, 0, 0, 0, -1027, -380, 0, 0, 0, 0, 732, -380, 0, 0, 0, 0, 732, -184)
 }
 point_count = 3
 
