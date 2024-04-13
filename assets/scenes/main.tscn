@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://vi4rrjltrjx7"]
+[gd_scene load_steps=5 format=3 uid="uid://vi4rrjltrjx7"]
 
 [ext_resource type="Script" path="res://assets/scenes/main.gd" id="1_fwahh"]
 [ext_resource type="PackedScene" uid="uid://cjsjb2ymxf0mi" path="res://assets/scenes/Hud/hud.tscn" id="2_br5t6"]
 [ext_resource type="PackedScene" uid="uid://b75su1ww7nh23" path="res://assets/scenes/monster_cards/monster_cards.tscn" id="3_iv0gn"]
+[ext_resource type="PackedScene" uid="uid://derq75u4a7b1o" path="res://assets/scenes/demonic_scroll/demonic_scroll.tscn" id="4_vrxy2"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fwahh")
@@ -37,5 +38,12 @@ offset_right = 1906.0
 offset_bottom = 1054.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="DemonicScroll" parent="GameControl" instance=ExtResource("4_vrxy2")]
+top_level = true
+offset_left = 197.0
+offset_top = 886.0
+offset_right = 197.0
+offset_bottom = 886.0
 
 [connection signal="ready" from="." to="." method="_on_ready"]
