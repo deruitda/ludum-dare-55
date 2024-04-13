@@ -12,6 +12,7 @@ const LEVELS = [
 func _ready():
 	var scene = load(LEVELS[current_level_index])
 	current_level.get_tree().change_scene_to_packed(scene)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
