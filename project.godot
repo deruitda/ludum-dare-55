@@ -19,6 +19,7 @@ config/icon="res://assets/sprites/icon.svg"
 
 SurviveSignal="*res://assets/scenes/SignalBuses/survive_signal.gd"
 DeathSignal="*res://assets/scenes/SignalBuses/death_signal.gd"
+GameState="*res://assets/scenes/game_state.gd"
 
 [rendering]
 
