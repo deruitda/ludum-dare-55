@@ -36,4 +36,5 @@ func _input(event):
 		
 
 func begin_summoning_monster():
+	SummoningSignal.emit_signal("monster_selected", monster)
 	pass
