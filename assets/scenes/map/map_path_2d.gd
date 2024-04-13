@@ -21,6 +21,20 @@ func _on_timer_timeout():
 	add_human()
 	
 func _process(delta):
+	setSummoningPortal()
+
+func add_summoning_portal_to_position(position):
+	summoning_portal.setPosition(position)
+	summoning_portal.visible = true
+
+func _input(event):
+	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				summoning_portal.setSummoningPosition()
+				SummoningSignal.emit_signal("location_selected")
+
+func setSummoningPortal():
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
 		var mouse_position = get_global_mouse_position() - global_position
 		var closest_point_to_mouse = curve.get_closest_point(mouse_position)
@@ -28,18 +42,5 @@ func _process(delta):
 			add_summoning_portal_to_position(closest_point_to_mouse)
 		else:
 			summoning_portal.visible = false
-	else:
+	elif SummoningState.current_state != SummoningState.summoning_states.SUMMONING:
 		summoning_portal.visible = false
-
-func add_summoning_portal_to_position(position):
-	summoning_portal.position = position
-	summoning_portal.visible = true
-
-# func _input(event):
-# 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
-# 		if event is InputEventMouseButton:
-# 			if event.button_index == BUTTON_LEFT and event.pressed:
-# 				SummoningState.current_state = SummoningState.summoning_states.SUMMONING
-# 				SummoningState.summoning_position = summoning_portal.position
-# 				summoning_portal.visible = false
-# 				emit_signal("summoning_position_chosen")
