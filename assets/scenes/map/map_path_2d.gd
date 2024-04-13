@@ -20,8 +20,7 @@ func add_human():
 	add_child(new_human)
 
 func _on_timer_timeout():
-	pass
-	# add_human()
+	add_human()
 	
 func _process(delta):
 	setSummoningPortal()
