@@ -8,8 +8,12 @@ extends HBoxContainer
 
 func _ready(): 
 	SurviveSignal.connect("patron_survived_updated", updated_patron_survived_hud)
-	updated_patron_survived_hud()
+	SurviveSignal.connect("souls_captured_updated", updated_souls_captured_hud)
 
 
 func updated_patron_survived_hud():
 	$PatronsSurvivedLabel.text = "Survivors: " + str(GameState.souls_survived)
+
+
+func updated_souls_captured_hud():
+	$Souls.text = "Souls: " + str(GameState.soul)
