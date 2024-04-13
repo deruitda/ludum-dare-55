@@ -16,7 +16,6 @@ func _ready():
 	SummoningSignal.connect("location_selected", _on_location_selected)
 	SummoningSignal.connect("monster_summoned", _on_monster_summoned)
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
-	SummoningSignal.connect("puzzle_set", _temp_on_puzzle_set)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
