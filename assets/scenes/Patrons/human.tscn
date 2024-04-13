@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4dticlbmv71t"]
 
-[ext_resource type="Texture2D" uid="uid://bhsbmrhwng2ga" path="res://assets/placeholders/138.jpeg" id="1_8f3j3"]
+[ext_resource type="Texture2D" uid="uid://bhsbmrhwng2ga" path="res://assets/placeholders/138.jpeg" id="1_oj4ee"]
 
 [sub_resource type="GDScript" id="GDScript_vp68i"]
 script/source = "extends PathFollow2D
@@ -23,4 +23,4 @@ script = SubResource("GDScript_vp68i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_8f3j3")
+texture = ExtResource("1_oj4ee")
