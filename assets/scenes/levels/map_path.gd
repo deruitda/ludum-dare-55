@@ -1,6 +1,8 @@
 extends Path2D
 
-const HUMAN_SCENE = preload("res://assets/scenes/Patrons/human.tscn");
+const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
+const PATRON_2D_FOLLOW = preload("res://assets/scenes/patrons/patron_2d_follow.tscn")
+
 const SUMMONING_POSITION = preload("res://assets/scenes/levels/resources/SummoningPosition.tscn")
 
 @onready var summoning_mouse_position_threshold: float = 100.0
@@ -8,7 +10,8 @@ const SUMMONING_POSITION = preload("res://assets/scenes/levels/resources/Summoni
 @onready var summoning_portal: Node2D = SUMMONING_POSITION.instantiate()
 
 func add_human():
-	var new_human = HUMAN_SCENE.instantiate()
+	var new_human = PATRON_2D_FOLLOW.instantiate()
+	new_human.patron = HUMAN_SCENE.instantiate()
 	add_child(new_human)
 	
 	summoning_portal.visible = false
