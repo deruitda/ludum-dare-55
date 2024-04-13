@@ -15,5 +15,6 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func get_random_puzzle() -> Node2D:
 	return puzzles.pick_random()

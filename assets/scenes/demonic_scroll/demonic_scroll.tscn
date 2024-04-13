@@ -12,7 +12,7 @@ script = ExtResource("1_imh54")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xv21j")
 
-[node name="Label" type="Label" parent="."]
+[node name="PuzzleText" type="Label" parent="."]
 layout_mode = 0
 offset_left = -95.0
 offset_top = -86.0

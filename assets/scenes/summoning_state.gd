@@ -16,17 +16,19 @@ func _ready():
 	SummoningSignal.connect("location_selected", _on_location_selected)
 	SummoningSignal.connect("monster_summoned_successfully", _on_monster_summoned_successfully)
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
-	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
 
 func reset_state():
 	summoning_monster = null
 	set_state(summoning_states.IDLE)
 	print("State reset")
 	print("Current state: ", current_state)
+
 
 func _on_monster_selected(monster):
 	if current_state == summoning_states.IDLE:
@@ -37,6 +39,7 @@ func _on_monster_selected(monster):
 	else:
 		print("Cannot summon monster, current state: ", current_state)
 
+
 func _on_location_selected():
 	if current_state == summoning_states.CHOOSING_LOCATION:
 		set_state(summoning_states.SUMMONING)
@@ -44,6 +47,7 @@ func _on_location_selected():
 		print("Current state: ", current_state)
 	else:
 		print("Cannot summon monster, current state: ", current_state)
+
 
 func _on_monster_summoned_successfully():
 	if current_state == summoning_states.SUMMONING:
@@ -53,6 +57,7 @@ func _on_monster_summoned_successfully():
 	else:
 		print("Cannot summon monster, current state: ", current_state)
 
+
 func _on_monster_summoned_failed():
 	if current_state == summoning_states.SUMMONING:
 		set_state(summoning_states.IDLE)
@@ -61,14 +66,17 @@ func _on_monster_summoned_failed():
 	else:
 		print("Cannot summon monster, current state: ", current_state)
 
+
 func set_state(state):
 	current_state = state
 	SummoningSignal.emit_signal("state_changed", current_state)
 	print("Current state: ", current_state)
  
+
 func set_puzzle():
 	current_puzzle = summoning_monster.get_random_puzzle()
 	SummoningSignal.emit_signal("puzzle_set")
+
 
 #  The code is pretty simple. We have a state machine with three states: IDLE, CHOOSING_LOCATION, and SUMMONING. The state machine is controlled by the  set_state  function, which sets the current state to the one passed as an argument. 
 #  The  _on_monster_selected  function is called when a monster is selected. If the current state is IDLE, the state is set to CHOOSING_LOCATION, and the monster is saved in the  summoning_monster  variable. 
