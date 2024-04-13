@@ -9,14 +9,17 @@
 
 [sub_resource type="Curve2D" id="Curve2D_c4mh5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -524, -56, 0, 0, 0, 0, -483.629, -66.0284, 0, 0, 0, 0, 450, -143)
+"points": PackedVector2Array(0, 0, 0, 0, -902, -375, 0, 0, 0, 0, 726, -371, 0, 0, 0, 0, 730, -184, 0, 0, 0, 0, 1077, -180)
 }
-point_count = 3
+point_count = 4
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("waves")]
 position = Vector2(900, 600)
 script = ExtResource("1_hyhgd")
 waves = [NodePath("Wave")]
+
+[node name="Test-korn" parent="." instance=ExtResource("6_mt4h2")]
+position = Vector2(-835, -540)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_c4mh5")
@@ -31,8 +34,5 @@ autostart = true
 monster = NodePath("LostSoul")
 
 [node name="LostSoul" parent="MonsterCard" instance=ExtResource("5_se3m6")]
-
-[node name="Test-korn" parent="." instance=ExtResource("6_mt4h2")]
-position = Vector2(-835, -540)
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="_on_timer_timeout"]
