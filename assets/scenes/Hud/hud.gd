@@ -7,9 +7,9 @@ extends Node2D
 @onready var currentSouls = 0
 
 func _ready(): 
-	SurviveSignal.connect("patron_survived_updated", patronSurvived)
-	$PatronsSurvivedLabel.text = "Survivors: 100"
+	SurviveSignal.connect("patron_survived_updated", updated_patron_survived_hud)
+	updated_patron_survived_hud()
 
 
-func patronSurvived():
+func updated_patron_survived_hud():
 	$PatronsSurvivedLabel.text = "Survivors: " + str(GameState.souls_survived)
