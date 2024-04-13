@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4dticlbmv71t"]
+[gd_scene load_steps=4 format=3 uid="uid://cxttpm7edmq2w"]
 
-[ext_resource type="Texture2D" uid="uid://bhsbmrhwng2ga" path="res://assets/placeholders/138.jpeg" id="1_oj4ee"]
-[ext_resource type="Script" path="res://assets/scenes/patrons/patron.gd" id="1_s5ps8"]
+[ext_resource type="Script" path="res://assets/scenes/npcs/patron.gd" id="1_4angd"]
+[ext_resource type="Texture2D" uid="uid://caeqclrmesx" path="res://assets/sprites/test/138.jpeg" id="2_gpcs3"]
+[ext_resource type="Texture2D" uid="uid://osj67g1pvayx" path="res://assets/sprites/monsters/lost-soul/lost-soul.png" id="2_jd80a"]
 
-[node name="Human" type="PathFollow2D"]
-script = ExtResource("1_s5ps8")
+[node name="Human" type="Node2D"]
+script = ExtResource("1_4angd")
+_visual_resource = ExtResource("2_gpcs3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_oj4ee")
+texture = ExtResource("2_jd80a")

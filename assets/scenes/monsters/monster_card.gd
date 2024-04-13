@@ -1,21 +1,22 @@
-extends Node
-const Monster = preload("res://assets/scenes/monsters/monster.gd")
+extends TextureButton
+
+
+const Monster = preload("res://assets/scenes/npcs/monster.gd")
 @export var monster: Node2D = null
 @export var summon_monster_input_action_number: int = 1
-@onready var sprite_2d = $Area2D/CollisionShape2D/Sprite2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite_2d.texture = monster._visual_resource
-	pass # Replace with function body.
-
-
-		
+	texture_normal = monster._visual_resource
+	# Center the texture within the button
+	stretch_mode = TextureButton.STRETCH_KEEP_CENTERED
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	check_input_action()
-	pass
+
 	
 func check_input_action():
 	match summon_monster_input_action_number:
@@ -30,11 +31,10 @@ func check_input_action():
 				begin_summoning_monster()
 		
 
+
 func begin_summoning_monster():
 	SummoningSignal.emit_signal("monster_selected", monster)
-	pass
 
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		begin_summoning_monster()
+func _on_pressed():
+	begin_summoning_monster()

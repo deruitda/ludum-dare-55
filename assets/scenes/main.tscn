@@ -1,18 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://vi4rrjltrjx7"]
+[gd_scene load_steps=4 format=3 uid="uid://vi4rrjltrjx7"]
 
 [ext_resource type="Script" path="res://assets/scenes/main.gd" id="1_fwahh"]
 [ext_resource type="PackedScene" uid="uid://cjsjb2ymxf0mi" path="res://assets/scenes/Hud/hud.tscn" id="2_br5t6"]
+[ext_resource type="PackedScene" uid="uid://b75su1ww7nh23" path="res://assets/scenes/monster_cards/monster_cards.tscn" id="3_iv0gn"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fwahh")
 
-[node name="Control" type="Control" parent="."]
+[node name="GameControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="GameControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,10 +22,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.219608, 0.184314, 0.117647, 1)
 
-[node name="CurrentLevel" type="Node" parent="Control"]
+[node name="CurrentLevel" type="Node" parent="GameControl"]
 
-[node name="HUD" parent="Control" instance=ExtResource("2_br5t6")]
+[node name="HUD" parent="GameControl" instance=ExtResource("2_br5t6")]
+top_level = true
 layout_mode = 1
 offset_bottom = 100.0
+
+[node name="MonsterCards" parent="GameControl" instance=ExtResource("3_iv0gn")]
+layout_mode = 2
+offset_left = 1837.0
+offset_top = 985.0
+offset_right = 1837.0
+offset_bottom = 985.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="ready" from="." to="." method="_on_ready"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://db26rijuclxul"]
+
+[ext_resource type="Script" path="res://assets/scenes/monsters/monster_card.gd" id="1_vbkea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyyhh"]
+size = Vector2(0, 0)
+
+[node name="MonsterCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vbkea")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xyyhh")
