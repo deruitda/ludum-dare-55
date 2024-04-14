@@ -19,7 +19,7 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if get_progress_ratio() == 1.0:
-		patron_survived()
+		get_parent().reached_the_end(self)
 		
 func patron_survived():
 	SurviveSignal.emit_signal("patron_survived", patron)

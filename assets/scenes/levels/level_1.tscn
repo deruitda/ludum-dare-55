@@ -23,9 +23,9 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_rn12s"]
+[sub_resource type="Curve2D" id="Curve2D_mrb0s"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 29, -363, 0, 0, 0, 0, 33, 73)
+"points": PackedVector2Array(0, 0, 0, 0, 37, 75, 0, 0, 0, 0, 34, -356)
 }
 point_count = 2
 
@@ -81,7 +81,7 @@ script = ExtResource("1_daq4a")
 child_paths = [NodePath("../PathMiddlePartDown"), NodePath("../PathT2")]
 
 [node name="PathMiddlePartUp" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
-curve = SubResource("Curve2D_rn12s")
+curve = SubResource("Curve2D_mrb0s")
 script = ExtResource("1_daq4a")
 child_paths = [NodePath("../PathT2")]
 
@@ -98,7 +98,7 @@ child_paths = [NodePath("../Final Path")]
 [node name="PathB2" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
 curve = SubResource("Curve2D_dxc0q")
 script = ExtResource("1_daq4a")
-child_paths = [NodePath(".")]
+child_paths = [NodePath("../Final Path")]
 
 [node name="Final Path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_qb4w8")

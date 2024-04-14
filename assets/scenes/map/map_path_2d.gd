@@ -7,3 +7,12 @@ func _ready():
 	# SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
 	# summoning_portal.visible = false
 	# add_child(summoning_portal)
+
+func reached_the_end(patron_2d_follow):
+	if is_ending_path:
+		patron_2d_follow.patron_survived()
+	else:
+		var next_path = child_paths.pick_random()
+		remove_child(patron_2d_follow)
+		patron_2d_follow.set_progress(0.0)
+		next_path.add_child(patron_2d_follow)
