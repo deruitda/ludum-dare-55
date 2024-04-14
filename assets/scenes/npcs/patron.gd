@@ -17,11 +17,6 @@ func _process(delta):
 	if health <= 0:
 		die()
 
-func get_path_follow_area_2d() -> Area2D:
-	var path_follow_area_2d = get_node("PathFollowArea2D")
-	assert(path_follow_area_2d != null, str("PathFollowArea2D must be set in ", patron_class, " scene"))
-	return path_follow_area_2d
-
 func _on_path_follow_area_2d_area_entered(monster_2d_follow):
 	var monster = monster_2d_follow.get_parent().monster
 	monster.attack(self)

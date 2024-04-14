@@ -1,6 +1,7 @@
-[gd_scene load_steps=53 format=3 uid="uid://cxttpm7edmq2w"]
+[gd_scene load_steps=54 format=3 uid="uid://cxttpm7edmq2w"]
 
 [ext_resource type="Script" path="res://assets/scenes/npcs/patron.gd" id="1_4angd"]
+[ext_resource type="Script" path="res://assets/scenes/map/patron_2d_follow.gd" id="1_w1l26"]
 [ext_resource type="Texture2D" uid="uid://dtibq7a8ntui5" path="res://assets/sprites/patrons/human/human-bald-light-run.png" id="3_ughat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plhkj"]
@@ -350,8 +351,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgelr"]
 size = Vector2(153.125, 284.375)
 
-[node name="Human" type="Node2D"]
-script = ExtResource("1_4angd")
+[node name="Human" type="PathFollow2D"]
+script = ExtResource("1_w1l26")
 
 [node name="PathFollowArea2D" type="Area2D" parent="."]
 scale = Vector2(0.2, 0.2)
@@ -367,4 +368,5 @@ frame_progress = 0.804902
 position = Vector2(10, 4.99999)
 shape = SubResource("RectangleShape2D_qgelr")
 
-[connection signal="area_entered" from="PathFollowArea2D" to="." method="_on_path_follow_area_2d_area_entered"]
+[node name="Patron" type="Node2D" parent="."]
+script = ExtResource("1_4angd")
