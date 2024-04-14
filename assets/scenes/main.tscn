@@ -32,11 +32,13 @@ layout_mode = 1
 offset_bottom = 100.0
 
 [node name="MonsterCards" parent="GameControl" instance=ExtResource("3_iv0gn")]
+top_level = true
 layout_mode = 2
-offset_left = 1778.0
-offset_top = 926.0
-offset_right = 1906.0
-offset_bottom = 1054.0
+offset_left = 1728.0
+offset_top = 731.0
+offset_right = 1792.0
+offset_bottom = 859.0
+scale = Vector2(2.5, 2.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

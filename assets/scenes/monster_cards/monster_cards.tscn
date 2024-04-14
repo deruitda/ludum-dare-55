@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://b75su1ww7nh23"]
 
-[ext_resource type="PackedScene" uid="uid://db26rijuclxul" path="res://assets/scenes/monsters/monster_card.tscn" id="1_udpuv"]
+[ext_resource type="PackedScene" uid="uid://dtraghpckn3ks" path="res://assets/scenes/monsters/monster_button.tscn" id="1_r70cb"]
 [ext_resource type="PackedScene" uid="uid://ca4732islbtvc" path="res://assets/scenes/monsters/lost_soul.tscn" id="2_5qwcl"]
 
 [node name="MonsterCards" type="HBoxContainer"]
+offset_right = 64.0
+offset_bottom = 128.0
 
-[node name="MonsterCard" parent="." node_paths=PackedStringArray("monster") instance=ExtResource("1_udpuv")]
+[node name="MonsterButton" parent="." node_paths=PackedStringArray("monster") instance=ExtResource("1_r70cb")]
 layout_mode = 2
 monster = NodePath("LostSoul")
 
-[node name="LostSoul" parent="MonsterCard" instance=ExtResource("2_5qwcl")]
-position = Vector2(64, 64)
+[node name="LostSoul" parent="MonsterButton" instance=ExtResource("2_5qwcl")]
+position = Vector2(32, 64)
