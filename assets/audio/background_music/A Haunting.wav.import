@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://78ei757c1eft"
-path="res://.godot/imported/Song1.wav-f51f5b2fe537ba6866bca7abab1208f6.sample"
+path="res://.godot/imported/A Haunting.wav-c698a67c8c4ece8de6840e9e9183080c.sample"
 
 [deps]
 
-source_file="res://assets/audio/Song1.wav"
-dest_files=["res://.godot/imported/Song1.wav-f51f5b2fe537ba6866bca7abab1208f6.sample"]
+source_file="res://assets/audio/background_music/A Haunting.wav"
+dest_files=["res://.godot/imported/A Haunting.wav-c698a67c8c4ece8de6840e9e9183080c.sample"]
 
 [params]
 

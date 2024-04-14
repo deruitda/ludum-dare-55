@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://64jg0wgxftfn"
-path="res://.godot/imported/BackgroundMusic.wav-918c797535ef6d06968840c5534a2684.sample"
+path="res://.godot/imported/Transylvania.wav-945753517ed6fa9f7c18263cf8c52bc6.sample"
 
 [deps]
 
-source_file="res://assets/audio/BackgroundMusic.wav"
-dest_files=["res://.godot/imported/BackgroundMusic.wav-918c797535ef6d06968840c5534a2684.sample"]
+source_file="res://assets/audio/background_music/Transylvania.wav"
+dest_files=["res://.godot/imported/Transylvania.wav-945753517ed6fa9f7c18263cf8c52bc6.sample"]
 
 [params]
 
