@@ -1,10 +1,10 @@
-extends HBoxContainer
+extends Control
 
-@export var _patrons_allowed_to_survive = 10
+@onready var health_bar = $HealthBar
+@onready var health_bar_text = $HealthBar/PatronsSurvivedLabel
+@onready var souls_text = $Souls
 
-
-@onready var totalSouls = 0
-@onready var currentSouls = 0
+@export var _total_patrons_allowed_to_survive = 100
 
 func _ready(): 
 	SurviveSignal.connect("patron_survived_updated", updated_patron_survived_hud)
@@ -12,8 +12,13 @@ func _ready():
 
 
 func updated_patron_survived_hud():
-	$PatronsSurvivedLabel.text = "Survivors: " + str(GameState.souls_survived)
+	var remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive - GameState.souls_survived
+	if remaining_patrons_allowed_to_survive < 0:
+		remaining_patrons_allowed_to_survive = 0
+	health_bar.value = 100 * remaining_patrons_allowed_to_survive / _total_patrons_allowed_to_survive
+	health_bar_text.text = str(remaining_patrons_allowed_to_survive) + " Survivors Remaining"
 
 
 func _on_souls_captured_updated():
-	$Souls.text = "Souls: " + str(GameState.souls_captured)
+	souls_text.text = "Souls: " + str(GameState.souls_captured)
+	
