@@ -38,8 +38,14 @@ func _on_summoning_state_changed(state):
 func _on_puzzle_solved():
 	summon_monster()
 
+func get_monster():
+	return get_summoning_monster_path_follow_2d().get_monster()
+	
+func get_summoning_monster_path_follow_2d():
+	return SummoningState.summoning_monster
+
 func summon_monster():
-	var new_monster_path_follow_2d = SummoningState.summoning_monster.duplicate()
+	var new_monster_path_follow_2d = get_summoning_monster_path_follow_2d().duplicate()
 	new_monster_path_follow_2d.scale = Vector2(1, 1)
 	new_monster_path_follow_2d.position = position
 	paths_container.add_to_path(new_monster_path_follow_2d)
