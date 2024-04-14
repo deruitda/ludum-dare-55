@@ -1,0 +1,28 @@
+[gd_resource type="JSON" format=3 uid="uid://dt4auw148x7ab"]
+
+[resource]
+data = [{
+"regex_answers": ["^hello$"],
+"text_puzzle": "Say the word 'hello'"
+}, {
+"regex_answers": ["^goodbye$"],
+"text_puzzle": "Say the word 'goodbye'"
+}, {
+"regex_answers": ["^please$"],
+"text_puzzle": "Say the word 'please'"
+}, {
+"regex_answers": ["^thank you$"],
+"text_puzzle": "Say the word 'thank you'"
+}, {
+"regex_answers": ["^sorry$"],
+"text_puzzle": "Say the word 'sorry'"
+}, {
+"regex_answers": ["^excuse me$"],
+"text_puzzle": "Say the word 'excuse me'"
+}, {
+"regex_answers": ["^yes$"],
+"text_puzzle": "Say the word 'yes'"
+}, {
+"regex_answers": ["^no$"],
+"text_puzzle": "Say the word 'no'"
+}]

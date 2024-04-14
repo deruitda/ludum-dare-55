@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://8diq57tea0p0"]
+
+[ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_hnaf3"]
+[ext_resource type="Texture2D" uid="uid://osj67g1pvayx" path="res://assets/sprites/monsters/lost-soul/lost-soul.png" id="2_0bwvc"]
+[ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="3_dx4h5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_643r8"]
+size = Vector2(49, 59)
+
+[node name="MonsterPath2DFollow" type="Node2D"]
+script = ExtResource("1_hnaf3")
+
+[node name="PathFollowArea2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite" type="Sprite2D" parent="PathFollowArea2D"]
+texture = ExtResource("2_0bwvc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowArea2D"]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_643r8")
+
+[node name="Monster" type="Node2D" parent="."]
+script = ExtResource("3_dx4h5")
+
+[connection signal="area_entered" from="PathFollowArea2D" to="." method="_on_path_follow_area_2d_area_entered"]

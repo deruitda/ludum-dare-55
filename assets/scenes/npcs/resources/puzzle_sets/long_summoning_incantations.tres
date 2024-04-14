@@ -1,0 +1,19 @@
+[gd_resource type="JSON" format=3 uid="uid://b24rplglxl546"]
+
+[resource]
+data = [{
+"regex_answers": ["^by the power of the ancient ones, awaken!$"],
+"text_puzzle": "Repeat after me: 'By the power of the ancient ones, awaken!'"
+}, {
+"regex_answers": ["^from the depths of the abyss, come forth!$"],
+"text_puzzle": "Say: 'From the depths of the abyss, come forth!'"
+}, {
+"regex_answers": ["^with the rising of the moon, be summoned!$"],
+"text_puzzle": "Recite: 'With the rising of the moon, be summoned!'"
+}, {
+"regex_answers": ["^by the light of the stars, i command thee!$"],
+"text_puzzle": "Chant: 'By the light of the stars, I command thee!'"
+}, {
+"regex_answers": ["^in the name of magic, arise!$"],
+"text_puzzle": "Repeat: 'In the name of magic, arise!'"
+}]

@@ -1,0 +1,19 @@
+[gd_resource type="JSON" format=3 uid="uid://dnw8ao1paiqt7"]
+
+[resource]
+data = [{
+"regex_answers": ["^awaken!$"],
+"text_puzzle": "Say: 'Awaken!'"
+}, {
+"regex_answers": ["^arise!$"],
+"text_puzzle": "Repeat: 'Arise!'"
+}, {
+"regex_answers": ["^come forth!$"],
+"text_puzzle": "Chant: 'Come forth!'"
+}, {
+"regex_answers": ["^by my command!$"],
+"text_puzzle": "Recite: 'By my command!'"
+}, {
+"regex_answers": ["^rise!$"],
+"text_puzzle": "Say: 'Rise!'"
+}]

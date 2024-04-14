@@ -1,0 +1,28 @@
+[gd_resource type="JSON" format=3 uid="uid://ctw1r2t6d2sqh"]
+
+[resource]
+data = [{
+"regex_answers": ["^wad$"],
+"text_puzzle": "↑ ← →"
+}, {
+"regex_answers": ["^wdw$"],
+"text_puzzle": "↑ → ↑"
+}, {
+"regex_answers": ["^wada$"],
+"text_puzzle": "↑ ← → ←"
+}, {
+"regex_answers": ["^wda$"],
+"text_puzzle": "↑ → ←"
+}, {
+"regex_answers": ["^wdaw$"],
+"text_puzzle": "↑ → ← ↑"
+}, {
+"regex_answers": ["^wada$"],
+"text_puzzle": "↑ ← → ←"
+}, {
+"regex_answers": ["^wdad$"],
+"text_puzzle": "↑ → ← →"
+}, {
+"regex_answers": ["^wdadw$"],
+"text_puzzle": "↑ → ← → ↑"
+}]

@@ -1,0 +1,28 @@
+[gd_resource type="JSON" format=3 uid="uid://cgxyuprrtaiww"]
+
+[resource]
+data = [{
+"regex_answers": ["^zeus$"],
+"text_puzzle": "Who is the king of the Greek gods?"
+}, {
+"regex_answers": ["^athena$"],
+"text_puzzle": "Who is the goddess of wisdom?"
+}, {
+"regex_answers": ["^hades$", "^me$"],
+"text_puzzle": "Who is the god of the underworld?"
+}, {
+"regex_answers": ["^hermes$"],
+"text_puzzle": "Who is the messenger of the gods?"
+}, {
+"regex_answers": ["^poseidon$"],
+"text_puzzle": "Who is the god of the sea?"
+}, {
+"regex_answers": ["^aphrodite$"],
+"text_puzzle": "Who is the goddess of love and beauty?"
+}, {
+"regex_answers": ["^ares$"],
+"text_puzzle": "Who is the god of war?"
+}, {
+"regex_answers": ["^artemis$"],
+"text_puzzle": "Who is the goddess of the hunt?"
+}]

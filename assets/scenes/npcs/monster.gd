@@ -5,6 +5,7 @@ extends Node2D
 
 @export var _max_souls_to_consume: int = 1
 @export var _visual_resource: Resource
+@export var puzzle_sets: Array[Resource] = []
 @onready var puzzles: Array = []
 @export var damage: int = 1
 @onready var _number_of_souls_captured: int = 0

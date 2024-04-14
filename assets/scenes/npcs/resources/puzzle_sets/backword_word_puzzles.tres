@@ -1,0 +1,22 @@
+[gd_resource type="JSON" format=3 uid="uid://cxfgqmuo4d0eo"]
+
+[resource]
+data = [{
+"regex_answers": ["^sera$"],
+"text_puzzle": "Repeat the term 'Ares' backwards"
+}, {
+"regex_answers": ["^semreh$"],
+"text_puzzle": "Repeat the term 'Hermes' backwards"
+}, {
+"regex_answers": ["^anehta$"],
+"text_puzzle": "Repeat the term 'Athena' backwards"
+}, {
+"regex_answers": ["^suez$"],
+"text_puzzle": "Repeat the term 'Zeus' backwards"
+}, {
+"regex_answers": ["^nodiesop$"],
+"text_puzzle": "Repeat the term 'Poseidon' backwards"
+}, {
+"regex_answers": ["^sedah$"],
+"text_puzzle": "Repeat the term 'Hades' backwards"
+}]
