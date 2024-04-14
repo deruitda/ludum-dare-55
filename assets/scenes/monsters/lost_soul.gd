@@ -115,7 +115,7 @@ const backword_word_puzzles = [
 	},
 	{
 		"text_puzzle": "Repeat the term 'Athena' backwards",
-		"regex_answers": ["^naehta$"]
+		"regex_answers": ["^anehta$"]
 	},
 	{
 		"text_puzzle": "Repeat the term 'Zeus' backwards",
@@ -141,7 +141,7 @@ const greek_word_puzzles = [
 	},
 	{
 		"text_puzzle": "Who is the god of the underworld?",
-		"regex_answers": ["^hades$"]
+		"regex_answers": ["^hades$", "^me$"]
 	},
 	{
 		"text_puzzle": "Who is the messenger of the gods?",
@@ -164,7 +164,94 @@ const greek_word_puzzles = [
 		"regex_answers": ["^artemis$"]
 	}
 ];
-const puzzle_objects = wasd_puzzle_objects + command_word_puzzle_objects + complex_word_puzzles + backword_word_puzzles + greek_word_puzzles
+const long_summoning_incantations = [
+    {
+        "text_puzzle": "Repeat after me: 'By the power of the ancient ones, awaken!'",
+        "regex_answers": ["^by the power of the ancient ones, awaken!$"]
+    },
+    {
+        "text_puzzle": "Say: 'From the depths of the abyss, come forth!'",
+        "regex_answers": ["^from the depths of the abyss, come forth!$"]
+    },
+    {
+        "text_puzzle": "Recite: 'With the rising of the moon, be summoned!'",
+        "regex_answers": ["^with the rising of the moon, be summoned!$"]
+    },
+    {
+        "text_puzzle": "Chant: 'By the light of the stars, I command thee!'",
+        "regex_answers": ["^by the light of the stars, i command thee!$"]
+    },
+    {
+        "text_puzzle": "Repeat: 'In the name of magic, arise!'",
+        "regex_answers": ["^in the name of magic, arise!$"]
+    }
+];
+const summoning_incantations = [
+    {
+        "text_puzzle": "Say: 'Awaken!'",
+        "regex_answers": ["^awaken!$"]
+    },
+    {
+        "text_puzzle": "Repeat: 'Arise!'",
+        "regex_answers": ["^arise!$"]
+    },
+    {
+        "text_puzzle": "Chant: 'Come forth!'",
+        "regex_answers": ["^come forth!$"]
+    },
+    {
+        "text_puzzle": "Recite: 'By my command!'",
+        "regex_answers": ["^by my command!$"]
+    },
+    {
+        "text_puzzle": "Say: 'Rise!'",
+        "regex_answers": ["^rise!$"]
+    }
+];
+const latin_chants = [
+    {
+        "text_puzzle": "Repeat after me: 'Spiritus Sanctus'",
+        "regex_answers": ["^spiritus sanctus$"]
+    },
+    {
+        "text_puzzle": "Chant along: 'Ave Maria'",
+        "regex_answers": ["^ave maria$"]
+    },
+    {
+        "text_puzzle": "Say after me: 'Pax Vobiscum'",
+        "regex_answers": ["^pax vobiscum$"]
+    },
+    {
+        "text_puzzle": "Repeat: 'Ad Astra Per Aspera'",
+        "regex_answers": ["^ad astra per aspera$"]
+    },
+    {
+        "text_puzzle": "Recite with me: 'Deus Ex Machina'",
+        "regex_answers": ["^deus ex machina$"]
+    },
+    {
+        "text_puzzle": "Say it: 'Veni, Vidi, Vici'",
+        "regex_answers": ["^veni, vidi, vici$"]
+    },
+    {
+        "text_puzzle": "Repeat: 'Semper Fidelis'",
+        "regex_answers": ["^semper fidelis$"]
+    },
+    {
+        "text_puzzle": "Chant after me: 'E Pluribus Unum'",
+        "regex_answers": ["^e pluribus unum$"]
+    },
+    {
+        "text_puzzle": "Say it: 'Cogito, Ergo Sum'",
+        "regex_answers": ["^cogito, ergo sum$"]
+    },
+    {
+        "text_puzzle": "Recite with me: 'Alea Iacta Est'",
+        "regex_answers": ["^alea iacta est$"]
+    }
+];
+
+const puzzle_objects = command_word_puzzle_objects + backword_word_puzzles + latin_chants + summoning_incantations + long_summoning_incantations
 
 func _ready():
 	print("Summoning Lost Soul")
