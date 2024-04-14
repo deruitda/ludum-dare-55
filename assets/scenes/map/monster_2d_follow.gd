@@ -1,7 +1,6 @@
 extends PathFollow2D
 
 @export var monster: Node2D = null
-
 @export var speed = 20.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
