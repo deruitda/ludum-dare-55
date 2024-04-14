@@ -20,5 +20,6 @@ func get_random_puzzle() -> Node2D:
 	return puzzles.pick_random()
 
 func get_path_follow_area_2d() -> Area2D:
+	var path_follow_area_2d = get_node("PathFollowArea2D")
 	assert(path_follow_area_2d != null, str("PathFollowArea2D must be set in ", monster_name, " scene"))
 	return path_follow_area_2d
