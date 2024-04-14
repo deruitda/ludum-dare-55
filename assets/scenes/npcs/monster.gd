@@ -9,13 +9,15 @@ extends Node2D
 @onready var puzzles: Array = []
 @export var damage: int = 1
 @onready var _number_of_souls_captured: int = 0
+@onready var area_2d = $Monster/Area2D
 
-@onready var path_follow_area_2d = $PathFollowArea2D
 @onready var monster = $Monster
 
-const PUZZLE = preload("res://assets/scenes/npcs/resources/puzzle.tscn")
+@onready var set_on_path_only: bool = false
+const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
+
 @onready var puzzle_objects: Array = []
-@onready var monster_animation = $"../PathFollowArea2D/AnimatedSprite2D"
+@onready var monster_animation = $Area2D/MonsterAnimation
 
 func _ready():
 	setup_puzzle_objects()
