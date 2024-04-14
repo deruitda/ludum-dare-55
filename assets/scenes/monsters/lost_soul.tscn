@@ -26,8 +26,7 @@ text_puzzle = "What is 5 + 6?"
 regex_answers = Array[String](["11"])
 
 [node name="PathFollowArea2D" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
 
 [node name="Sprite" type="Sprite2D" parent="PathFollowArea2D"]
 texture = ExtResource("2_1s4bg")
