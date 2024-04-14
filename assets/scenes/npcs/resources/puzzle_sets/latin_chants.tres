@@ -1,0 +1,34 @@
+[gd_resource type="JSON" format=3 uid="uid://ck6qps3ymmnit"]
+
+[resource]
+data = [{
+"regex_answers": ["^spiritus sanctus$"],
+"text_puzzle": "Repeat after me: 'Spiritus Sanctus'"
+}, {
+"regex_answers": ["^ave maria$"],
+"text_puzzle": "Chant along: 'Ave Maria'"
+}, {
+"regex_answers": ["^pax vobiscum$"],
+"text_puzzle": "Say after me: 'Pax Vobiscum'"
+}, {
+"regex_answers": ["^ad astra per aspera$"],
+"text_puzzle": "Repeat: 'Ad Astra Per Aspera'"
+}, {
+"regex_answers": ["^deus ex machina$"],
+"text_puzzle": "Recite with me: 'Deus Ex Machina'"
+}, {
+"regex_answers": ["^veni, vidi, vici$"],
+"text_puzzle": "Say it: 'Veni, Vidi, Vici'"
+}, {
+"regex_answers": ["^semper fidelis$"],
+"text_puzzle": "Repeat: 'Semper Fidelis'"
+}, {
+"regex_answers": ["^e pluribus unum$"],
+"text_puzzle": "Chant after me: 'E Pluribus Unum'"
+}, {
+"regex_answers": ["^cogito, ergo sum$"],
+"text_puzzle": "Say it: 'Cogito, Ergo Sum'"
+}, {
+"regex_answers": ["^alea iacta est$"],
+"text_puzzle": "Recite with me: 'Alea Iacta Est'"
+}]

@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://y1ip7aabt7f3"]
+[gd_scene load_steps=15 format=3 uid="uid://y1ip7aabt7f3"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/map_path_2d.gd" id="1_daq4a"]
 [ext_resource type="Script" path="res://assets/scenes/levels/level.gd" id="1_hyhgd"]
 [ext_resource type="PackedScene" uid="uid://rxgop86p7c3i" path="res://assets/scenes/levels/wave.tscn" id="3_pm4jn"]
 [ext_resource type="Script" path="res://assets/scenes/levels/paths_container.gd" id="3_qtind"]
 [ext_resource type="PackedScene" uid="uid://bmxh6e1qe603l" path="res://assets/scenes/levels/resources/summoning_portal.tscn" id="6_55ybm"]
-[ext_resource type="Script" path="res://assets/scenes/levels/wave_container.gd" id="6_iy6oq"]
-[ext_resource type="PackedScene" uid="uid://cotjl3nwss868" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
+[ext_resource type="PackedScene" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
 
 [sub_resource type="Curve2D" id="Curve2D_hdnx8"]
 _data = {
@@ -56,10 +55,14 @@ _data = {
 }
 point_count = 2
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("first_path_segment")]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("waves", "first_path_segment")]
 position = Vector2(900, 600)
 script = ExtResource("1_hyhgd")
+waves = [NodePath("Wave")]
 first_path_segment = NodePath("PathsContainer/Starting Path")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="Test-korn" parent="." instance=ExtResource("6_mt4h2")]
 position = Vector2(-835, -540)
@@ -116,11 +119,8 @@ curve = SubResource("Curve2D_qb4w8")
 script = ExtResource("1_daq4a")
 is_ending_path = true
 
+[node name="Wave" parent="." instance=ExtResource("3_pm4jn")]
+
 [node name="SummoningPortal" parent="." instance=ExtResource("6_55ybm")]
 
-[node name="WaveContainer" type="Node2D" parent="."]
-script = ExtResource("6_iy6oq")
-
-[node name="Wave2" parent="WaveContainer" instance=ExtResource("3_pm4jn")]
-number_or_patrons_per_second = 0.2
-total_wave_length_in_seconds = 60
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
