@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn7pavcsa2cel"]
+[gd_scene load_steps=2 format=3 uid="uid://cn7pavcsa2cel"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_0j2oi"]
-[ext_resource type="Texture2D" uid="uid://caeqclrmesx" path="res://assets/sprites/test/138.jpeg" id="2_0wmrw"]
 
 [node name="Monster2dFollow" type="PathFollow2D"]
 script = ExtResource("1_0j2oi")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0wmrw")
