@@ -13,6 +13,13 @@ extends Node2D
 @onready var path_follow_area_2d = $PathFollowArea2D
 @onready var monster = $Monster
 
+const PUZZLE = preload("res://assets/scenes/npcs/resources/puzzle.tscn")
+@onready var puzzle_objects: Array = []
+@onready var monster_animation = $"../PathFollowArea2D/AnimatedSprite2D"
+
+func _ready():
+	setup_puzzle_objects()
+	add_puzzles()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,7 +46,7 @@ func attack(patron: Node2D):
 	SoulsCapturedSignal.emit_signal("souls_captured", num_of_souls_captured)
 
 func desummon():
-	monster.desummon()
+	monster_animation.play("desummoning")
 	
 func destroy():
 	get_parent().queue_free()
@@ -48,3 +55,29 @@ func _on_path_follow_area_2d_area_entered(patron_2d_follow):
 	var patron = patron_2d_follow.get_parent().patron
 	attack(patron)
 
+func setup_puzzle_objects():
+	for puzzle_set in puzzle_sets:
+		var json = puzzle_set.get_data()
+		puzzle_objects += json
+
+# Concatenate arrays
+
+func add_puzzle(puzzle: String, regex_answers: Array):
+	var puzzle_node = PUZZLE.instantiate()
+	puzzle_node.text_puzzle = puzzle
+	for regex_answer in regex_answers:
+		puzzle_node.regex_answers.append(regex_answer)
+	get_tree().root.add_child(puzzle_node)
+	puzzles.append(puzzle_node)
+
+func add_puzzles():
+	for puzzle in puzzle_objects:
+		add_puzzle(puzzle["text_puzzle"], puzzle["regex_answers"])
+
+func _on_animated_sprite_2d_animation_finished():
+	print("Lost Soul Animation finished: " + monster_animation.animation)
+	if monster_animation.animation == "summoning":
+		monster_animation.play("idle")
+		print("Playing idle Soul")
+	elif monster_animation.animation == "desummoning":
+		destroy()

@@ -705,7 +705,7 @@ script = ExtResource("1_ivoc6")
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("1_8v453")
-puzzle_sets = [ExtResource("3_0eybd")]
+puzzle_sets = Array[Resource]([ExtResource("3_0eybd")])
 
 [node name="PathFollowArea2D" type="Area2D" parent="."]
 collision_layer = 2
