@@ -1,8 +1,8 @@
 extends Control
 
-@onready var health_bar = $HealthBar
-@onready var health_bar_text = $HealthBar/PatronsSurvivedLabel
-@onready var souls_text = $Souls
+@onready var health_bar = %HealthBar
+@onready var health_bar_text = %PatronsSurvivedLabel
+@onready var souls_text = %Souls
 
 @export var _total_patrons_allowed_to_survive = 100
 
@@ -20,5 +20,5 @@ func updated_patron_survived_hud():
 
 
 func _on_souls_captured_updated():
-	souls_text.text = "Souls: " + str(GameState.souls_captured)
+	souls_text.text = str(GameState.souls_captured)
 	
