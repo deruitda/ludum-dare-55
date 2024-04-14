@@ -13,7 +13,7 @@ extends Node2D
 
 @onready var monster = $Monster
 
-@onready var set_on_path_only: bool = false
+@onready var lock_to_path: bool = false
 const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 
 @onready var puzzle_objects: Array = []

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjl612uk13l3v"]
+
+[ext_resource type="PackedScene" uid="uid://cjsjb2ymxf0mi" path="res://assets/scenes/Hud/hud.tscn" id="1_fnaej"]
+[ext_resource type="PackedScene" uid="uid://b75su1ww7nh23" path="res://assets/scenes/monster_cards/monster_cards.tscn" id="2_kysjw"]
+[ext_resource type="PackedScene" uid="uid://derq75u4a7b1o" path="res://assets/scenes/demonic_scroll/demonic_scroll.tscn" id="3_aksal"]
+[ext_resource type="PackedScene" uid="uid://ua8rx50pqtw3" path="res://assets/scenes/incantation/incantation.tscn" id="4_v4j6k"]
+
+[node name="GameControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219608, 0.184314, 0.117647, 1)
+
+[node name="HUD" parent="." instance=ExtResource("1_fnaej")]
+top_level = true
+layout_mode = 1
+offset_bottom = 100.0
+
+[node name="MonsterCards" parent="." instance=ExtResource("2_kysjw")]
+top_level = true
+layout_mode = 2
+offset_left = 1728.0
+offset_top = 731.0
+offset_right = 1792.0
+offset_bottom = 859.0
+scale = Vector2(2.5, 2.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="DemonicScroll" parent="." instance=ExtResource("3_aksal")]
+top_level = true
+offset_left = 197.0
+offset_top = 886.0
+offset_right = 197.0
+offset_bottom = 886.0
+
+[node name="Incantation" parent="." instance=ExtResource("4_v4j6k")]
+top_level = true
+offset_left = 542.0
+offset_top = 884.0
+offset_right = 542.0
+offset_bottom = 884.0

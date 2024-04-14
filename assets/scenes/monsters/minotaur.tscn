@@ -1,10 +1,8 @@
-[gd_scene load_steps=106 format=3 uid="uid://dqgqddugtepjh"]
+[gd_scene load_steps=104 format=3 uid="uid://dqgqddugtepjh"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_kaxpw"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="2_gce82"]
-[ext_resource type="JSON" uid="uid://cxfgqmuo4d0eo" path="res://assets/scenes/monsters/puzzles/puzzle_sets/backword_word_puzzles.tres" id="3_o1weh"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="4_x5j5r"]
-[ext_resource type="JSON" uid="uid://ck6qps3ymmnit" path="res://assets/scenes/monsters/puzzles/puzzle_sets/latin_chants.tres" id="4_xhuqp"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="5_nwu1x"]
 [ext_resource type="Texture2D" uid="uid://b1fae8clewxqw" path="res://assets/sprites/monsters/lost-soul/lost-soul-summon.png" id="6_jilg4"]
 
@@ -706,7 +704,6 @@ script = ExtResource("1_kaxpw")
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_gce82")
-puzzle_sets = Array[Resource]([ExtResource("3_o1weh"), ExtResource("4_xhuqp")])
 
 [node name="PathFollowArea2D" type="Area2D" parent="."]
 collision_layer = 2

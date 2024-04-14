@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var current_level = $GameControl/CurrentLevel
+@onready var current_level = $CurrentLevel
 
 @onready var current_level_index = 0
 @onready var status = "playing"
