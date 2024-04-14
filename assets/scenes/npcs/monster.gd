@@ -24,15 +24,20 @@ func get_random_puzzle():
 	return puzzles.pick_random()
 
 func get_capacity_to_consume_souls() -> int:
+	print("Soul capacity: ", str(_max_souls_to_consume - _number_of_souls_captured))
 	return _max_souls_to_consume - _number_of_souls_captured
 
 func attack(patron: Node2D):
-	var souls_captured = 0
+	var num_of_souls_captured = 0
 	if get_capacity_to_consume_souls() >= patron.health:
-		souls_captured = patron.capture_souls(damage)
+		print("Damage: " + str(damage))
+		num_of_souls_captured = patron.capture_souls(damage)
+		print("At capacity, captured souls: " + str(num_of_souls_captured))
 	else:
-		souls_captured = patron.capture_souls(get_capacity_to_consume_souls())
-	_number_of_souls_captured += souls_captured
+		num_of_souls_captured = patron.capture_souls(get_capacity_to_consume_souls())
+		print("Not at capacity, captured souls: " + str(num_of_souls_captured))
+	_number_of_souls_captured += num_of_souls_captured
+	SoulsCapturedSignal.emit_signal("souls_captured", num_of_souls_captured)
 	if _number_of_souls_captured == _max_souls_to_consume:
 		desummon()
 
