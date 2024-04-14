@@ -9,16 +9,9 @@ func _ready():
 	SummoningSignal.connect("state_changed", _on_summoning_state_changed)
 	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
 
-func _process(delta):
+func set_summoning_position(summon_monster_position):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
-		set_summoning_position()
-		visible = true
-
-func set_summoning_position():
-	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
-
-		var mouse_position = get_global_mouse_position() - global_position
-		position = paths_container.get_closest_position_on_path(mouse_position)
+		position = paths_container.get_closest_position_on_path(summon_monster_position)
 		#if summon_monster().lock_to_path:
 			#position = paths_container.get_closest_position(mouse_position)
 		#else:
@@ -56,3 +49,12 @@ func summon_monster():
 		#get_parent().add_monster_path_follow_2d_to_free_moving_monsters(new_monster_path_follow_2d)
 
 	SummoningSignal.emit_signal("monster_summoned")
+
+func _input(event):
+	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				set_summoning_position(event.position)
+				SummoningSignal.emit_signal("location_selected")
+		elif event is InputEventMouseMotion:
+			set_summoning_position(event.position)

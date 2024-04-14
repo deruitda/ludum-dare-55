@@ -28,11 +28,3 @@ func add_summoning_portal_to_position(position):
 func add_to_path(path_follow_2d: PathFollow2D):
 	paths_container.add_to_path(path_follow_2d)
 
-func _input(event):
-	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				summoning_portal.setSummoningPosition()
-				SummoningSignal.emit_signal("location_selected")
-		elif event.is_action_pressed("ui_cancel"):
-				SummoningSignal.emit_signal("monster_summoned_canceled")

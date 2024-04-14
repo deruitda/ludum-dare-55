@@ -76,3 +76,7 @@ func set_puzzle():
 
 func lock_to_path():
 	return summoning_monster.monster.lock_to_path()
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+			SummoningSignal.emit_signal("monster_summoned_canceled")

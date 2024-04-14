@@ -1,22 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cotjl3nwss868"]
-
-[ext_resource type="Texture2D" uid="uid://ci1grjbtj2gor" path="res://assets/sprites/environment/corn-maze/corn-tile-map.png" id="1_od4i0"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ccscc"]
-texture = ExtResource("1_od4i0")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
+[gd_scene load_steps=2 format=3 uid="uid://cotjl3nwss868"]
 
 [sub_resource type="TileSet" id="TileSet_m35us"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ccscc")
 
 [node name="Test-korn" type="Node2D"]
 
