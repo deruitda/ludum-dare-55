@@ -18,3 +18,10 @@ func _process(delta):
 
 func add_patron(patron):
 	get_parent().add_patron(patron)
+
+func _on_wave_complete():
+	current_wave_index += 1
+	if current_wave_index < get_child_count():
+		get_current_wave().start_wave()
+	else:
+		print("Waves have finished")

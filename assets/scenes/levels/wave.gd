@@ -18,9 +18,17 @@ func get_seconds_per_respawn():
 	return length_of_time_in_seconds / number_of_patrons
 
 func _process(delta):
-	pass
+	if number_of_patrons_spawned == number_of_patrons:
+		complete_wave()
 
-
-func _on_respawn_timer_timeout():
+func add_human():
 	var human_node = HUMAN_SCENE.instantiate()
 	get_parent().add_patron(human_node)
+	number_of_patrons_spawned += 1
+
+func _on_respawn_timer_timeout():
+	add_human()
+
+func complete_wave():
+	respawn_timer.stop()
+	get_parent()._on_wave_complete()

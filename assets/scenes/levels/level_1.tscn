@@ -122,5 +122,9 @@ is_ending_path = true
 script = ExtResource("6_iy6oq")
 
 [node name="Wave" parent="WaveContainer" instance=ExtResource("3_pm4jn")]
-number_of_patrons = 10
-length_of_time_in_seconds = 20
+number_of_patrons = 2
+length_of_time_in_seconds = 2
+
+[node name="Wave2" parent="WaveContainer" instance=ExtResource("3_pm4jn")]
+number_of_patrons = 4
+length_of_time_in_seconds = 1
