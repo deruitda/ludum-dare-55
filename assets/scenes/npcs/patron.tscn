@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4fqttt4jgfx1"]
+[gd_scene load_steps=3 format=3 uid="uid://d4fqttt4jgfx1"]
 
 [ext_resource type="Script" path="res://assets/scenes/npcs/patron.gd" id="1_v83sx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yma8x"]
+
 [node name="Patron" type="Node2D"]
 script = ExtResource("1_v83sx")
+
+[node name="PathFollowArea2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollowArea2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowArea2D"]
+shape = SubResource("RectangleShape2D_yma8x")

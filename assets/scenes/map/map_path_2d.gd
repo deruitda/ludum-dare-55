@@ -1,8 +1,8 @@
 extends Path2D
 
-const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 const PATRON_2D_FOLLOW = preload("res://assets/scenes/map/patron_2d_follow.tscn")
 const MONSTER_2D_FOLLOW = preload("res://assets/scenes/map/monster_2d_follow.tscn")
+const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 
 const SUMMONING_PORTAL = preload("res://assets/scenes/levels/resources/summoning_portal.tscn")
 
@@ -14,12 +14,9 @@ func _ready():
 	summoning_portal.visible = false
 	add_child(summoning_portal)
 
-func add_human():
-	var new_human = PATRON_2D_FOLLOW.instantiate()
-	new_human.patron = HUMAN_SCENE.instantiate()
-	add_child(new_human)
 
 func _on_timer_timeout():
+	# pass
 	add_human()
 	
 func _process(delta):
@@ -50,10 +47,17 @@ func setSummoningPortal():
 func summon_monster():
 	var new_monster = MONSTER_2D_FOLLOW.instantiate()
 	new_monster.monster = SummoningState.summoning_monster
+	print (SummoningState.summoning_monster)
 	new_monster.set_progress(curve.get_closest_offset(summoning_portal.position))
 	add_child(new_monster)
 	SummoningSignal.emit_signal("monster_summoned")
 
+func add_human():
+	var new_patron_2d_follow = PATRON_2D_FOLLOW.instantiate()
+	var human_node = HUMAN_SCENE.instantiate()
+	new_patron_2d_follow.patron = human_node
+	add_child(new_patron_2d_follow)
+	
 func _on_puzzle_solved():
 	summon_monster()
 	summoning_portal.reset_state()
