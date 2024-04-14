@@ -28,3 +28,8 @@ func add_patron(new_patron):
 	print (patron.path_follow_area_2d)
 	patron.remove_child(path_follow_area_2d)
 	add_child(path_follow_area_2d)
+
+
+
+func _on_path_follow_area_2d_area_entered(area):
+	pass # Replace with function body.

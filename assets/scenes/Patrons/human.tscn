@@ -370,3 +370,5 @@ shape = SubResource("RectangleShape2D_qgelr")
 
 [node name="Patron" type="Node2D" parent="."]
 script = ExtResource("1_4angd")
+
+[connection signal="area_entered" from="PathFollowArea2D" to="Patron" method="_on_path_follow_area_2d_area_entered"]
