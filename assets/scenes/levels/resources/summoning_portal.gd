@@ -11,6 +11,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if SummoningState.current_state == SummoningState.summoning_states.IDLE:
+		visible = false
+	else:
+		visible = true 
 	pass
 
 func setPosition(new_position: Vector2):

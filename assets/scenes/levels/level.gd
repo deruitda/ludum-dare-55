@@ -17,7 +17,6 @@ func _ready():
 	SummoningState.reset_state()
 
 	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
-	summoning_portal.visible = false
 	add_human()
 
 func _on_timer_timeout():
@@ -26,7 +25,6 @@ func _on_timer_timeout():
 	
 func summon_monster():
 	var new_monster = SummoningState.summoning_monster.duplicate()
-	print (SummoningState.summoning_monster)
 	new_monster.set_progress(closest_path_to_summoning_portal.curve.get_closest_offset(summoning_portal.position))
 	closest_path_to_summoning_portal.add_child(new_monster)
 	SummoningSignal.emit_signal("monster_summoned")
@@ -41,12 +39,10 @@ func _process(delta):
 
 func add_summoning_portal_to_position(position):
 	summoning_portal.setPosition(position)
-	summoning_portal.visible = true
 
 func _on_puzzle_solved():
 	summon_monster()
 	summoning_portal.reset_state()
-	summoning_portal.visible = false
 	
 func setSummoningPortal():
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
@@ -59,10 +55,6 @@ func setSummoningPortal():
 		if mouse_position.distance_to(closest_point) <= summoning_mouse_position_threshold:
 			add_summoning_portal_to_position(closest_point)
 
-		else:
-			summoning_portal.visible = false
-	elif SummoningState.current_state != SummoningState.summoning_states.SUMMONING:
-		summoning_portal.visible = false
 
 func _input(event):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
