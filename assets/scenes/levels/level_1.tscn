@@ -68,6 +68,7 @@ autostart = true
 position = Vector2(-835, -540)
 
 [node name="PathsContainer" type="Node2D" parent="."]
+position = Vector2(-905, -609)
 script = ExtResource("3_qtind")
 
 [node name="Starting Path" type="Path2D" parent="PathsContainer" node_paths=PackedStringArray("child_paths")]

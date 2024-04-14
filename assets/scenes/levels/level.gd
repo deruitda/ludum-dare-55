@@ -29,7 +29,7 @@ func summon_monster():
 	new_monster.monster = SummoningState.summoning_monster.duplicate()
 	print (SummoningState.summoning_monster)
 	new_monster.set_progress(closest_path_to_summoning_portal.curve.get_closest_offset(summoning_portal.position))
-	add_child(new_monster)
+	closest_path_to_summoning_portal.add_child(new_monster)
 	SummoningSignal.emit_signal("monster_summoned")
 
 func add_human():
