@@ -47,6 +47,7 @@ pivot_offset = Vector2(64, 64)
 mouse_default_cursor_shape = 2
 script = ExtResource("1_vbkea")
 monster = NodePath("Monster")
+summon_monster_input_action_number = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

@@ -1,12 +1,14 @@
 extends Button
 
 const Monster = preload("res://assets/scenes/npcs/monster.gd")
-@export var monster: Node2D = null
+
+@export var monster: Node2D = Monster.new()
 @export var summon_monster_input_action_number: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	monster.scale = Vector2(.8, .8)
+	add_child(monster)
 
 func _process(delta):
 	check_input_action()
