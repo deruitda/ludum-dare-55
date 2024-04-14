@@ -1,6 +1,8 @@
 extends "res://assets/scenes/npcs/monster.gd"
 const PUZZLE = preload("res://assets/scenes/npcs/resources/puzzle.tscn")
 
+@onready var monster_animation = $"../PathFollowArea2D/AnimatedSprite2D"
+
 # Called when the node enters the scene tree for the first time.
 const puzzle_objects = [
 	{
@@ -38,12 +40,11 @@ const puzzle_objects = [
 ];
 
 func _ready():
+	print("Summoning Lost Soul")
 	add_puzzles()
-	pass # Replace with function body.
 
 
 func add_puzzle(puzzle: String, regex_answers: Array):
-
 	var puzzle_node = PUZZLE.instantiate()
 	puzzle_node.text_puzzle = puzzle
 	for regex_answer in regex_answers:
@@ -54,3 +55,14 @@ func add_puzzle(puzzle: String, regex_answers: Array):
 func add_puzzles():
 	for puzzle in puzzle_objects:
 		add_puzzle(puzzle["text_puzzle"], puzzle["regex_answers"])
+
+func desummon():
+	monster_animation.play("desummoning")
+
+func _on_animated_sprite_2d_animation_finished():
+	print("Lost Soul Animation finished: " + monster_animation.animation)
+	if monster_animation.animation == "summoning":
+		monster_animation.play("idle")
+		print("Playing idle Soul")
+	elif monster_animation.animation == "desummoning":
+		destroy()
