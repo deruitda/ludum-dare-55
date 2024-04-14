@@ -19,9 +19,10 @@ func on_patron_survived(patron):
 	SurviveSignal.emit_signal("patron_survived_updated")
 
 
-func on_souls_captured(patron):
-	souls_captured += patron.souls
-	souls_to_spend += patron.souls
+func on_souls_captured(num_of_souls_captured):
+	souls_captured += num_of_souls_captured
+	souls_to_spend += num_of_souls_captured
+	print("Captured " + str(num_of_souls_captured) + " souls")
 	SoulsCapturedSignal.emit_signal("souls_captured_updated")
 
 
