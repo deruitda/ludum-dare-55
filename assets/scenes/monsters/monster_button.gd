@@ -33,7 +33,6 @@ func end_summoning_monster():
 
 
 func _on_pressed():
-	print("Button pressed: " + str(SummoningState.current_state) + str(SummoningState.summoning_states.IDLE))
 	if SummoningState.current_state == SummoningState.summoning_states.IDLE:
 		print("Beginnin summon monster")
 		begin_summoning_monster()
