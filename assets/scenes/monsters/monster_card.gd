@@ -12,14 +12,13 @@ func _ready():
 	custom_minimum_size = monster._visual_resource.get_size()
 	# Center the texture within the button
 	stretch_mode = TextureButton.STRETCH_KEEP_CENTERED
-	
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	check_input_action()
 
-	
+
 func check_input_action():
 	match summon_monster_input_action_number:
 		1:
@@ -31,7 +30,7 @@ func check_input_action():
 		3:
 			if Input.is_action_just_pressed("select_monster_3"):
 				begin_summoning_monster()
-		
+
 
 
 func begin_summoning_monster():

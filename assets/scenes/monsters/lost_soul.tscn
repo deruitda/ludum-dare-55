@@ -1,8 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca4732islbtvc"]
+[gd_scene load_steps=4 format=3 uid="uid://ca4732islbtvc"]
 
 [ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="1_1vqv3"]
 [ext_resource type="Texture2D" uid="uid://osj67g1pvayx" path="res://assets/sprites/monsters/lost-soul/lost-soul.png" id="2_1s4bg"]
+[ext_resource type="PackedScene" uid="uid://davmsc2lhe5pp" path="res://assets/scenes/npcs/resources/puzzle.tscn" id="3_qpl5u"]
 
-[node name="LostSoul" type="Node2D"]
+[node name="LostSoul" type="Node2D" node_paths=PackedStringArray("puzzles")]
 script = ExtResource("1_1vqv3")
 _visual_resource = ExtResource("2_1s4bg")
+puzzles = [NodePath("Puzzle 1"), NodePath("Puzzle 2"), NodePath("Puzzle 3")]
+
+[node name="Puzzle 1" parent="." instance=ExtResource("3_qpl5u")]
+text_puzzle = "What is 1 + 2?"
+regex_answers = Array[String](["3"])
+
+[node name="Puzzle 2" parent="." instance=ExtResource("3_qpl5u")]
+text_puzzle = "What is 3 + 4?"
+regex_answers = Array[String](["7"])
+
+[node name="Puzzle 3" parent="." instance=ExtResource("3_qpl5u")]
+text_puzzle = "What is 5 + 6?"
+regex_answers = Array[String](["11"])
