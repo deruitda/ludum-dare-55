@@ -1,8 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://ca4732islbtvc"]
+[gd_scene load_steps=29 format=3 uid="uid://ca4732islbtvc"]
 
-[ext_resource type="Script" path="res://assets/scenes/npcs/monster.gd" id="1_6j01x"]
-[ext_resource type="Texture2D" uid="uid://osj67g1pvayx" path="res://assets/sprites/monsters/lost-soul/lost-soul.png" id="2_1s4bg"]
-[ext_resource type="PackedScene" uid="uid://davmsc2lhe5pp" path="res://assets/scenes/npcs/resources/puzzle.tscn" id="3_qpl5u"]
+[ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="1_8v453"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="4_v8hgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
@@ -185,15 +183,7 @@ animations = [{
 }]
 
 [node name="LostSoul" type="Node2D"]
-script = ExtResource("1_6j01x")
-monster_name = "Lost Soul"
-_visual_resource = ExtResource("2_1s4bg")
-
-[node name="Puzzle 1" parent="." instance=ExtResource("3_qpl5u")]
-
-[node name="Puzzle 2" parent="." instance=ExtResource("3_qpl5u")]
-
-[node name="Puzzle 3" parent="." instance=ExtResource("3_qpl5u")]
+script = ExtResource("1_8v453")
 
 [node name="PathFollowArea2D" type="Area2D" parent="."]
 collision_layer = 2
