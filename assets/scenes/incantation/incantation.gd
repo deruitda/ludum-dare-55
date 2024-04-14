@@ -4,6 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SummoningSignal.connect("puzzle_set", _on_puzzle_set)
 	pass # Replace with function body.
 
 
@@ -21,7 +22,9 @@ func _on_line_edit_text_submitted(new_text):
 		
 	line_edit.clear()
 
-
+func _on_puzzle_set():
+	line_edit.grab_focus()
+	
 func incantation_success():
 	# TODO: Play sound, show animation
 	print("Incantation Success")

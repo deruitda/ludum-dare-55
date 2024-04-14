@@ -10,5 +10,4 @@ func _process(delta):
 
 
 func _on_puzzle_set():
-	pass
-	#$PuzzleText.text = SummoningState.current_puzzle.text_puzzle
+	$PuzzleText.text = SummoningState.current_puzzle.text_puzzle
