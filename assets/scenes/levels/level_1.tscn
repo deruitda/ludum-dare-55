@@ -64,6 +64,8 @@ first_path_segment = NodePath("PathsContainer/Starting Path")
 [node name="Test-korn" parent="." instance=ExtResource("6_mt4h2")]
 position = Vector2(-835, -540)
 
+[node name="SummoningPortal" parent="." instance=ExtResource("6_55ybm")]
+
 [node name="PathsContainer" type="Node2D" parent="."]
 position = Vector2(-905, -609)
 script = ExtResource("3_qtind")
@@ -116,11 +118,11 @@ curve = SubResource("Curve2D_qb4w8")
 script = ExtResource("1_daq4a")
 is_ending_path = true
 
-[node name="SummoningPortal" parent="." instance=ExtResource("6_55ybm")]
-
 [node name="WaveContainer" type="Node2D" parent="."]
 script = ExtResource("6_iy6oq")
 
 [node name="Wave2" parent="WaveContainer" instance=ExtResource("3_pm4jn")]
 number_or_patrons_per_second = 1.0
 total_wave_length_in_seconds = 60
+
+[node name="FreeMovingMonsters" type="Node2D" parent="."]

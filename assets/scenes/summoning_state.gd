@@ -73,3 +73,6 @@ func set_state(state):
 func set_puzzle():
 	current_puzzle = summoning_monster.monster.get_random_puzzle()
 	SummoningSignal.emit_signal("puzzle_set")
+
+func lock_to_path():
+	return summoning_monster.monster.lock_to_path()
