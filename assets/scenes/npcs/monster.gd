@@ -5,7 +5,7 @@ extends Node2D
 
 @export var _max_souls_to_consume: int = 1
 @export var _visual_resource: Resource
-@export var puzzles: Array[Node2D] = []
+@onready var puzzles: Array = []
 @export var damage: int = 1
 
 @onready var path_follow_area_2d = $PathFollowArea2D
@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func get_random_puzzle() -> Node2D:
+func get_random_puzzle():
 	return puzzles.pick_random()
 
 func get_capacity_to_consume_souls() -> int:
@@ -47,4 +47,5 @@ func get_path_follow_area_2d() -> Area2D:
 	var path_follow_area_2d = get_node("PathFollowArea2D")
 	assert(path_follow_area_2d != null, str("PathFollowArea2D must be set in ", monster_name, " scene"))
 	return path_follow_area_2d
+
 
