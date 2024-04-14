@@ -7,9 +7,11 @@ extends Node2D
 @export var _visual_resource: Resource
 @onready var puzzles: Array = []
 @export var damage: int = 1
+@onready var _number_of_souls_captured: int = 0
 
 @onready var path_follow_area_2d = $PathFollowArea2D
-@onready var _number_of_souls_captured: int = 0
+@onready var monster = $Monster
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +43,9 @@ func attack(patron: Node2D):
 	SoulsCapturedSignal.emit_signal("souls_captured", num_of_souls_captured)
 
 func desummon():
+	monster.desummon()
+	
+func destroy():
 	get_parent().queue_free()
 
 func _on_path_follow_area_2d_area_entered(patron_2d_follow):

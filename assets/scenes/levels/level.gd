@@ -61,3 +61,5 @@ func _input(event):
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				summoning_portal.setSummoningPosition()
 				SummoningSignal.emit_signal("location_selected")
+		elif event.is_action_pressed("ui_cancel"):
+				SummoningSignal.emit_signal("monster_summoned_canceled")

@@ -11,7 +11,6 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(get_progress_ratio())
 	if get_progress_ratio() == 1.0:
 		get_parent().reached_the_end(self)
 		
