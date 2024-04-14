@@ -18,27 +18,23 @@ func _ready():
 
 	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
 	summoning_portal.visible = false
-
+	add_human()
 
 func _on_timer_timeout():
-	# pass
-	add_human()
+	pass
+	# add_human()
 	
 func summon_monster():
-	var new_monster = MONSTER_2D_FOLLOW.instantiate()
-	new_monster.monster = SummoningState.summoning_monster.duplicate()
+	var new_monster = SummoningState.summoning_monster.duplicate()
 	print (SummoningState.summoning_monster)
 	new_monster.set_progress(closest_path_to_summoning_portal.curve.get_closest_offset(summoning_portal.position))
 	closest_path_to_summoning_portal.add_child(new_monster)
 	SummoningSignal.emit_signal("monster_summoned")
 
 func add_human():
-	var new_patron_2d_follow = PATRON_2D_FOLLOW.instantiate()
 	var human_node = HUMAN_SCENE.instantiate()
-	new_patron_2d_follow.patron = human_node
-	first_path_segment.add_child(new_patron_2d_follow)
+	first_path_segment.add_child(human_node)
 	
-
 func _process(delta):
 	setSummoningPortal()
 	pass
