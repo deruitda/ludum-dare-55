@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://vi4rrjltrjx7"]
+[gd_scene load_steps=6 format=3 uid="uid://vi4rrjltrjx7"]
 
 [ext_resource type="Script" path="res://assets/scenes/main.gd" id="1_fwahh"]
 [ext_resource type="PackedScene" uid="uid://cjsjb2ymxf0mi" path="res://assets/scenes/Hud/hud.tscn" id="2_br5t6"]
 [ext_resource type="PackedScene" uid="uid://b75su1ww7nh23" path="res://assets/scenes/monster_cards/monster_cards.tscn" id="3_iv0gn"]
 [ext_resource type="PackedScene" uid="uid://derq75u4a7b1o" path="res://assets/scenes/demonic_scroll/demonic_scroll.tscn" id="4_vrxy2"]
+[ext_resource type="PackedScene" uid="uid://ua8rx50pqtw3" path="res://assets/scenes/incantation/incantation.tscn" id="5_hmnjr"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fwahh")
@@ -45,5 +46,12 @@ offset_left = 197.0
 offset_top = 886.0
 offset_right = 197.0
 offset_bottom = 886.0
+
+[node name="Incantation" parent="GameControl" instance=ExtResource("5_hmnjr")]
+top_level = true
+offset_left = 542.0
+offset_top = 884.0
+offset_right = 542.0
+offset_bottom = 884.0
 
 [connection signal="ready" from="." to="." method="_on_ready"]

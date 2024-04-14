@@ -15,6 +15,7 @@ func _ready():
 	SummoningSignal.connect("monster_selected", _on_monster_selected)
 	SummoningSignal.connect("location_selected", _on_location_selected)
 	SummoningSignal.connect("monster_summoned", _on_monster_summoned)
+	SummoningSignal.connect("monster_summoned_canceled", _on_monster_summoned_canceled)
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,13 +50,17 @@ func _on_location_selected():
 
 func _on_monster_summoned():
 	reset_state()
+	print("Monster summoning success")
+
+
+func _on_monster_summoned_canceled():
+	reset_state()
+	print("Monster summoning canceled")
 
 
 func _on_monster_summoned_failed():
 	if current_state == summoning_states.SUMMONING:
-		set_state(summoning_states.IDLE)
-		summoning_monster = null
-		current_puzzle = null
+		reset_state()
 		print("Monster summoning failed")
 		print("Current state: ", current_state)
 	else:
@@ -71,8 +76,3 @@ func set_state(state):
 func set_puzzle():
 	current_puzzle = summoning_monster.get_random_puzzle()
 	SummoningSignal.emit_signal("puzzle_set")
-
-
-func _temp_on_puzzle_set():
-	SummoningSignal.emit_signal("puzzle_solved")
-
