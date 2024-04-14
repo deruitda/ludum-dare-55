@@ -2,41 +2,41 @@ extends "res://assets/scenes/npcs/monster.gd"
 const PUZZLE = preload("res://assets/scenes/npcs/resources/puzzle.tscn")
 
 # Called when the node enters the scene tree for the first time.
-
 const puzzle_objects = [
 	{
-		"text_puzzle": "W A D",
+		"text_puzzle": "↑ ← →",
 		"regex_answers": ["^wad$"]
 	},
 	{
-		"text_puzzle": "W D W",
+		"text_puzzle": "↑ → ↑",
 		"regex_answers": ["^wdw$"]
 	},
 	{
-		"text_puzzle": "W A D W",
+		"text_puzzle": "↑ ← → ←",
 		"regex_answers": ["^wadw$"]
 	},
 	{
-		"text_puzzle": "W D A",
+		"text_puzzle": "↑ → ←",
 		"regex_answers": ["^wda$"]
 	},
 	{
-		"text_puzzle": "W D A W",
+		"text_puzzle": "↑ → ← ↑",
 		"regex_answers": ["^wdaw$"]
 	},
 	{
-		"text_puzzle": "W A D A",
+		"text_puzzle": "↑ ← → ←",
 		"regex_answers": ["^wada$"]
 	},
 	{
-		"text_puzzle": "W D A D",
+		"text_puzzle": "↑ → ← →",
 		"regex_answers": ["^wdad$"]
 	},
 	{
-		"text_puzzle": "W D A D W",
+		"text_puzzle": "↑ → ← → ↑",
 		"regex_answers": ["^wdadw$"]
 	},
-]
+];
+
 func _ready():
 	add_puzzles()
 	pass # Replace with function body.
