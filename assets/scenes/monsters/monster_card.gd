@@ -18,7 +18,6 @@ func _ready():
 func _process(delta):
 	check_input_action()
 
-
 func check_input_action():
 	match summon_monster_input_action_number:
 		1:
