@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtraghpckn3ks"]
+
+[ext_resource type="Script" path="res://assets/scenes/monsters/monster_button.gd" id="1_ecrrc"]
+[ext_resource type="Texture2D" uid="uid://qpvkmtvt7dbn" path="res://assets/sprites/monsters/borders/border-inactive.png" id="1_v8x20"]
+[ext_resource type="Texture2D" uid="uid://da2cmbqhaci15" path="res://assets/sprites/monsters/borders/border-active-sheet.png" id="3_v8ce6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hievu"]
+atlas = ExtResource("3_v8ce6")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7p0y"]
+atlas = ExtResource("3_v8ce6")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nb35"]
+atlas = ExtResource("3_v8ce6")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrglt"]
+atlas = ExtResource("3_v8ce6")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3ac1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hievu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7p0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nb35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrglt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="MonsterButton" type="Button"]
+custom_minimum_size = Vector2(64, 128)
+offset_right = 64.0
+offset_bottom = 128.0
+script = ExtResource("1_ecrrc")
+summon_monster_input_action_number = null
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(32, 64)
+texture = ExtResource("1_v8x20")
+
+[node name="BorderActive" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(32, 64)
+sprite_frames = SubResource("SpriteFrames_y3ac1")
+autoplay = "default"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

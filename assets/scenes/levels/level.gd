@@ -19,6 +19,7 @@ func _ready():
 	
 func summon_monster():
 	var new_monster = SummoningState.summoning_monster.duplicate()
+	new_monster.scale = Vector2(1, 1)
 	new_monster.set_progress(closest_path_to_summoning_portal.curve.get_closest_offset(summoning_portal.position))
 	closest_path_to_summoning_portal.add_child(new_monster)
 	SummoningSignal.emit_signal("monster_summoned")
