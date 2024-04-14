@@ -15,7 +15,6 @@ const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SummoningState.reset_state()
-
 	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
 	add_human()
 
