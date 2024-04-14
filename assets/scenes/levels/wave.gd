@@ -9,13 +9,13 @@ const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	respawn_timer.autostart = false
-	respawn_timer.wait_time = get_seconds_per_respawn()
-	# respawn_timer.start()
+	respawn_timer.set_wait_time(get_seconds_per_respawn() * 1.0)
+	print(respawn_timer.wait_time)
 func start_wave():
 	respawn_timer.start()
 
 func get_seconds_per_respawn():
-	return length_of_time_in_seconds / number_of_patrons
+	return (length_of_time_in_seconds * 1.0) / (number_of_patrons * 1.0)
 
 func _process(delta):
 	if number_of_patrons_spawned == number_of_patrons:
