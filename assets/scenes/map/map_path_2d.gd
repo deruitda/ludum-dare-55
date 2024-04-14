@@ -46,7 +46,7 @@ func setSummoningPortal():
 
 func summon_monster():
 	var new_monster = MONSTER_2D_FOLLOW.instantiate()
-	new_monster.monster = SummoningState.summoning_monster
+	new_monster.monster = SummoningState.summoning_monster.duplicate()
 	print (SummoningState.summoning_monster)
 	new_monster.set_progress(curve.get_closest_offset(summoning_portal.position))
 	add_child(new_monster)
