@@ -308,6 +308,7 @@ self_modulate = Color(0, 0.498039, 0.498039, 1)
 shape = SubResource("CircleShape2D_oawaw")
 
 [node name="PortalAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_eh2to")
 animation = &"active"
 autoplay = "active"

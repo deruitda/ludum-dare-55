@@ -709,7 +709,6 @@ script = ExtResource("1_8v453")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowArea2D"]
-position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_f4ngn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollowArea2D"]
