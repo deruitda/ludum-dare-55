@@ -115,7 +115,7 @@ const backword_word_puzzles = [
 	},
 	{
 		"text_puzzle": "Repeat the term 'Athena' backwards",
-		"regex_answers": ["^naehta$"]
+		"regex_answers": ["^anehta$"]
 	},
 	{
 		"text_puzzle": "Repeat the term 'Zeus' backwards",
