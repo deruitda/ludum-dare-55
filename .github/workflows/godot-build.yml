@@ -54,7 +54,7 @@ jobs:
         run: |
           mkdir -v -p build/linux
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux" build/linux/
+          godot --headless --verbose --export-release "Linux" build/linux/build
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
