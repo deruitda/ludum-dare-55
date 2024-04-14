@@ -25,8 +25,7 @@ func _on_timer_timeout():
 	# add_human()
 	
 func summon_monster():
-	var new_monster = MONSTER_2D_FOLLOW.instantiate()
-	new_monster.monster = SummoningState.summoning_monster.duplicate()
+	var new_monster = SummoningState.summoning_monster.duplicate()
 	print (SummoningState.summoning_monster)
 	new_monster.set_progress(closest_path_to_summoning_portal.curve.get_closest_offset(summoning_portal.position))
 	closest_path_to_summoning_portal.add_child(new_monster)

@@ -47,10 +47,4 @@ func desummon():
 func _on_path_follow_area_2d_area_entered(patron_2d_follow):
 	var patron = patron_2d_follow.get_parent().patron
 	attack(patron)
-	
-func get_path_follow_area_2d() -> Area2D:
-	var path_follow_area_2d = get_node("PathFollowArea2D")
-	assert(path_follow_area_2d != null, str("PathFollowArea2D must be set in ", monster_name, " scene"))
-	return path_follow_area_2d
-
 

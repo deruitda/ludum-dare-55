@@ -21,15 +21,6 @@ func patron_survived():
 	
 func patron_died():
 	SoulsCapturedSignal.emit_signal("patron_died", patron)
-	
-func add_patron(new_patron):
-	patron = new_patron
-	var path_follow_area_2d = patron.get_path_follow_area_2d()
-	print (patron.path_follow_area_2d)
-	patron.remove_child(path_follow_area_2d)
-	add_child(path_follow_area_2d)
-
-
 
 func _on_path_follow_area_2d_area_entered(area):
 	pass # Replace with function body.

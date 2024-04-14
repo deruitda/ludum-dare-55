@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://ca4732islbtvc"]
+[gd_scene load_steps=30 format=3 uid="uid://ca4732islbtvc"]
 
 [ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="1_8v453"]
+[ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_ivoc6"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="4_v8hgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
@@ -182,9 +183,8 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="LostSoul" type="Node2D"]
-script = ExtResource("1_8v453")
-_max_souls_to_consume = 3
+[node name="LostSoul" type="PathFollow2D"]
+script = ExtResource("1_ivoc6")
 
 [node name="PathFollowArea2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -198,3 +198,6 @@ sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.701276
+
+[node name="Monster" type="Node2D" parent="."]
+script = ExtResource("1_8v453")

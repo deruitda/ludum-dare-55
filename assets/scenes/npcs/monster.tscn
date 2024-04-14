@@ -19,4 +19,6 @@ texture = ExtResource("2_dommw")
 position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_643r8")
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="PathFollowArea2D" to="." method="_on_path_follow_area_2d_area_entered"]
