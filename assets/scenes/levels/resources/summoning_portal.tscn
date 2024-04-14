@@ -309,7 +309,6 @@ shape = SubResource("CircleShape2D_oawaw")
 
 [node name="PortalAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, -9)
-scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_eh2to")
 animation = &"active"
 autoplay = "default"

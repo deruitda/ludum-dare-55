@@ -8,8 +8,6 @@ const Monster = preload("res://assets/scenes/npcs/monster.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SummoningSignal.connect("state_changed", _on_state_changed)
-	monster.scale = Vector2(.8, .8)
-	add_child(monster)
 
 func _process(delta):
 	check_input_action()
