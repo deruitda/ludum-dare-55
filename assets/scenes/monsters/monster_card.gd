@@ -34,7 +34,6 @@ func check_input_action():
 
 
 func begin_summoning_monster():
-	var duplicate_monster = monster.duplicate()
 	$BorderActive.visible = true
 	SummoningSignal.emit_signal("monster_selected", monster)
 
