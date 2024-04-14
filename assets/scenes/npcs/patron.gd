@@ -12,7 +12,6 @@ extends Node2D
 
 func _ready():
 	health = _total_health
-	print(str(health)+ " vs " + str(_total_health))
 	
 func _process(delta):
 	if health <= 0:

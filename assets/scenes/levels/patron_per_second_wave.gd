@@ -1,12 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://rxgop86p7c3i"]
-
-[sub_resource type="GDScript" id="GDScript_yoch6"]
-script/source = "extends Node2D
+extends Node2D
 @export var number_or_patrons_per_second: float = 0
 @export var total_wave_length_in_seconds: int = 0
 
 @onready var number_of_patrons_spawned: int = 0
-const HUMAN_SCENE = preload(\"res://assets/scenes/patrons/human.tscn\");
+const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 @onready var respawn_timer = $RespawnTimer
 @onready var wave_complete_timer = $WaveCompleteTimer
 
@@ -43,15 +40,3 @@ func complete_wave():
 
 func _on_wave_complete_timer_timeout():
 	complete_wave()
-"
-
-[node name="Wave" type="Node2D"]
-script = SubResource("GDScript_yoch6")
-
-[node name="RespawnTimer" type="Timer" parent="."]
-
-[node name="WaveCompleteTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
-[connection signal="timeout" from="WaveCompleteTimer" to="." method="_on_wave_complete_timer_timeout"]
