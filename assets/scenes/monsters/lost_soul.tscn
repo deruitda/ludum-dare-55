@@ -7,10 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
 size = Vector2(49, 59)
 
-[node name="LostSoul" type="Node2D"]
+[node name="LostSoul" type="Node2D" node_paths=PackedStringArray("puzzles")]
 script = ExtResource("1_6j01x")
 monster_name = "Lost Soul"
 _visual_resource = ExtResource("2_1s4bg")
+puzzles = [NodePath("Puzzle 1"), NodePath("Puzzle 2"), NodePath("Puzzle 3")]
 
 [node name="Puzzle 1" parent="." instance=ExtResource("3_qpl5u")]
 text_puzzle = "What is 1 + 2?"
