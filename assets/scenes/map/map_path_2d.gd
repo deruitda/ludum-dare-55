@@ -10,13 +10,12 @@ const SUMMONING_PORTAL = preload("res://assets/scenes/levels/resources/summoning
 @onready var summoning_portal: Node2D = SUMMONING_PORTAL.instantiate()
 
 func _ready():
-	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
-	summoning_portal.visible = false
-	add_child(summoning_portal)
-
+	pass
+	# SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
+	# summoning_portal.visible = false
+	# add_child(summoning_portal)
 
 func _on_timer_timeout():
-	# pass
 	add_human()
 	
 func _process(delta):

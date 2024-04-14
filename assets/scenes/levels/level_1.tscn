@@ -1,31 +1,92 @@
-[gd_scene load_steps=6 format=3 uid="uid://y1ip7aabt7f3"]
+[gd_scene load_steps=12 format=3 uid="uid://y1ip7aabt7f3"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/map_path_2d.gd" id="1_daq4a"]
 [ext_resource type="Script" path="res://assets/scenes/levels/level.gd" id="1_hyhgd"]
 [ext_resource type="PackedScene" uid="uid://s77jcgulruvm" path="res://assets/scenes/levels/wave.tscn" id="3_pm4jn"]
 [ext_resource type="PackedScene" uid="uid://cotjl3nwss868" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
 
-[sub_resource type="Curve2D" id="Curve2D_c4mh5"]
+[sub_resource type="Curve2D" id="Curve2D_hdnx8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1027, -380, 0, 0, 0, 0, 732, -380, 0, 0, 0, 0, 732, -184)
+"points": PackedVector2Array(0, 0, 0, 0, -1001, -375, 0, 0, 0, 0, -801, -375)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_qb4w8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 742, -192, 0, 0, 0, 0, 1090, -179)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_hh75t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 33, -359, 0, 0, 0, 0, 730, -367, 0, 0, 0, 0, 741, -168)
 }
 point_count = 3
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("waves")]
+[sub_resource type="Curve2D" id="Curve2D_xvpab"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 34, 79, 0, 0, 0, 0, 734, 71, 0, 0, 0, 0, 741, -175)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_rn12s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 29, -363, 0, 0, 0, 0, 33, 73)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_7btud"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -802, -373, 0, 0, 0, 0, -801, 73, 0, 0, 0, 0, 36, 81)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_k21tm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -806, -370, 0, 0, 0, 0, 28, -362)
+}
+point_count = 2
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("waves", "first_path_segment")]
 position = Vector2(900, 600)
 script = ExtResource("1_hyhgd")
 waves = [NodePath("Wave")]
+first_path_segment = NodePath("Starting Path")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="Test-korn" parent="." instance=ExtResource("6_mt4h2")]
 position = Vector2(-835, -540)
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_c4mh5")
+[node name="Starting Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_hdnx8")
 script = ExtResource("1_daq4a")
 
-[node name="Timer" type="Timer" parent="Path2D"]
-autostart = true
+[node name="Final Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_qb4w8")
+script = ExtResource("1_daq4a")
+
+[node name="Path2D5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_hh75t")
+script = ExtResource("1_daq4a")
+
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xvpab")
+script = ExtResource("1_daq4a")
+
+[node name="Path2D4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_rn12s")
+script = ExtResource("1_daq4a")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7btud")
+script = ExtResource("1_daq4a")
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_k21tm")
+script = ExtResource("1_daq4a")
 
 [node name="Wave" parent="." instance=ExtResource("3_pm4jn")]
 
-[connection signal="timeout" from="Path2D/Timer" to="Path2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
