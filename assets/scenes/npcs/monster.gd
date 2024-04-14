@@ -18,7 +18,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if _number_of_souls_captured == _max_souls_to_consume:
+		desummon()
 
 func get_random_puzzle():
 	return puzzles.pick_random()
@@ -38,11 +39,9 @@ func attack(patron: Node2D):
 		print("Not at capacity, captured souls: " + str(num_of_souls_captured))
 	_number_of_souls_captured += num_of_souls_captured
 	SoulsCapturedSignal.emit_signal("souls_captured", num_of_souls_captured)
-	if _number_of_souls_captured == _max_souls_to_consume:
-		desummon()
 
 func desummon():
-	queue_free()
+	get_parent().queue_free()
 
 func _on_path_follow_area_2d_area_entered(patron_2d_follow):
 	var patron = patron_2d_follow.get_parent().patron
