@@ -365,7 +365,6 @@ frame_progress = 0.804902
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowArea2D"]
 position = Vector2(10, 4.99999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qgelr")
 
 [connection signal="area_entered" from="PathFollowArea2D" to="." method="_on_path_follow_area_2d_area_entered"]

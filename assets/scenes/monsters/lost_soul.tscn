@@ -190,16 +190,10 @@ monster_name = "Lost Soul"
 _visual_resource = ExtResource("2_1s4bg")
 
 [node name="Puzzle 1" parent="." instance=ExtResource("3_qpl5u")]
-text_puzzle = "What is 1 + 2?"
-regex_answers = Array[String](["3"])
 
 [node name="Puzzle 2" parent="." instance=ExtResource("3_qpl5u")]
-text_puzzle = "What is 3 + 4?"
-regex_answers = Array[String](["7"])
 
 [node name="Puzzle 3" parent="." instance=ExtResource("3_qpl5u")]
-text_puzzle = "What is 5 + 6?"
-regex_answers = Array[String](["11"])
 
 [node name="PathFollowArea2D" type="Area2D" parent="."]
 collision_layer = 2

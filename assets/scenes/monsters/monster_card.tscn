@@ -44,8 +44,8 @@ animations = [{
 [node name="MonsterCard" type="TextureButton" node_paths=PackedStringArray("monster")]
 offset_right = 128.0
 offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
 texture_normal = ExtResource("3_4w8wf")
-stretch_mode = 3
 script = ExtResource("1_vbkea")
 monster = NodePath("Monster")
 
@@ -66,8 +66,9 @@ visible = false
 position = Vector2(64, 64)
 sprite_frames = SubResource("SpriteFrames_6jyh7")
 autoplay = "default"
-frame_progress = 0.171036
+frame_progress = 0.467717
 
 [node name="Monster" type="Sprite2D" parent="."]
+top_level = true
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
