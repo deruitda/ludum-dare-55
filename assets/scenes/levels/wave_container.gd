@@ -26,4 +26,4 @@ func _on_wave_complete():
 		get_current_wave().start_wave()
 	elif waves_complete == false:
 		waves_complete = true
-		print("Waves have finished")
+		print("All Waves Completed")

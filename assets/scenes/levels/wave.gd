@@ -3,6 +3,7 @@ extends Node2D
 @export var length_of_time_in_seconds: int = 0
 
 @onready var number_of_patrons_spawned: int = 0
+@onready var timers_completed: int = 0
 const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 @onready var respawn_timer = $RespawnTimer
 
@@ -27,7 +28,9 @@ func add_human():
 	number_of_patrons_spawned += 1
 
 func _on_respawn_timer_timeout():
-	add_human()
+	timers_completed += 1
+	if number_of_patrons_spawned < number_of_patrons:
+		add_human()
 
 func complete_wave():
 	respawn_timer.stop()
