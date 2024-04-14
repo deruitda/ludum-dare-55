@@ -10,7 +10,10 @@ func _ready():
 	loop = false
 
 func _physics_process(delta):
-	set_progress(get_progress() + (patron.speed * delta))
+	if patron == null:
+		queue_free()
+	else:
+		set_progress(get_progress() + (patron.speed * delta))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
