@@ -27,8 +27,6 @@ func reset_state():
 	summoning_monster = null
 	set_state(summoning_states.IDLE)
 	current_puzzle = null
-	print("State reset")
-	print("Current state: ", current_state)
 
 
 func _on_monster_selected(monster):
@@ -70,7 +68,6 @@ func _on_monster_summoned_failed():
 func set_state(state):
 	current_state = state
 	SummoningSignal.emit_signal("state_changed", current_state)
-	print("Current state: ", current_state)
  
 
 func set_puzzle():
