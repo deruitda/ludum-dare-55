@@ -20,6 +20,6 @@ func _on_puzzle_set():
 
 
 func _on_state_changed(new_state):
-	if new_state == SummoningState.summoning_states.IDLE:
+	if new_state == SummoningState.summoning_states.IDLE and scroll_animation.animation != "scroll_closing":
 		puzzle_text.text = ""
 		scroll_animation.play("scroll_closing")

@@ -1,10 +1,10 @@
 [gd_scene load_steps=106 format=3 uid="uid://ca4732islbtvc"]
 
-[ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="1_8v453"]
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_ivoc6"]
-[ext_resource type="JSON" uid="uid://dt4auw148x7ab" path="res://assets/scenes/npcs/resources/puzzle_sets/command_word_puzzles.tres" id="3_7ulyo"]
+[ext_resource type="Script" path="res://assets/scenes/npcs/monster.gd" id="2_4fnxo"]
+[ext_resource type="JSON" uid="uid://dt4auw148x7ab" path="res://assets/scenes/monsters/puzzles/puzzle_sets/command_word_puzzles.tres" id="3_0kkoh"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="3_gicdn"]
-[ext_resource type="JSON" uid="uid://dnw8ao1paiqt7" path="res://assets/scenes/npcs/resources/puzzle_sets/short_summoning_incantations.tres" id="4_syepu"]
+[ext_resource type="JSON" uid="uid://dnw8ao1paiqt7" path="res://assets/scenes/monsters/puzzles/puzzle_sets/short_summoning_incantations.tres" id="4_u1cv0"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="4_v8hgv"]
 [ext_resource type="Texture2D" uid="uid://b1fae8clewxqw" path="res://assets/sprites/monsters/lost-soul/lost-soul-summon.png" id="5_vn2jl"]
 
@@ -705,18 +705,18 @@ animations = [{
 script = ExtResource("1_ivoc6")
 
 [node name="Monster" type="Node2D" parent="."]
-script = ExtResource("1_8v453")
-puzzle_sets = Array[Resource]([ExtResource("3_7ulyo"), ExtResource("4_syepu")])
+script = ExtResource("2_4fnxo")
+puzzle_sets = Array[Resource]([ExtResource("3_0kkoh"), ExtResource("4_u1cv0")])
 
-[node name="PathFollowArea2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Monster"]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monster/Area2D"]
 shape = SubResource("RectangleShape2D_f4ngn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollowArea2D"]
+[node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
 sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"summoning"
 autoplay = "summoning"
 
-[connection signal="animation_finished" from="PathFollowArea2D/AnimatedSprite2D" to="Monster" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]

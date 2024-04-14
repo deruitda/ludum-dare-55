@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_kaxpw"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="2_gce82"]
-[ext_resource type="JSON" uid="uid://cxfgqmuo4d0eo" path="res://assets/scenes/npcs/resources/puzzle_sets/backword_word_puzzles.tres" id="3_o1weh"]
+[ext_resource type="JSON" uid="uid://cxfgqmuo4d0eo" path="res://assets/scenes/monsters/puzzles/puzzle_sets/backword_word_puzzles.tres" id="3_o1weh"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="4_x5j5r"]
-[ext_resource type="JSON" uid="uid://ck6qps3ymmnit" path="res://assets/scenes/npcs/resources/latin_chants.tres" id="4_xhuqp"]
+[ext_resource type="JSON" uid="uid://ck6qps3ymmnit" path="res://assets/scenes/monsters/puzzles/puzzle_sets/latin_chants.tres" id="4_xhuqp"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="5_nwu1x"]
 [ext_resource type="Texture2D" uid="uid://b1fae8clewxqw" path="res://assets/sprites/monsters/lost-soul/lost-soul-summon.png" id="6_jilg4"]
 

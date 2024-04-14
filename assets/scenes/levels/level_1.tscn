@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://assets/scenes/levels/paths_container.gd" id="3_qtind"]
 [ext_resource type="PackedScene" uid="uid://bmxh6e1qe603l" path="res://assets/scenes/levels/resources/summoning_portal.tscn" id="6_55ybm"]
 [ext_resource type="Script" path="res://assets/scenes/levels/wave_container.gd" id="6_iy6oq"]
-[ext_resource type="PackedScene" uid="uid://cotjl3nwss868" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
+[ext_resource type="PackedScene" uid="uid://oe7uiexu10cj" path="res://assets/scenes/test-korn.tscn" id="6_mt4h2"]
 
 [sub_resource type="Curve2D" id="Curve2D_hdnx8"]
 _data = {

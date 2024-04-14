@@ -17,8 +17,8 @@ func _process(delta):
 	if health <= 0:
 		die()
 
-func _on_path_follow_area_2d_area_entered(monster_2d_follow):
-	var monster = monster_2d_follow.get_parent().monster
+func _on_path_follow_area_2d_area_entered(monster_area):
+	var monster = monster_area.get_parent()
 	monster.attack(self)
 
 func capture_souls(souls_to_capture: int)-> int:
