@@ -1,14 +1,9 @@
 extends PathFollow2D
 
 @export var patron: Node2D = null
-@onready var sprite_2d = $Sprite2D
-
-@onready var path_follow = get_parent()
-
 @export var speed = 100.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite_2d.texture = patron._visual_resource
 	loop = false
 
 func _physics_process(delta):
@@ -27,3 +22,9 @@ func patron_survived():
 func patron_died():
 	SoulsCapturedSignal.emit_signal("patron_died", patron)
 	
+func add_patron(new_patron):
+	patron = new_patron
+	var path_follow_area_2d = patron.get_path_follow_area_2d()
+	print (patron.path_follow_area_2d)
+	patron.remove_child(path_follow_area_2d)
+	add_child(path_follow_area_2d)
