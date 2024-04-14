@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://y1ip7aabt7f3"]
+[gd_scene load_steps=13 format=3 uid="uid://y1ip7aabt7f3"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/map_path_2d.gd" id="1_daq4a"]
 [ext_resource type="Script" path="res://assets/scenes/levels/level.gd" id="1_hyhgd"]
@@ -8,30 +8,6 @@
 [sub_resource type="Curve2D" id="Curve2D_hdnx8"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1001, -375, 0, 0, 0, 0, -801, -375)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_qb4w8"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 742, -192, 0, 0, 0, 0, 1090, -179)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_hh75t"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 33, -359, 0, 0, 0, 0, 730, -367, 0, 0, 0, 0, 741, -168)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_xvpab"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 34, 79, 0, 0, 0, 0, 734, 71, 0, 0, 0, 0, 741, -175)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_rn12s"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 29, -363, 0, 0, 0, 0, 33, 73)
 }
 point_count = 2
 
@@ -47,6 +23,36 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_rn12s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 29, -363, 0, 0, 0, 0, 33, 73)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_j3lsm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 30, -357, 0, 0, 0, 0, 35, 84)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_hh75t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 33, -359, 0, 0, 0, 0, 730, -367, 0, 0, 0, 0, 741, -168)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_dxc0q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 37, 84, 0, 0, 0, 0, 733, 74, 0, 0, 0, 0, 744, -163)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_qb4w8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 742, -192, 0, 0, 0, 0, 1090, -179)
+}
+point_count = 2
+
 [node name="Level" type="Node2D" node_paths=PackedStringArray("waves", "first_path_segment")]
 position = Vector2(900, 600)
 script = ExtResource("1_hyhgd")
@@ -59,33 +65,45 @@ autostart = true
 [node name="Test-korn" parent="." instance=ExtResource("6_mt4h2")]
 position = Vector2(-835, -540)
 
-[node name="Starting Path" type="Path2D" parent="."]
+[node name="Starting Path" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
 curve = SubResource("Curve2D_hdnx8")
 script = ExtResource("1_daq4a")
+child_paths = [NodePath("../PathT1"), NodePath("../PathB1")]
+
+[node name="PathB1" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
+curve = SubResource("Curve2D_7btud")
+script = ExtResource("1_daq4a")
+child_paths = [NodePath("../PathMiddlePartUp"), NodePath("../PathB2")]
+
+[node name="PathT1" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
+curve = SubResource("Curve2D_k21tm")
+script = ExtResource("1_daq4a")
+child_paths = [NodePath("../PathMiddlePartDown"), NodePath("../PathT2")]
+
+[node name="PathMiddlePartUp" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
+curve = SubResource("Curve2D_rn12s")
+script = ExtResource("1_daq4a")
+child_paths = [NodePath("../PathT2")]
+
+[node name="PathMiddlePartDown" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
+curve = SubResource("Curve2D_j3lsm")
+script = ExtResource("1_daq4a")
+child_paths = [NodePath("../PathB2")]
+
+[node name="PathT2" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
+curve = SubResource("Curve2D_hh75t")
+script = ExtResource("1_daq4a")
+child_paths = [NodePath("../Final Path")]
+
+[node name="PathB2" type="Path2D" parent="." node_paths=PackedStringArray("child_paths")]
+curve = SubResource("Curve2D_dxc0q")
+script = ExtResource("1_daq4a")
+child_paths = [NodePath(".")]
 
 [node name="Final Path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_qb4w8")
 script = ExtResource("1_daq4a")
-
-[node name="Path2D5" type="Path2D" parent="."]
-curve = SubResource("Curve2D_hh75t")
-script = ExtResource("1_daq4a")
-
-[node name="Path2D3" type="Path2D" parent="."]
-curve = SubResource("Curve2D_xvpab")
-script = ExtResource("1_daq4a")
-
-[node name="Path2D4" type="Path2D" parent="."]
-curve = SubResource("Curve2D_rn12s")
-script = ExtResource("1_daq4a")
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_7btud")
-script = ExtResource("1_daq4a")
-
-[node name="Path2D2" type="Path2D" parent="."]
-curve = SubResource("Curve2D_k21tm")
-script = ExtResource("1_daq4a")
+is_ending_path = true
 
 [node name="Wave" parent="." instance=ExtResource("3_pm4jn")]
 
