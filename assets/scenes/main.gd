@@ -5,6 +5,7 @@ extends Node2D
 @onready var current_level_scene = null
 @onready var current_level_index = 0
 @onready var audio_player = %AudioStreamPlayer
+@onready var main_menu = %MainMenu
 
 
 const LEVELS = [
@@ -25,9 +26,11 @@ func _ready():
 	GameSignal.connect("game_restarted", _on_game_restarted)
 	GameSignal.connect("game_resumed", _on_game_resumed)
 	GameSignal.connect("game_quit", _on_game_quit)
+	GameSignal.connect("new_game", _on_new_game)
+	GameSignal.connect("game_to_main_menu", _on_game_to_main_menu)
+	main_menu.visible = false
 	load_current_level_scene()
 	get_new_background_song()
-	
 
 
 func _input(event):
@@ -35,10 +38,8 @@ func _input(event):
 		if GameState.is_game_over:
 			pass
 		elif GameState.is_paused:
-			print("game resumed via main input event")
 			GameSignal.emit_signal("game_resumed")
 		elif SummoningState.current_state == SummoningState.summoning_states.IDLE:
-			print("game paused via main input event")
 			GameSignal.emit_signal("game_paused")
 
 
@@ -58,7 +59,6 @@ func _on_game_quit():
 
 
 func _on_game_resumed():
-	print("resuming game from main")
 	get_tree().paused = false
 
 
@@ -67,6 +67,21 @@ func _on_game_restarted():
 	remove_current_level_scene()
 	load_current_level_scene()
 	get_new_background_song()
+
+
+func _on_game_to_main_menu():
+	if current_level_scene != null:
+		remove_current_level_scene()
+	get_tree().paused = false
+	main_menu.visible = true
+
+
+func _on_new_game():
+	if current_level_scene != null:
+		remove_current_level_scene()
+	get_tree().paused = false
+	main_menu.visible = false
+	load_current_level_scene()
 
 
 func load_current_level_scene():
@@ -79,9 +94,8 @@ func remove_current_level_scene():
 	current_level.remove_child(current_level_scene)
 	current_level_scene = null
 
+
 func get_new_background_song():
 	var song = BG_SONGS.pick_random()
-	print("playing song" + song)
-	
 	audio_player.stream = load(song)
 	audio_player.play()

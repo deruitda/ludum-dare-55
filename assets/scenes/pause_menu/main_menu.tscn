@@ -210,6 +210,7 @@ content_margin_bottom = 10.0
 bg_color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="MainMenu" type="Control"]
+top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,7 +228,7 @@ texture = ExtResource("2_j8fym")
 position = Vector2(12.8571, -8.85716)
 sprite_frames = SubResource("SpriteFrames_ip8pb")
 autoplay = "default"
-frame_progress = 0.179379
+frame_progress = 0.462264
 
 [node name="ContentWrapper" type="Control" parent="."]
 layout_mode = 1

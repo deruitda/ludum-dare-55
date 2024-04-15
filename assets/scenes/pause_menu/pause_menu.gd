@@ -36,3 +36,7 @@ func _input(event):
 		elif SummoningState.current_state == SummoningState.summoning_states.IDLE:
 			GameSignal.emit_signal("game_paused")
 		get_tree().get_root().set_input_as_handled()
+
+
+func _on_main_menu_button_pressed():
+	GameSignal.emit_signal("game_to_main_menu")
