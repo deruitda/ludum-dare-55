@@ -68,7 +68,6 @@ func get_summoning_monster_path_follow_2d():
 
 func _on_monster_summoned(_monster):
 	reset_state()
-	
 
 
 func _on_monster_summoned_canceled():
@@ -110,6 +109,3 @@ func _on_incantation_typing():
 func _on_incantation_stopped_typing():
 	is_incantation_typing = false
 	SummoningSignal.emit_signal("incantation_typing_updated")
-
-func _on_summoning_animation_finished():
-	set_state(summoning_states.IDLE)
