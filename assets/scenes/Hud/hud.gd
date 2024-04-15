@@ -17,11 +17,8 @@ func _ready():
 
 
 func updated_patron_survived_hud():
-	var remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive - GameState.souls_survived
-	if remaining_patrons_allowed_to_survive < 0:
-		remaining_patrons_allowed_to_survive = 0
-	health_bar.value = 100 * remaining_patrons_allowed_to_survive / _total_patrons_allowed_to_survive
-	health_bar_text.text = str(remaining_patrons_allowed_to_survive) + " Survivors Remaining"
+	health_bar.value = 100 * GameState.remaining_patrons_allowed_to_survive / GameState.total_patrons_allowed_to_survive
+	health_bar_text.text = str(GameState.remaining_patrons_allowed_to_survive) + " Survivors Remaining"
 
 
 func _on_souls_captured_updated():
