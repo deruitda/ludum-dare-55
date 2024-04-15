@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7voqrntsk1y5"]
+[gd_scene load_steps=7 format=3 uid="uid://7voqrntsk1y5"]
 
 [ext_resource type="Script" path="res://assets/scenes/pause_menu/pause_menu.gd" id="1_c7g0u"]
+[ext_resource type="Texture2D" uid="uid://bbif7ynjrwvx1" path="res://assets/sprites/misc/icons/play.png" id="2_g8mxy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p5mr1"]
 content_margin_bottom = 20.0
@@ -33,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -209.0
-offset_top = -183.0
-offset_right = 173.0
-offset_bottom = 264.0
+offset_left = -228.5
+offset_top = -275.5
+offset_right = 228.5
+offset_bottom = 275.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c7g0u")
@@ -50,28 +51,38 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.752941)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainPauseMenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = -34.5
-offset_right = 88.0
-offset_bottom = 34.5
+offset_left = -100.0
+offset_top = -214.5
+offset_right = 100.0
+offset_bottom = 214.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="MainPauseMenu"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_p5mr1")
 text = "Paused"
 label_settings = SubResource("LabelSettings_37238")
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="Resume" type="Button" parent="MainPauseMenu"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
+text = "Resume"
+icon = ExtResource("2_g8mxy")
+
+[node name="OptionsButton" type="Button" parent="MainPauseMenu"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 25
@@ -79,7 +90,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
 text = "Options"
 
-[node name="Restart" type="Button" parent="VBoxContainer"]
+[node name="Restart" type="Button" parent="MainPauseMenu"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 25
@@ -87,7 +98,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MainPauseMenu"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 25
@@ -95,9 +106,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
 text = "Quit"
 
-[node name="PauseMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="OptionsPauseMenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -214.5
+offset_right = 100.0
+offset_bottom = 214.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
 
-[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="Label" type="Label" parent="OptionsPauseMenu"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p5mr1")
+text = "Options"
+label_settings = SubResource("LabelSettings_37238")
+
+[node name="BackButton" type="Button" parent="OptionsPauseMenu"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
+text = "Back"
+
+[connection signal="pressed" from="MainPauseMenu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MainPauseMenu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainPauseMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionsPauseMenu/BackButton" to="." method="_on_back_button_pressed"]
