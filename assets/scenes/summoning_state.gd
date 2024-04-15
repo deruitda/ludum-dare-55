@@ -86,13 +86,15 @@ func set_state(state):
 
 func set_puzzle():
 	current_puzzle = summoning_monster.monster.get_random_puzzle()
+	print("text puzzle")
+	print(current_puzzle.text_puzzle)
 	SummoningSignal.emit_signal("puzzle_set")
 
 func lock_to_path():
 	return summoning_monster.monster.lock_to_path()
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and current_state != summoning_states.IDLE:
 		SummoningSignal.emit_signal("monster_summoned_canceled")
 
 func _on_incantation_typing():
