@@ -456,7 +456,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgelr"]
 size = Vector2(153.125, 284.375)
 
-[node name="Human" type="PathFollow2D"]
+[node name="Human2DFollow" type="PathFollow2D"]
 script = ExtResource("1_w1l26")
 
 [node name="Patron" type="Node2D" parent="."]
@@ -483,3 +483,4 @@ stream = ExtResource("13_he2bs")
 
 [connection signal="area_entered" from="Patron/PathFollowArea2D" to="Patron" method="_on_path_follow_area_2d_area_entered"]
 [connection signal="animation_finished" from="Patron/PathFollowArea2D/AnimatedSprite2D" to="Patron" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="finished" from="Patron/DeathSound" to="Patron" method="_on_death_sound_finished"]
