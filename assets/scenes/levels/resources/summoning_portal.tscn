@@ -301,6 +301,7 @@ animations = [{
 
 [node name="SummoningPortal" type="Area2D"]
 script = ExtResource("1_qvsdh")
+direction_line_length = 100.0
 
 [node name="DirectionLine" type="Line2D" parent="."]
 z_index = 1
