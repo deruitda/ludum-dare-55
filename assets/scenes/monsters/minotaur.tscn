@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_kaxpw"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/minotaur.gd" id="2_s4v6o"]
-[ext_resource type="JSON" path="res://assets/scenes/monsters/puzzles/puzzle_sets/test_puzzles.tres" id="3_7t1dh"]
+[ext_resource type="JSON" uid="uid://b8oxltvgfyqod" path="res://assets/scenes/monsters/puzzles/puzzle_sets/test_puzzles.tres" id="3_7t1dh"]
 [ext_resource type="Texture2D" uid="uid://cayht5fw1aeb2" path="res://assets/sprites/monsters/minotaur/minotaur-sheet.png" id="4_rlsut"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="4_x5j5r"]
 [ext_resource type="Texture2D" uid="uid://bjv4ehp8jeh6q" path="res://assets/sprites/monsters/minotaur/minotaur-summon.png" id="6_pndp1"]

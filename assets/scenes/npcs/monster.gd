@@ -20,7 +20,10 @@ const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 
 @onready var puzzle_objects: Array = []
 
+@onready var puzzle_container: Node = Node.new()
+
 func _ready():
+	add_child(puzzle_container)
 	setup_puzzle_objects()
 	add_puzzles()
 
@@ -33,7 +36,8 @@ func _physics_process(delta):
 	pass
 
 func get_random_puzzle():
-	return puzzles.pick_random()
+	if puzzle_container:
+		return puzzle_container.get_children().pick_random()
 
 func get_capacity_to_consume_souls() -> int:
 	print("Soul capacity: ", str(_max_souls_to_consume - _number_of_souls_captured))
@@ -73,8 +77,9 @@ func add_puzzle(puzzle: String, regex_answers: Array):
 	puzzle_node.text_puzzle = puzzle
 	for regex_answer in regex_answers:
 		puzzle_node.regex_answers.append(regex_answer)
-	get_tree().root.add_child(puzzle_node)
-	puzzles.append(puzzle_node)
+	if puzzle_container:
+		puzzle_container.add_child(puzzle_node)
+		
 
 func add_puzzles():
 	for puzzle in puzzle_objects:
