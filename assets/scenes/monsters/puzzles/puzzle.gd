@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var text_puzzle: String = ""
-@onready var regex_answers: Array[String] = [] 
+@onready var text_puzzle: String
+@onready var regex_answers: Array[String]
 
 func does_answer_solve_puzzle(potential_answer: String) -> bool:
 	return check_answer(potential_answer)
