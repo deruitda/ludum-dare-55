@@ -23,10 +23,14 @@ func _ready():
 func get_current_wave():
 	return get_children()[current_wave_index]
 
-func start_waves(wave_number: int = 1):
+func start_waves():
 	reset_state()
-	get_current_wave().start_wave()
+	start_wave()
 	total_number_of_patrons += get_current_wave().get_number_of_patrons()
+	
+func start_wave():
+	get_current_wave().start_wave((GameState.get_current_wave() - 1) * wave_intensity_percentage_increase)
+	
 func reset_state():
 	current_wave_index = 0
 	waves_complete = false
@@ -40,7 +44,7 @@ func add_patron(patron):
 func _on_wave_complete():
 	current_wave_index += 1
 	if current_wave_index < get_child_count():
-		get_current_wave().start_wave()
+		start_wave()
 	elif waves_complete == false:
 		waves_complete = true
 		print ('waves completed patron spawning')
@@ -49,3 +53,7 @@ func check_wave_complete_status():
 	if waves_complete and GameState.souls_captured + GameState.souls_survived == number_of_souls_captured_at_wave_start + number_of_souls_survived_at_wave_start + total_number_of_patrons:
 		emit_signal("wave_complete")
 
+
+
+func _on_wave_wave_complete():
+	pass # Replace with function body.

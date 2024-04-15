@@ -25,5 +25,6 @@ func _process(delta):
 	
 func _on_wave_container_wave_complete():
 	GameState.increment_wave()
-	wave_container.start_waves(GameState.get_current_wave())
+	wave_container.start_waves()
 	print('wave ' + str(GameState.get_current_wave()))
+
