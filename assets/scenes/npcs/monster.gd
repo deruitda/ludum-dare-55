@@ -28,9 +28,7 @@ const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 @onready var puzzle_container: Node = Node.new()
 
 func _ready():
-	add_child(puzzle_container)
-	setup_puzzle_objects()
-	add_puzzles()
+	setup_puzzles()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -46,6 +44,13 @@ func _physics_process(delta):
 func set_summoned():
 	is_summoned = true
 	
+func setup_puzzles():
+	add_child(puzzle_container)
+	if GameState.get_is_testing():
+		add_puzzle("press a", ["^a$"])
+	else:
+		setup_puzzle_objects()
+		add_puzzles()
 
 func get_random_puzzle():
 	if puzzle_container:

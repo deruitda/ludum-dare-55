@@ -7,7 +7,7 @@ var souls_survived: int = 0 # If too many souls survive then it's game over
 var remaining_patrons_allowed_to_survive: int
 var is_paused: bool = false
 var is_game_over: bool = false
-
+var is_testing: bool = false
 
 func _ready():
 	SurviveSignal.connect("patron_survived", on_patron_survived)
@@ -57,3 +57,9 @@ func _on_game_paused():
 func _on_game_resumed():
 	is_paused = false
 	GameSignal.emit_signal("game_paused_updated")
+
+func set_is_testing(_is_testing: bool	):
+	is_testing = _is_testing
+
+func get_is_testing()->bool:
+	return is_testing
