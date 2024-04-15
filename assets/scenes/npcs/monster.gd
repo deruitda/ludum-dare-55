@@ -11,10 +11,12 @@ extends Node2D
 @onready var _number_of_souls_captured: int = 0
 @onready var area_2d = $Area2D
 
-@onready var monster_animation = %MonsterAnimation
+@onready var monster_animation = $Area2D/MonsterAnimation
 
 @export var lock_to_path: bool = false
 @export var choose_direction: bool = false
+
+@onready var is_summoned: bool
 
 const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 
@@ -31,9 +33,15 @@ func _ready():
 func _process(delta):
 	if _number_of_souls_captured == _max_souls_to_consume:
 		desummon()
+	if is_summoned:
+		is_summoned = false
+		monster_animation.play("summoning")
 
 func _physics_process(delta):
 	pass
+
+func set_summoned():
+	is_summoned = true
 
 func get_random_puzzle():
 	if puzzle_container:
