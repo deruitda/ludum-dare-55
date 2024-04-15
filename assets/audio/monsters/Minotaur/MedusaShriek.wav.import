@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d3eq8fcmihaf6"
-path="res://.godot/imported/MedusaShriek.wav-336505587d343bfb82c922cea28b03ad.sample"
+path="res://.godot/imported/MedusaShriek.wav-4c543f75e79e3e37ea0a0523d4c6fe34.sample"
 
 [deps]
 
-source_file="res://assets/audio/monsters/MedusaShriek.wav"
-dest_files=["res://.godot/imported/MedusaShriek.wav-336505587d343bfb82c922cea28b03ad.sample"]
+source_file="res://assets/audio/monsters/Minotaur/MedusaShriek.wav"
+dest_files=["res://.godot/imported/MedusaShriek.wav-4c543f75e79e3e37ea0a0523d4c6fe34.sample"]
 
 [params]
 
