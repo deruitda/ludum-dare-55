@@ -7,6 +7,8 @@ extends Node2D
 @onready var audio_player = %AudioStreamPlayer
 @onready var main_menu = %MainMenu
 
+@export var is_testing: bool = false
+
 
 const LEVELS = [
 	"res://assets/scenes/levels/level_1.tscn"
@@ -28,6 +30,7 @@ func _ready():
 	GameSignal.connect("game_quit", _on_game_quit)
 	GameSignal.connect("new_game", _on_new_game)
 	GameSignal.connect("game_to_main_menu", _on_game_to_main_menu)
+	GameState.set_is_testing(is_testing)
 	get_new_background_song()
 
 

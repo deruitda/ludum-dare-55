@@ -129,7 +129,7 @@ is_ending_path = true
 [node name="WaveContainer" type="Node2D" parent="."]
 script = ExtResource("6_iy6oq")
 
-[node name="Wave2" parent="WaveContainer" instance=ExtResource("3_pm4jn")]
+[node name="Wave" parent="WaveContainer" instance=ExtResource("3_pm4jn")]
 number_or_patrons_per_second = 1.0
 total_wave_length_in_seconds = 60
 

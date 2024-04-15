@@ -20,6 +20,7 @@ extends Node2D
 @export var choose_direction: bool = false
 
 @onready var is_summoned: bool
+@onready var is_desummoning: bool = false
 
 const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 
@@ -28,16 +29,16 @@ const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 @onready var puzzle_container: Node = Node.new()
 
 func _ready():
-	add_child(puzzle_container)
-	setup_puzzle_objects()
-	add_puzzles()
+	setup_puzzles()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if _number_of_souls_captured == _max_souls_to_consume:
+	if _number_of_souls_captured == _max_souls_to_consume and is_desummoning == false:
+		is_desummoning = true
 		desummon()
 	if is_summoned:
 		is_summoned = false
+		summon()
 		monster_animation.play("summoning")
 		
 func _physics_process(delta):
@@ -46,6 +47,13 @@ func _physics_process(delta):
 func set_summoned():
 	is_summoned = true
 	
+func setup_puzzles():
+	add_child(puzzle_container)
+	if GameState.get_is_testing():
+		add_puzzle("press a", ["^a$"])
+	else:
+		setup_puzzle_objects()
+		add_puzzles()
 
 func get_random_puzzle():
 	if puzzle_container:
@@ -69,7 +77,7 @@ func attack(patron: Node2D):
 
 func desummon():
 	monster_animation.play("desummoning")
-
+	
 func summon():
 	monster_animation.play("summoning")
 
@@ -102,6 +110,7 @@ func add_puzzles():
 
 func _on_summoning_animation_finished():
 	monster_animation.play("idle")
+	SummoningSignal.emit_signal("summoning_animation_finished")
 
 func _on_animated_sprite_2d_animation_finished():
 	if monster_animation.animation == "summoning":

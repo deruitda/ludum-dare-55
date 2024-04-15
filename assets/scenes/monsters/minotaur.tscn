@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_kaxpw"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/minotaur.gd" id="2_s4v6o"]
-[ext_resource type="JSON" uid="uid://b8oxltvgfyqod" path="res://assets/scenes/monsters/puzzles/puzzle_sets/test_puzzles.tres" id="3_7t1dh"]
+[ext_resource type="JSON" uid="uid://ck6qps3ymmnit" path="res://assets/scenes/monsters/puzzles/puzzle_sets/latin_chants.tres" id="3_xw24p"]
 [ext_resource type="Texture2D" uid="uid://cayht5fw1aeb2" path="res://assets/sprites/monsters/minotaur/minotaur-sheet.png" id="4_rlsut"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="4_x5j5r"]
 [ext_resource type="Texture2D" uid="uid://bjv4ehp8jeh6q" path="res://assets/sprites/monsters/minotaur/minotaur-summon.png" id="6_pndp1"]
-[ext_resource type="AudioStream" uid="uid://d0vmkxi0h6tyd" path="res://assets/audio/monsters/Minotaur/MinotaurCharge1.wav" id="7_ed5pa"]
+[ext_resource type="AudioStream" uid="uid://coe76rqfit10h" path="res://assets/audio/monsters/Minotaur/MinotaurCharge2.wav" id="7_1vr31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
-size = Vector2(82, 70)
+size = Vector2(82, 71)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_akfyy"]
 atlas = ExtResource("4_rlsut")
@@ -1056,14 +1056,14 @@ monster_name = "minotaur"
 _speed = 500.0
 soul_cost = 3
 _max_souls_to_consume = 40
-puzzle_sets = Array[Resource]([ExtResource("3_7t1dh")])
+puzzle_sets = Array[Resource]([ExtResource("3_xw24p")])
 choose_direction = true
 
 [node name="Area2D" type="Area2D" parent="Monster"]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monster/Area2D"]
-position = Vector2(15, 28)
+position = Vector2(19, -5.5)
 shape = SubResource("RectangleShape2D_f4ngn")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
@@ -1071,10 +1071,9 @@ position = Vector2(4, -34)
 sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"charging"
 autoplay = "idle"
+frame_progress = 0.464583
 
-[node name="ChargingUpAudio" type="AudioStreamPlayer" parent="Monster/Area2D/MonsterAnimation"]
-stream = ExtResource("7_ed5pa")
-
-[node name="RunningAudio" type="AudioStreamPlayer" parent="Monster/Area2D/MonsterAnimation"]
+[node name="ChargingAudio" type="AudioStreamPlayer" parent="Monster/Area2D/MonsterAnimation"]
+stream = ExtResource("7_1vr31")
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]

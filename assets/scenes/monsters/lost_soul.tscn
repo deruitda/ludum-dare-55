@@ -1,12 +1,14 @@
-[gd_scene load_steps=106 format=3 uid="uid://ca4732islbtvc"]
+[gd_scene load_steps=108 format=3 uid="uid://ca4732islbtvc"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_ivoc6"]
-[ext_resource type="Script" path="res://assets/scenes/npcs/monster.gd" id="2_4fnxo"]
+[ext_resource type="Script" path="res://assets/scenes/monsters/lost_soul.gd" id="2_pa6o1"]
 [ext_resource type="JSON" uid="uid://dt4auw148x7ab" path="res://assets/scenes/monsters/puzzles/puzzle_sets/command_word_puzzles.tres" id="3_0kkoh"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="3_gicdn"]
 [ext_resource type="JSON" uid="uid://dnw8ao1paiqt7" path="res://assets/scenes/monsters/puzzles/puzzle_sets/short_summoning_incantations.tres" id="4_u1cv0"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="4_v8hgv"]
 [ext_resource type="Texture2D" uid="uid://b1fae8clewxqw" path="res://assets/sprites/monsters/lost-soul/lost-soul-summon.png" id="5_vn2jl"]
+[ext_resource type="AudioStream" uid="uid://b71o1gl4t1sdt" path="res://assets/audio/monsters/LostSoul/LostSoulSummon.wav" id="8_d77ks"]
+[ext_resource type="AudioStream" uid="uid://yl7yyr80ivv5" path="res://assets/audio/monsters/LostSoul/LostSoulDeSummon.wav" id="9_e4qqd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
 size = Vector2(49, 59)
@@ -705,9 +707,7 @@ animations = [{
 script = ExtResource("1_ivoc6")
 
 [node name="Monster" type="Node2D" parent="."]
-script = ExtResource("2_4fnxo")
-monster_name = "Lost Soul"
-_visual_resource = ExtResource("4_u1cv0")
+script = ExtResource("2_pa6o1")
 puzzle_sets = Array[Resource]([ExtResource("4_u1cv0"), ExtResource("3_0kkoh")])
 lock_to_path = true
 
@@ -722,5 +722,11 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="SummoningSound" type="AudioStreamPlayer" parent="Monster"]
+stream = ExtResource("8_d77ks")
+
+[node name="DesummoningSound" type="AudioStreamPlayer" parent="Monster"]
+stream = ExtResource("9_e4qqd")
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]

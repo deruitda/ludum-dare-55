@@ -6,16 +6,18 @@ extends Area2D
 @onready var free_moving_monsters = $"../FreeMovingMonsters"
 @onready var direction_line = $DirectionLine
 
+@onready var portal_sustained_audio = $PortalSustainedAudio
+
 @export var direction_line_length: float = 1000000.0
 @export var threshold_length: float = 100.0
 
 @onready var mouse_is_over_threshold = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
 	SummoningSignal.connect("state_changed", _on_summoning_state_changed)
-	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
 
 func set_summoning_position(summon_monster_position):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
@@ -33,7 +35,6 @@ func set_summoning_position(summon_monster_position):
 			mouse_is_over_threshold = false
 			show_portal()
 			position = summon_monster_position
-
 	
 func show_portal():
 	visible = true 
@@ -52,6 +53,7 @@ func _on_summoning_state_changed(state):
 		hide_portal()
 		hide_line()
 		portal_animation.stop()
+		portal_sustained_audio.stop()
 	elif state == SummoningState.summoning_states.CHOOSING_LOCATION:
 		show_portal()
 		hide_line()
@@ -59,12 +61,16 @@ func _on_summoning_state_changed(state):
 	elif state == SummoningState.summoning_states.CHOOSING_DIRECTION:
 		show_portal()
 		show_line()
-	elif state == SummoningState.summoning_states.SUMMONING:
+	elif state == SummoningState.summoning_states.SAYING_INCANTATION:
 		show_portal()
 		portal_animation.play("active")
+		portal_sustained_audio.play()
 
-func _on_puzzle_solved():
-	summon_monster()
+	elif state == SummoningState.summoning_states.SUMMONING:
+		hide_portal()
+		hide_line()
+		summon_monster()
+
 
 func get_monster():
 	return get_summoning_monster_path_follow_2d().get_monster()
@@ -98,22 +104,33 @@ func set_direction_line_position(mouse_position: Vector2):
 	var normalized_direction = (mouse_position - position).normalized()
 	direction_line.set_point_position(1, (normalized_direction * direction_line_length))
 
+func is_choosing_location():
+	return SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION
+
+func is_choosing_direction():
+	return SummoningState.current_state == SummoningState.summoning_states.CHOOSING_DIRECTION
+
 func _input(event):
 	var is_event_mouse_button_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 	var is_event_mouse_motion = event is InputEventMouseMotion
-	var is_choosing_location = SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION
-	var is_choosing_direction = SummoningState.current_state == SummoningState.summoning_states.CHOOSING_DIRECTION
 
 	if !is_event_mouse_button_click and !is_event_mouse_motion:
 		return 
 	
-	if is_choosing_location:
+	if is_choosing_location():
 		set_summoning_position(event.position)
 		if is_event_mouse_button_click and (mouse_is_over_threshold == false or get_monster().lock_to_path == false):
 			SummoningSignal.emit_signal("location_selected")
 	
 	
-	if is_choosing_direction:
+	elif is_choosing_direction():
 		set_direction_line_position(event.position)
 		if event is InputEventMouseButton:
 			SummoningSignal.emit_signal("direction_selected")
+
+
+
+func _on_portal_animation_animation_changed():
+	if portal_animation and portal_animation.animation == "active":
+		portal_sustained_audio.play()
+		
