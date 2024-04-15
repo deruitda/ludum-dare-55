@@ -1,10 +1,12 @@
 extends "res://assets/scenes/npcs/monster.gd"
 @onready var attack_node = $AttackNode
+@onready var radius_sprite = $Area2D/radius
 @export var stun_percentage: float = 80.0
 @export var stun_duration_in_seconds: float = 5.0
 
 func _on_summoning_animation_finished():
 	super()
+	radius_sprite.visible = false
 	attack_node.start_attacking()
 
 func _on_attack_node_attack():

@@ -10,7 +10,7 @@ signal area_entered(area)
 
 @onready var attack_timer = $AttackTimer
 @onready var attack_cooldown_timer = $AttackCooldownTimer
-
+@onready var anim = $AnimatedSprite2D
 @onready var currently_attacking: bool = false
 @onready var can_attack: bool = false
 
@@ -26,6 +26,7 @@ func start_attacking():
 
 func make_attack():
 	attack_timer.start(attack_time_in_seconds)
+	anim.play("attack")
 	attack.emit()
 	
 func revoke_attack():
@@ -35,6 +36,7 @@ func revoke_attack():
 
 func _on_attack_timer_timeout():
 	attack_timer.stop()
+	anim.play("nothing")
 	revoke_attack()
 
 func _on_attack_cooldown_timer_timeout():
