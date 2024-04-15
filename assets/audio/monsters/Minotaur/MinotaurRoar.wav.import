@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5c56iey523m4"
-path="res://.godot/imported/MinotaurRoar.wav-e2cd70c9a70c1f3939bc1fabe49d058f.sample"
+path="res://.godot/imported/MinotaurRoar.wav-2d8db22d632b713366f4028b3408b31f.sample"
 
 [deps]
 
-source_file="res://assets/audio/monsters/MinotaurRoar.wav"
-dest_files=["res://.godot/imported/MinotaurRoar.wav-e2cd70c9a70c1f3939bc1fabe49d058f.sample"]
+source_file="res://assets/audio/monsters/Minotaur/MinotaurRoar.wav"
+dest_files=["res://.godot/imported/MinotaurRoar.wav-2d8db22d632b713366f4028b3408b31f.sample"]
 
 [params]
 

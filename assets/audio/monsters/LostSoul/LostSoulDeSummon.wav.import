@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://yl7yyr80ivv5"
-path="res://.godot/imported/LostSoulDeSummon.wav-11f1087189e245030c5c1af13d9b383e.sample"
+path="res://.godot/imported/LostSoulDeSummon.wav-d71be9fbbd9de2d7fe7224a0a92ef7ea.sample"
 
 [deps]
 
-source_file="res://assets/audio/monsters/LostSoulDeSummon.wav"
-dest_files=["res://.godot/imported/LostSoulDeSummon.wav-11f1087189e245030c5c1af13d9b383e.sample"]
+source_file="res://assets/audio/monsters/LostSoul/LostSoulDeSummon.wav"
+dest_files=["res://.godot/imported/LostSoulDeSummon.wav-d71be9fbbd9de2d7fe7224a0a92ef7ea.sample"]
 
 [params]
 

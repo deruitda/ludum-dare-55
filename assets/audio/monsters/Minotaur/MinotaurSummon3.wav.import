@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b2hmou6xap47a"
-path="res://.godot/imported/MinotaurSummon3.wav-9177c38db5fbe793cf98eb66d2117eb1.sample"
+path="res://.godot/imported/MinotaurSummon3.wav-93e172bd9c58ee783024e6e8b049f1db.sample"
 
 [deps]
 
-source_file="res://assets/audio/monsters/MinotaurSummon3.wav"
-dest_files=["res://.godot/imported/MinotaurSummon3.wav-9177c38db5fbe793cf98eb66d2117eb1.sample"]
+source_file="res://assets/audio/monsters/Minotaur/MinotaurSummon3.wav"
+dest_files=["res://.godot/imported/MinotaurSummon3.wav-93e172bd9c58ee783024e6e8b049f1db.sample"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://d4atuwv08cufi"]
+[gd_scene load_steps=142 format=3 uid="uid://d4atuwv08cufi"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_kaxpw"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/minotaur.gd" id="2_s4v6o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cayht5fw1aeb2" path="res://assets/sprites/monsters/minotaur/minotaur-sheet.png" id="4_rlsut"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="4_x5j5r"]
 [ext_resource type="Texture2D" uid="uid://bjv4ehp8jeh6q" path="res://assets/sprites/monsters/minotaur/minotaur-summon.png" id="6_pndp1"]
+[ext_resource type="AudioStream" uid="uid://d0vmkxi0h6tyd" path="res://assets/audio/monsters/Minotaur/MinotaurCharge1.wav" id="7_ed5pa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
 size = Vector2(82, 70)
@@ -979,5 +980,11 @@ shape = SubResource("RectangleShape2D_f4ngn")
 sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"charging_up"
 autoplay = "summoning"
+frame_progress = 0.0814886
+
+[node name="ChargingUpAudio" type="AudioStreamPlayer" parent="Monster/Area2D/MonsterAnimation"]
+stream = ExtResource("7_ed5pa")
+
+[node name="RunningAudio" type="AudioStreamPlayer" parent="Monster/Area2D/MonsterAnimation"]
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]

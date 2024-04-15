@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d0vmkxi0h6tyd"
-path="res://.godot/imported/MinotaurCharge1.wav-d614773cabfa416944b74d135cbb3073.sample"
+path="res://.godot/imported/MinotaurCharge1.wav-05cc495e705aa70eab64a4db692070a5.sample"
 
 [deps]
 
-source_file="res://assets/audio/monsters/MinotaurCharge1.wav"
-dest_files=["res://.godot/imported/MinotaurCharge1.wav-d614773cabfa416944b74d135cbb3073.sample"]
+source_file="res://assets/audio/monsters/Minotaur/MinotaurCharge1.wav"
+dest_files=["res://.godot/imported/MinotaurCharge1.wav-05cc495e705aa70eab64a4db692070a5.sample"]
 
 [params]
 
