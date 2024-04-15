@@ -28,7 +28,6 @@ func _ready():
 	add_child(puzzle_container)
 	setup_puzzle_objects()
 	add_puzzles()
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if _number_of_souls_captured == _max_souls_to_consume:
@@ -36,12 +35,13 @@ func _process(delta):
 	if is_summoned:
 		is_summoned = false
 		monster_animation.play("summoning")
-
+		
 func _physics_process(delta):
 	pass
 
 func set_summoned():
 	is_summoned = true
+	
 
 func get_random_puzzle():
 	if puzzle_container:
