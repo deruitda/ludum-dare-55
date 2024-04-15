@@ -3,11 +3,14 @@ extends Node
 var souls_captured: int = 0 # Total number of souls captured throughout level
 var souls_to_spend: int = 0 # Number of souls able to spend on summoning monsters
 var souls_survived: int = 0 # If too many souls survive then it's game over
+var is_paused: bool = false
 
 
 func _ready():
 	SurviveSignal.connect("patron_survived", on_patron_survived)
 	SoulsCapturedSignal.connect("souls_captured", on_souls_captured)
+	GameSignal.connect("game_paused", _on_game_paused)
+	GameSignal.connect("game_resumed", _on_game_resumed)
 	
 
 func _process(delta):
@@ -35,3 +38,11 @@ func reset_souls():
 	souls_to_spend = 0
 
 
+func _on_game_paused():
+	print("Game state game is paused")
+	is_paused = true
+	GameSignal.emit_signal("game_paused_updated")
+	
+func _on_game_resumed():
+	is_paused = false
+	GameSignal.emit_signal("game_paused_updated")

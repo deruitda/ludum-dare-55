@@ -3,6 +3,7 @@ extends Control
 @onready var health_bar = %HealthBar
 @onready var health_bar_text = %PatronsSurvivedLabel
 @onready var souls_text = %Souls
+@onready var pause_button = %PauseButton
 
 @export var _total_patrons_allowed_to_survive = 100
 
@@ -22,3 +23,7 @@ func updated_patron_survived_hud():
 func _on_souls_captured_updated():
 	souls_text.text = str(GameState.souls_captured)
 	
+
+func _on_pause_button_pressed():
+	print("Game Paused")
+	GameSignal.emit_signal("game_paused")
