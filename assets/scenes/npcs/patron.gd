@@ -10,12 +10,16 @@ extends Node2D
 @onready var animated_sprite_2d = $PathFollowArea2D/AnimatedSprite2D
 @onready var death_sound = $DeathSound
 
+@onready var death_animation_finished: bool = false
+@onready var death_sound_finished: bool = false
+
+@onready var death_sound_container = $DeathSoundContainer
+
 func _ready():
 	health = _total_health
 	
 func _process(delta):
 	if health <= 0 and currently_dying == false:
-		#pass
 		trigger_death()
 
 func _on_path_follow_area_2d_area_entered(monster_area):
@@ -32,20 +36,21 @@ func capture_souls(souls_to_capture: int)-> int:
 	return total_damage
 
 func trigger_death():
-	print('trigger death')
+	death_sound.stream = death_sound_container.get_random_stream()
 	death_sound.play()
 	currently_dying = true
 	animated_sprite_2d.play("dying")
 	
 
 func destroy():
-	get_parent().queue_free()
+	if death_sound_finished and death_animation_finished:
+		get_parent().queue_free()
 	
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite_2d.animation == "dying":
+		death_animation_finished = true
 		destroy()
 
-
-
 func _on_death_sound_finished():
-	print('hi')
+	death_sound_finished = true
+	destroy()
