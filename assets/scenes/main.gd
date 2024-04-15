@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var current_level = $CurrentLevel
+@onready var current_level = %CurrentLevel
+@onready var pause_menu = %PauseMenu
 
 @onready var current_level_index = 0
 @onready var status = "playing"
@@ -8,9 +9,10 @@ extends Node2D
 
 const LEVELS = [
 	"res://assets/scenes/levels/level_1.tscn"
-	
 ]
+
 func _ready():
+	GameSignal.connect("game_paused_updated", _on_game_paused_updated)
 	var scene = load(LEVELS[current_level_index]).instantiate()
 	current_level.add_child(scene)
 	
@@ -20,3 +22,16 @@ func _process(delta):
 
 func gameOver():
 	status = "gameOver"
+	
+func _on_game_paused_updated():
+	print("game paused updated: " + str(GameState.is_paused))
+	if GameState.is_paused:
+		get_tree().paused = true
+		pause_menu.visible = true
+	else:
+		get_tree().paused = false
+		pause_menu.visible = false
+
+
+func _on_play_button_pressed():
+	GameSignal.emit_signal("game_resumed")
