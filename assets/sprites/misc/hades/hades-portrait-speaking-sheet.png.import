@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx673co7aex2k"
-path="res://.godot/imported/hades-portrait-speaking-sheet.png-c1efe5d5de84f0819062e953a7617dd9.ctex"
+path="res://.godot/imported/hades-portrait-speaking-sheet.png-6d89817a92d9616f6e066ea1719cb777.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/misc/hades-portrait-speaking-sheet.png"
-dest_files=["res://.godot/imported/hades-portrait-speaking-sheet.png-c1efe5d5de84f0819062e953a7617dd9.ctex"]
+source_file="res://assets/sprites/misc/hades/hades-portrait-speaking-sheet.png"
+dest_files=["res://.godot/imported/hades-portrait-speaking-sheet.png-6d89817a92d9616f6e066ea1719cb777.ctex"]
 
 [params]
 
