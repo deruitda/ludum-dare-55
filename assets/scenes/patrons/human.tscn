@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/scenes/npcs/patron.gd" id="1_4angd"]
 [ext_resource type="Script" path="res://assets/scenes/map/patron_2d_follow.gd" id="1_w1l26"]
 [ext_resource type="Texture2D" uid="uid://udyxx48g37tl" path="res://assets/sprites/patrons/human/human-death-sheet.png" id="2_6t2gb"]
-[ext_resource type="Texture2D" uid="uid://dtibq7a8ntui5" path="res://assets/sprites/patrons/human/human-bald-light-run.png" id="3_ughat"]
+[ext_resource type="Texture2D" uid="uid://2rg5kyyg06p4" path="res://assets/sprites/patrons/human/human-bald-light-run.png" id="3_ughat"]
 [ext_resource type="AudioStream" uid="uid://nswmmlq0ysal" path="res://assets/audio/patrons/HumanDeath1.wav" id="6_17koo"]
 [ext_resource type="Script" path="res://assets/scenes/npcs/sound_container.gd" id="6_twbmu"]
 [ext_resource type="AudioStream" uid="uid://dpyxg1hrh45pu" path="res://assets/audio/patrons/HumanDeath2.wav" id="7_i8a0c"]
