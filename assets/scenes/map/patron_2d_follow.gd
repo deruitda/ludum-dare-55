@@ -5,6 +5,7 @@ extends PathFollow2D
 @onready var human = $Human
 
 func _ready():
+	
 	loop = false
 
 func _physics_process(delta):

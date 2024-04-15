@@ -7,6 +7,8 @@ func set_running_direction(direction: Vector2):
 	running_direction = direction
 
 func _on_summoning_animation_finished():
+	if running_direction.x < 0:
+		monster_animation.flip_h = true
 	monster_animation.play("charging_up")
 
 func _on_charging_up_animation_finished():

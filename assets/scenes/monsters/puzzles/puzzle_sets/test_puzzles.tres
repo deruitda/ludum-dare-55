@@ -1,4 +1,7 @@
 [gd_resource type="JSON" format=3 uid="uid://b8oxltvgfyqod"]
 
 [resource]
-data = []
+data = [{
+"regex_answers": ["^a$"],
+"text_puzzle": "Say the word 'a'"
+}]
