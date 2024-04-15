@@ -99,3 +99,7 @@ func get_new_background_song():
 	var song = BG_SONGS.pick_random()
 	audio_player.stream = load(song)
 	audio_player.play()
+
+
+func _on_audio_stream_player_finished():
+	get_new_background_song()
