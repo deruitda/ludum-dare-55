@@ -21,3 +21,9 @@ layout_mode = 2
 monster = NodePath("../LostSoulButton/LostSoul")
 
 [node name="MinotaurPathFollow2D" parent="MinotaurButton" instance=ExtResource("3_v0pvs")]
+position = Vector2(32, 65)
+scale = Vector2(0.8, 0.8)
+
+[node name="Harpy" parent="." node_paths=PackedStringArray("monster") instance=ExtResource("1_r70cb")]
+layout_mode = 2
+monster = NodePath("../LostSoulButton/LostSoul")

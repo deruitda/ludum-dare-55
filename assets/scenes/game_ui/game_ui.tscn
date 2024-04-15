@@ -28,10 +28,10 @@ layout_mode = 1
 [node name="MonsterCards" parent="." instance=ExtResource("2_kysjw")]
 top_level = true
 layout_mode = 2
-offset_left = 1728.0
-offset_top = 731.0
-offset_right = 1792.0
-offset_bottom = 859.0
+offset_left = 1404.0
+offset_top = 743.0
+offset_right = 1604.0
+offset_bottom = 871.0
 scale = Vector2(2.5, 2.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
