@@ -35,7 +35,7 @@ anchor_bottom = 1.0
 offset_top = -413.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 0.498039)
+color = Color(0.180392, 0.180392, 0.180392, 1)
 
 [node name="HUD" parent="." instance=ExtResource("1_fnaej")]
 top_level = true
