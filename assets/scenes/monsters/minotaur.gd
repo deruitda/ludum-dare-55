@@ -14,16 +14,16 @@ func _on_summoning_animation_finished():
 
 func charge_up():
 	monster_animation.play("charging_up")
-	charging_up_audio.play()
+	#charging_up_audio.play()
 
 func _on_charging_up_animation_finished():
 	monster_animation.play("idle")
 	is_running = true
 
 func _on_animated_sprite_2d_animation_finished():
-	super()
 	if monster_animation.animation == "charging_up":
 		_on_charging_up_animation_finished()
+	super()
 
 func _physics_process(delta):
 	super(delta)
