@@ -10,6 +10,8 @@ var is_paused: bool = false
 var is_game_over: bool = false
 var is_testing: bool = false
 
+var current_wave: int = 1
+
 func _ready():
 	SurviveSignal.connect("patron_survived", on_patron_survived)
 	SoulsCapturedSignal.connect("souls_captured", on_souls_captured)
@@ -62,7 +64,18 @@ func _on_game_paused():
 func _on_game_restarted():
 	is_paused = false
 	reset_souls()
+	set_wave(1)
+
+func get_current_wave()->int:
+	return current_wave
+
+func increment_wave():
+	set_wave(current_wave + 1)
 	
+func set_wave(_wave: int):
+	current_wave = _wave
+	GameSignal.emit_signal("wave_updated", current_wave)
+
 func _on_game_resumed():
 	is_paused = false
 	GameSignal.emit_signal("game_paused_updated")
