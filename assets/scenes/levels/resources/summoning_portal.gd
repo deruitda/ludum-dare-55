@@ -7,6 +7,9 @@ extends Area2D
 @onready var direction_line = $DirectionLine
 
 @export var direction_line_length: float = 1000000.0
+@export var threshold_length: float = 100.0
+
+@onready var mouse_is_over_threshold = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,9 +21,18 @@ func set_summoning_position(summon_monster_position):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
 		var monster = get_monster()
 		if monster.lock_to_path:
-			position = paths_container.get_closest_position_on_path(summon_monster_position)
+			var potential_path_position = paths_container.get_closest_position_on_path(summon_monster_position)
+			if summon_monster_position.distance_to(potential_path_position) > threshold_length:
+				mouse_is_over_threshold = true
+				hide_portal()
+			else:
+				mouse_is_over_threshold = false
+				position = potential_path_position
+				show_portal()
 		else:
-			position = summon_monster_position		
+			mouse_is_over_threshold = false
+			show_portal()
+			position = summon_monster_position
 
 	
 func show_portal():
@@ -94,7 +106,7 @@ func _input(event):
 	
 	if is_choosing_location:
 		set_summoning_position(event.position)
-		if is_event_mouse_button_click:
+		if is_event_mouse_button_click and (mouse_is_over_threshold == false or get_monster().lock_to_path == false):
 			SummoningSignal.emit_signal("location_selected")
 	
 	
