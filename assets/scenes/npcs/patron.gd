@@ -6,14 +6,15 @@ extends Node2D
 
 @onready var currently_dying: bool = false
 @onready var health: int
-
-@onready var animated_sprite_2d = $PathFollowArea2D/AnimatedSprite2D
-@onready var death_sound = $DeathSound
+@onready var stun_percentage: float = 0.0
 
 @onready var death_animation_finished: bool = false
 @onready var death_sound_finished: bool = false
 
+@onready var animated_sprite_2d = $PathFollowArea2D/AnimatedSprite2D
+@onready var death_sound = $DeathSound
 @onready var death_sound_container = $DeathSoundContainer
+@onready var stunned_effect_timer = $StunnedEffectTimer
 
 func _ready():
 	health = _total_health
@@ -41,6 +42,8 @@ func trigger_death():
 	currently_dying = true
 	animated_sprite_2d.play("dying")
 	
+func set_stun(new_stun_percentage: float, stun_duration_in_seconds: float):
+	get_parent().set_stun(new_stun_percentage, stun_duration_in_seconds)
 
 func destroy():
 	if death_sound_finished and death_animation_finished:

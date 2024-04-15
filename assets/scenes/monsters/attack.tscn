@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsx68aghckgdp"]
+
+[ext_resource type="Script" path="res://assets/scenes/monsters/attack.gd" id="1_pavxb"]
+
+[node name="Attack" type="Node2D"]
+script = ExtResource("1_pavxb")
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
