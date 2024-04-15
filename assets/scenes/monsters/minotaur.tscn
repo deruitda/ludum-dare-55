@@ -977,8 +977,9 @@ position = Vector2(15, 28)
 shape = SubResource("RectangleShape2D_f4ngn")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
+position = Vector2(4, -34)
 sprite_frames = SubResource("SpriteFrames_3qrio")
-animation = &"charging_up"
+animation = &"summoning"
 autoplay = "summoning"
 
 [node name="ChargingUpAudio" type="AudioStreamPlayer" parent="Monster/Area2D/MonsterAnimation"]
