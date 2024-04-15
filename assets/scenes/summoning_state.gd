@@ -10,6 +10,7 @@ enum summoning_states {
 @onready var current_state = summoning_states.IDLE
 @onready var summoning_monster = null
 @onready var current_puzzle = null
+@onready var is_incantation_typing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,8 @@ func _ready():
 	SummoningSignal.connect("monster_summoned", _on_monster_summoned)
 	SummoningSignal.connect("monster_summoned_canceled", _on_monster_summoned_canceled)
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
+	SummoningSignal.connect("incantation_typing", _on_incantation_typing)
+	SummoningSignal.connect("incantation_stopped_typing", _on_incantation_stopped_typing)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -90,4 +93,12 @@ func lock_to_path():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-			SummoningSignal.emit_signal("monster_summoned_canceled")
+		SummoningSignal.emit_signal("monster_summoned_canceled")
+
+func _on_incantation_typing():
+	is_incantation_typing = true
+	SummoningSignal.emit_signal("incantation_typing_updated")
+	
+func _on_incantation_stopped_typing():
+	is_incantation_typing = false
+	SummoningSignal.emit_signal("incantation_typing_updated")
