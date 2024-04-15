@@ -1,5 +1,11 @@
 extends "res://assets/scenes/npcs/monster.gd"
+@onready var summoning_sound = $SummoningSound
+@onready var desummoning_sound = $DesummoningSound
 
-
-func _ready():
-	soul_spend = 0
+func summon():
+	super()
+	summoning_sound.play()
+	
+func desummon():
+	super()
+	desummoning_sound.play()

@@ -20,6 +20,7 @@ extends Node2D
 @export var choose_direction: bool = false
 
 @onready var is_summoned: bool
+@onready var is_desummoning: bool = false
 
 const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 
@@ -32,10 +33,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if _number_of_souls_captured == _max_souls_to_consume:
+	if _number_of_souls_captured == _max_souls_to_consume and is_desummoning == false:
+		is_desummoning = true
 		desummon()
 	if is_summoned:
 		is_summoned = false
+		summon()
 		monster_animation.play("summoning")
 		
 func _physics_process(delta):
@@ -74,7 +77,7 @@ func attack(patron: Node2D):
 
 func desummon():
 	monster_animation.play("desummoning")
-
+	
 func summon():
 	monster_animation.play("summoning")
 
