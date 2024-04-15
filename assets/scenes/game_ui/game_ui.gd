@@ -25,4 +25,5 @@ func _on_game_restarted():
 
 
 func _on_game_resumed():
+	print("hiding paused menu due to resume")
 	pause_menu.visible = false

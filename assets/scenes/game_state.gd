@@ -15,10 +15,6 @@ func _ready():
 	GameSignal.connect("game_paused", _on_game_paused)
 	GameSignal.connect("game_resumed", _on_game_resumed)
 	remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive - souls_survived
-	
-
-func _process(delta):
-	pass
 
 
 func on_patron_survived(patron):

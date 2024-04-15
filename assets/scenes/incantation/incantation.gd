@@ -9,13 +9,8 @@ func _ready():
 	SummoningSignal.connect("location_selected", _on_location_selected)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_line_edit_text_submitted(new_text):
-	if SummoningState.current_puzzle == SummoningState.summoning_states.SUMMONING:
+	if SummoningState.current_state == SummoningState.summoning_states.SUMMONING:
 		if SummoningState.current_puzzle.does_answer_solve_puzzle(new_text):
 			incantation_success()
 		else:
@@ -49,9 +44,6 @@ func _on_line_edit_gui_input(event):
 		if (!SummoningState.is_incantation_typing):
 			SummoningSignal.emit_signal("incantation_typing")
 		_start_timer()
-		var new_text = line_edit.text
-		if SummoningState.current_puzzle.does_answer_solve_puzzle(new_text):
-			incantation_success()
 
 
 func _start_timer():
