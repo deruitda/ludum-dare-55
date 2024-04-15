@@ -1,8 +1,10 @@
-[gd_scene load_steps=46 format=3 uid="uid://bmxh6e1qe603l"]
+[gd_scene load_steps=48 format=3 uid="uid://bmxh6e1qe603l"]
 
 [ext_resource type="Script" path="res://assets/scenes/levels/resources/summoning_portal.gd" id="1_qvsdh"]
 [ext_resource type="Texture2D" uid="uid://c871gd17r63sb" path="res://assets/sprites/misc/portal/portal-inactive-idle.png" id="2_1pq31"]
 [ext_resource type="Texture2D" uid="uid://b3hjpg2l7dkj" path="res://assets/sprites/misc/portal/portal-active-idle.png" id="2_663c1"]
+[ext_resource type="AudioStream" uid="uid://ywnjotkwh3fb" path="res://assets/audio/misc/PortalSustained.wav" id="4_ff7te"]
+[ext_resource type="AudioStream" uid="uid://cvf0b1nikob5x" path="res://assets/audio/misc/PortalSustainedCancel.wav" id="5_6r0cs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oawaw"]
 
@@ -319,4 +321,11 @@ sprite_frames = SubResource("SpriteFrames_eh2to")
 animation = &"active"
 autoplay = "default"
 
+[node name="PortalSustainedAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ff7te")
+
+[node name="PortalCloseAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6r0cs")
+
 [connection signal="animation_finished" from="PortalAnimation" to="." method="_on_portal_animation_animation_finished"]
+[connection signal="finished" from="PortalSustainedAudio" to="." method="_on_portal_sustained_audio_finished"]

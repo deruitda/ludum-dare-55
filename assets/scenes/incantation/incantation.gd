@@ -11,7 +11,7 @@ func _ready():
 
 
 func _on_line_edit_text_submitted(new_text):
-	if SummoningState.current_state == SummoningState.summoning_states.SUMMONING:
+	if SummoningState.current_state == SummoningState.summoning_states.SAYING_INCANTATION:
 		if SummoningState.current_puzzle.does_answer_solve_puzzle(new_text):
 			incantation_success()
 		else:
@@ -39,13 +39,13 @@ func incantation_failed():
 
 
 func _on_line_edit_focus_exited():
-	if SummoningState.current_state == SummoningState.summoning_states.SUMMONING:
+	if SummoningState.current_state == SummoningState.summoning_states.SAYING_INCANTATION:
 		SummoningSignal.emit_signal("monster_summoned_canceled")
 		line_edit.clear()
 
 
 func _on_line_edit_gui_input(event):
-	if SummoningState.current_state == SummoningState.summoning_states.SUMMONING:
+	if SummoningState.current_state == SummoningState.summoning_states.SAYING_INCANTATION:
 		if (!SummoningState.is_incantation_typing):
 			SummoningSignal.emit_signal("incantation_typing")
 		_start_timer()

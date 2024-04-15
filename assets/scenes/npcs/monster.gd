@@ -110,6 +110,7 @@ func add_puzzles():
 
 func _on_summoning_animation_finished():
 	monster_animation.play("idle")
+	SummoningSignal.emit_signal("summoning_animation_finished")
 
 func _on_animated_sprite_2d_animation_finished():
 	if monster_animation.animation == "summoning":

@@ -4,6 +4,7 @@ enum summoning_states {
 	IDLE,
 	CHOOSING_LOCATION,
 	CHOOSING_DIRECTION,
+	SAYING_INCANTATION,
 	SUMMONING
 }
 
@@ -12,6 +13,7 @@ enum summoning_states {
 @onready var current_puzzle = null
 @onready var is_incantation_typing = false
 
+@onready var is_summoning_monster_animation = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SummoningSignal.connect("monster_selected", _on_monster_selected)
@@ -22,13 +24,16 @@ func _ready():
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
 	SummoningSignal.connect("incantation_typing", _on_incantation_typing)
 	SummoningSignal.connect("incantation_stopped_typing", _on_incantation_stopped_typing)
-
+	SummoningSignal.connect("summoning_animation_finished", _on_summoning_animation_finished)
+	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
 
 func reset_state():
 	summoning_monster = null
 	set_state(summoning_states.IDLE)
 	current_puzzle = null
 
+func _on_puzzle_solved():
+	set_state(summoning_states.SUMMONING)
 
 func _on_monster_selected(monster):
 	if current_state == summoning_states.IDLE:
@@ -43,12 +48,12 @@ func _on_location_selected():
 		if get_monster().choose_direction:
 			set_state(summoning_states.CHOOSING_DIRECTION)
 		else:
-			set_state(summoning_states.SUMMONING)
+			set_state(summoning_states.SAYING_INCANTATION)
 			set_puzzle()
 
 func _on_direction_selected():
 	if current_state == summoning_states.CHOOSING_DIRECTION:
-		set_state(summoning_states.SUMMONING)
+		set_state(summoning_states.SAYING_INCANTATION)
 		set_puzzle()
 
 func get_monster():
@@ -59,6 +64,7 @@ func get_summoning_monster_path_follow_2d():
 
 func _on_monster_summoned(_monster):
 	reset_state()
+	
 
 
 func _on_monster_summoned_canceled():
@@ -67,7 +73,7 @@ func _on_monster_summoned_canceled():
 
 
 func _on_monster_summoned_failed():
-	if current_state == summoning_states.SUMMONING:
+	if current_state == summoning_states.SAYING_INCANTATION:
 		reset_state()
 		print("Monster summoning failed")
 		print("Current state: ", current_state)
@@ -100,3 +106,6 @@ func _on_incantation_typing():
 func _on_incantation_stopped_typing():
 	is_incantation_typing = false
 	SummoningSignal.emit_signal("incantation_typing_updated")
+
+func _on_summoning_animation_finished():
+	set_state(summoning_states.IDLE)
