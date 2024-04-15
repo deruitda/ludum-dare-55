@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://7voqrntsk1y5"]
+[gd_scene load_steps=6 format=3 uid="uid://7voqrntsk1y5"]
+
+[ext_resource type="Script" path="res://assets/scenes/pause_menu/pause_menu.gd" id="1_c7g0u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p5mr1"]
 content_margin_bottom = 20.0
@@ -31,12 +33,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -209.5
-offset_top = -183.5
-offset_right = 209.5
-offset_bottom = 183.5
+offset_left = -209.0
+offset_top = -183.0
+offset_right = 173.0
+offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c7g0u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -76,6 +79,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
 text = "Options"
 
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
+text = "Restart"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -87,3 +98,6 @@ text = "Quit"
 [node name="PauseMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
