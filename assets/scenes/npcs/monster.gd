@@ -11,7 +11,7 @@ extends Node2D
 @onready var _number_of_souls_captured: int = 0
 @onready var area_2d = $Area2D
 
-@onready var monster_animation = $Area2D/MonsterAnimation
+@onready var monster_animation = %MonsterAnimation
 
 @export var lock_to_path: bool = false
 @export var choose_direction: bool = false
@@ -53,7 +53,10 @@ func attack(patron: Node2D):
 
 func desummon():
 	monster_animation.play("desummoning")
-	
+
+func summon():
+	monster_animation.play("summoning")
+
 func destroy():
 	get_parent().queue_free()
 

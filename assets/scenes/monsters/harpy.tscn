@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_m8xxo"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/harpy.gd" id="2_ca4if"]
-[ext_resource type="JSON" path="res://assets/scenes/monsters/puzzles/puzzle_sets/test_puzzles.tres" id="3_0muyw"]
+[ext_resource type="JSON" uid="uid://b8oxltvgfyqod" path="res://assets/scenes/monsters/puzzles/puzzle_sets/test_puzzles.tres" id="3_0muyw"]
 [ext_resource type="Texture2D" uid="uid://cvujlfudneueh" path="res://assets/sprites/monsters/harpy/harpy-radius.png" id="4_38ymt"]
 [ext_resource type="Texture2D" uid="uid://bqoaqmc6tmduu" path="res://assets/sprites/monsters/lost-soul/lost-soul-attack.png" id="4_xcfj0"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="5_ley4d"]
 [ext_resource type="Texture2D" uid="uid://be1se5c0rd5c4" path="res://assets/sprites/monsters/harpy/harpy-idle-sheet.png" id="6_5q6dd"]
 [ext_resource type="Texture2D" uid="uid://dpokc2xewnd5t" path="res://assets/sprites/monsters/harpy/harpy-scream-sheet.png" id="8_dfvmb"]
 [ext_resource type="Texture2D" uid="uid://vnx7yqe84oys" path="res://assets/sprites/monsters/harpy/harpy-summon-sheet.png" id="9_doj6s"]
-[ext_resource type="PackedScene" uid="uid://do5jsjaipv1c8" path="res://assets/scenes/monsters/attack.tscn" id="9_wfcml"]
+[ext_resource type="PackedScene" uid="uid://dsx68aghckgdp" path="res://assets/scenes/monsters/attack.tscn" id="9_wfcml"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hky3s"]
 radius = 291.39
@@ -903,7 +903,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="MinotaurPathFollow2D" type="PathFollow2D"]
+[node name="HarpyPathFollow2D" type="PathFollow2D"]
 script = ExtResource("1_m8xxo")
 
 [node name="Monster" type="Node2D" parent="."]
@@ -922,10 +922,11 @@ texture = ExtResource("4_38ymt")
 shape = SubResource("CircleShape2D_hky3s")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
+unique_name_in_owner = true
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_3qrio")
-animation = &"using_power"
-autoplay = "summoning"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="AttackNode" parent="Monster" instance=ExtResource("9_wfcml")]
 attack_time_in_seconds = 10.0

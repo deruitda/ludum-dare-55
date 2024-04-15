@@ -1,4 +1,6 @@
 extends "res://assets/scenes/npcs/monster.gd"
+
+
 @onready var attack_node = $AttackNode
 @onready var radius_sprite = $Area2D/radius
 @export var stun_percentage: float = 80.0
