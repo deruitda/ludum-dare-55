@@ -3,6 +3,7 @@ extends Node2D
 @export var monster_name: String = ""
 @export var _speed: float = 0.0
 @export var soul_cost: int = 0
+@export var key_to_summon = "1"
 
 @export var _max_souls_to_consume: int = 1
 @export var _visual_resource: Resource

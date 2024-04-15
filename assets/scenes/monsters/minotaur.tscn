@@ -1055,6 +1055,7 @@ script = ExtResource("2_s4v6o")
 monster_name = "minotaur"
 _speed = 500.0
 soul_cost = 3
+key_to_summon = "2"
 _max_souls_to_consume = 40
 puzzle_sets = Array[Resource]([ExtResource("3_xw24p")])
 choose_direction = true
