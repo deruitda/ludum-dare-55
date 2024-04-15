@@ -4,14 +4,24 @@ extends Node2D
 
 @onready var number_of_patrons_spawned: int = 0
 @onready var timers_completed: int = 0
-const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
 @onready var respawn_timer = $RespawnTimer
+
+@onready var number_of_souls_captured_at_wave_start: int = 0
+@onready var number_of_souls_survived_at_wave_start: int = 0
+
+const HUMAN_SCENE = preload("res://assets/scenes/patrons/human.tscn");
+
+signal wave_complete
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	respawn_timer.autostart = false
 	respawn_timer.set_wait_time(get_seconds_per_respawn() * 1.0)
-	print(respawn_timer.wait_time)
+
+	number_of_souls_captured_at_wave_start = GameState.souls_captured
+	number_of_souls_survived_at_wave_start = GameState.souls_survived	
+
+
 func start_wave():
 	respawn_timer.start()
 
@@ -20,7 +30,7 @@ func get_seconds_per_respawn():
 
 func _process(delta):
 	if number_of_patrons_spawned == number_of_patrons:
-		complete_wave()
+		stop_timer()
 
 func add_human():
 	var human_node = HUMAN_SCENE.instantiate()
@@ -32,6 +42,11 @@ func _on_respawn_timer_timeout():
 	if number_of_patrons_spawned < number_of_patrons:
 		add_human()
 
-func complete_wave():
+func stop_timer():
 	respawn_timer.stop()
-	get_parent()._on_wave_complete()
+
+func complete_wave():
+	emit_signal("wave_complete")
+
+func get_number_of_patrons():
+	return number_of_patrons
