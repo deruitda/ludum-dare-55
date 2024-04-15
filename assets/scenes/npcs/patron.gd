@@ -4,12 +4,11 @@ extends Node2D
 @export var _total_health = 1
 @export var speed = 100.0
 
+@onready var currently_dying: bool = false
 @onready var health: int
-@onready var audio_stream_player = $AudioStreamPlayer
 
 @onready var animated_sprite_2d = $PathFollowArea2D/AnimatedSprite2D
-@onready var death_sound_container = $DeathSoundContainer
-@onready var currently_dying: bool = false
+@onready var death_sound = $DeathSound
 
 func _ready():
 	health = _total_health
@@ -32,9 +31,9 @@ func capture_souls(souls_to_capture: int)-> int:
 	return total_damage
 
 func trigger_death():
+	death_sound.play()
 	currently_dying = true
 	animated_sprite_2d.play("dying")
-	audio_stream_player.play()
 	
 
 func destroy():

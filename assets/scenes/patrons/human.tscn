@@ -478,7 +478,7 @@ frame_progress = 1.0
 position = Vector2(10, 4.99999)
 shape = SubResource("RectangleShape2D_qgelr")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Patron"]
+[node name="DeathSound" type="AudioStreamPlayer" parent="Patron"]
 stream = ExtResource("13_he2bs")
 
 [connection signal="area_entered" from="Patron/PathFollowArea2D" to="Patron" method="_on_path_follow_area_2d_area_entered"]
