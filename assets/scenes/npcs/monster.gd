@@ -2,6 +2,7 @@ extends Node2D
 
 @export var monster_name: String = ""
 @export var _speed: float = 0.0
+@export var soul_spend: int = 0
 
 @export var _max_souls_to_consume: int = 1
 @export var _visual_resource: Resource
@@ -9,9 +10,10 @@ extends Node2D
 @onready var puzzles: Array = []
 @export var damage: int = 1
 @onready var _number_of_souls_captured: int = 0
-@onready var area_2d = $Area2D
 
+@onready var area_2d = $Area2D
 @onready var monster_animation = $Area2D/MonsterAnimation
+@onready var monster = $Monster
 
 @export var lock_to_path: bool = false
 @export var choose_direction: bool = false
@@ -28,6 +30,7 @@ func _ready():
 	add_child(puzzle_container)
 	setup_puzzle_objects()
 	add_puzzles()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if _number_of_souls_captured == _max_souls_to_consume:

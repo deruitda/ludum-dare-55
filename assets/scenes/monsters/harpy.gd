@@ -8,6 +8,7 @@ extends "res://assets/scenes/npcs/monster.gd"
 
 func _on_summoning_animation_finished():
 	super()
+	soul_spend = 10
 	radius_sprite.visible = false
 	attack_node.start_attacking()
 

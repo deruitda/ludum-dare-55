@@ -23,10 +23,6 @@ func _ready():
 	SummoningSignal.connect("incantation_typing", _on_incantation_typing)
 	SummoningSignal.connect("incantation_stopped_typing", _on_incantation_stopped_typing)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func reset_state():
 	summoning_monster = null
@@ -61,7 +57,7 @@ func get_monster():
 func get_summoning_monster_path_follow_2d():
 	return summoning_monster
 
-func _on_monster_summoned():
+func _on_monster_summoned(_monster):
 	reset_state()
 
 

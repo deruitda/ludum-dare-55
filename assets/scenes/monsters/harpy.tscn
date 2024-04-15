@@ -905,6 +905,7 @@ animations = [{
 
 [node name="HarpyPathFollow2D" type="PathFollow2D"]
 script = ExtResource("1_m8xxo")
+soul_cost = 10
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_ca4if")

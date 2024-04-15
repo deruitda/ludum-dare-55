@@ -1,8 +1,10 @@
 extends PathFollow2D
 
 
-@onready var monster = $Monster
 @export var speed = 20.0
+@export var soul_cost: int = 0
+
+@onready var monster = $Monster
 @onready var is_summoned: bool
 
 # Called when the node enters the scene tree for the first time.
