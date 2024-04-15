@@ -17,6 +17,7 @@ unique_name_in_owner = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_dt4a3")
+volume_db = -12.0
 autoplay = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]

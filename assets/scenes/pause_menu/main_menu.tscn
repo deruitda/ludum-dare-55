@@ -1,9 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://57h0j6hm8yk7"]
+[gd_scene load_steps=38 format=3 uid="uid://57h0j6hm8yk7"]
 
 [ext_resource type="Script" path="res://assets/scenes/pause_menu/main_menu.gd" id="1_3nfib"]
 [ext_resource type="Texture2D" uid="uid://bbif7ynjrwvx1" path="res://assets/sprites/misc/icons/play.png" id="2_7mqao"]
 [ext_resource type="Texture2D" uid="uid://bhaak41sj3sp7" path="res://assets/sprites/misc/hades/thumbnail-no-hades.png" id="2_j8fym"]
+[ext_resource type="Texture2D" uid="uid://cx673co7aex2k" path="res://assets/sprites/misc/hades/hades-portrait-speaking-sheet.png" id="4_felt3"]
 [ext_resource type="Texture2D" uid="uid://djg1q6taqpkfb" path="res://assets/sprites/misc/hades/hades-portrait-idle.png" id="4_l5uvc"]
+[ext_resource type="AudioStream" uid="uid://bp8natv1ba62k" path="res://assets/audio/misc/hades/HadesFrustration1.wav" id="5_7f6ca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lqva"]
 atlas = ExtResource("4_l5uvc")
@@ -101,6 +103,14 @@ region = Rect2(2816, 0, 128, 128)
 atlas = ExtResource("4_l5uvc")
 region = Rect2(2944, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rv5p"]
+atlas = ExtResource("4_felt3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e4e4"]
+atlas = ExtResource("4_felt3")
+region = Rect2(128, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ip8pb"]
 animations = [{
 "frames": [{
@@ -179,6 +189,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rv5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e4e4")
+}],
+"loop": true,
+"name": &"speaking",
+"speed": 4.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2thsv"]
@@ -224,11 +245,12 @@ position = Vector2(1083.2, 542.25)
 scale = Vector2(4.7613, 4.23633)
 texture = ExtResource("2_j8fym")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="KornStand"]
+[node name="HadesAnimation" type="AnimatedSprite2D" parent="KornStand"]
+unique_name_in_owner = true
 position = Vector2(12.8571, -8.85716)
 sprite_frames = SubResource("SpriteFrames_ip8pb")
+animation = &"speaking"
 autoplay = "default"
-frame_progress = 0.462264
 
 [node name="ContentWrapper" type="Control" parent="."]
 layout_mode = 1
@@ -276,5 +298,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_luq6a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5622f")
 text = "Quit"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_7f6ca")
+
 [connection signal="pressed" from="ContentWrapper/MenuOptionsControl/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="ContentWrapper/MenuOptionsControl/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
