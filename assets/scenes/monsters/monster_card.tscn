@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://gh1p73281xd7"]
+
+[ext_resource type="Script" path="res://assets/scenes/monsters/monster_card.gd" id="1_vbkea"]
+[ext_resource type="Texture2D" uid="uid://8ytse4jd6n4u" path="res://assets/sprites/monsters/borders/border-inactive.png" id="2_uowne"]
+[ext_resource type="Texture2D" uid="uid://da2cmbqhaci15" path="res://assets/sprites/monsters/borders/border-active-sheet.png" id="3_sm5hp"]
+[ext_resource type="AudioStream" uid="uid://dogyhjxi5lo1o" path="res://assets/audio/patrons/HumanDeath10.wav" id="4_70u20"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb6h6"]
+atlas = ExtResource("3_sm5hp")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_507tp"]
+atlas = ExtResource("3_sm5hp")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk2mr"]
+atlas = ExtResource("3_sm5hp")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hluxc"]
+atlas = ExtResource("3_sm5hp")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jyh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb6h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_507tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk2mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hluxc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="MonsterCard" type="TextureButton"]
+offset_right = 64.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+mouse_default_cursor_shape = 2
+script = ExtResource("1_vbkea")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 128.0
+mouse_filter = 2
+color = Color(0.0914785, 0.045418, 0.147151, 1)
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(32, 64)
+texture = ExtResource("2_uowne")
+
+[node name="BorderActive" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(32, 64)
+sprite_frames = SubResource("SpriteFrames_6jyh7")
+autoplay = "default"
+frame_progress = 0.467717
+
+[node name="Monster" type="Sprite2D" parent="."]
+top_level = true
+
+[node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_70u20")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
