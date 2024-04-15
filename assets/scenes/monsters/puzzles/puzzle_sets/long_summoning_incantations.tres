@@ -26,7 +26,7 @@ data = [{
 "regex_answers": ["^with the whisper of the wind be summoned!?{0,2}$"],
 "text_puzzle": "Chant: 'With the whisper of the wind be summoned!'"
 }, {
-"regex_answers": ["^by the might of the earth I command thee!?{0,2}$"],
+"regex_answers": ["^by the might of the earth i command thee!?{0,2}$"],
 "text_puzzle": "Repeat after me: 'By the might of the earth I command thee!'"
 }, {
 "regex_answers": ["^in the silence of the night arise!?{0,2}$"],
