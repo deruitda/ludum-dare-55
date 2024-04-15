@@ -146,3 +146,4 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608,
 wait_time = 5.0
 
 [connection signal="wave_complete" from="WaveContainer" to="." method="_on_wave_container_wave_complete"]
+[connection signal="timeout" from="WaveCooldown" to="." method="_on_wave_cooldown_timeout"]

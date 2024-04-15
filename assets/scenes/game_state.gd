@@ -20,8 +20,13 @@ func _ready():
 	GameSignal.connect("game_resumed", _on_game_resumed)
 	GameSignal.connect("game_to_main_menu", _on_game_to_main_menu)
 	SummoningSignal.connect("monster_summoned", _on_monster_summoned)
+	GameSignal.connect("wave_completed", _on_wave_completed)
 	remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive - souls_survived
 
+
+func _on_wave_completed():
+	increment_wave()
+	GameSignal.emit_signal("wave_updated", current_wave)
 
 func _on_monster_summoned(monster):
 	souls_to_spend -= monster.soul_cost

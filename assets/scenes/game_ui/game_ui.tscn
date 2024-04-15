@@ -16,6 +16,51 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_xuf83")
 
+[node name="Day Complete UI" type="ColorRect" parent="."]
+visible = false
+top_level = true
+z_index = 2
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -1077.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.180392, 0.180392, 0.180392, 0.541176)
+
+[node name="Day Complete Label" type="RichTextLabel" parent="Day Complete UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.992
+anchor_bottom = 0.997
+offset_left = 314.0
+offset_top = 296.0
+offset_right = -162.576
+offset_bottom = 157.239
+theme_override_font_sizes/normal_font_size = 200
+text = "Day Complete"
+fit_content = true
+
+[node name="DayCompleteSubtext" type="RichTextLabel" parent="Day Complete UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.992
+anchor_bottom = 0.997
+offset_left = 516.0
+offset_top = 572.0
+offset_right = 39.4239
+offset_bottom = 433.239
+theme_override_font_sizes/normal_font_size = 72
+text = "Starting day 
+"
+fit_content = true
+
+[node name="DayCompleteTimer" type="Timer" parent="Day Complete UI"]
+wait_time = 3.0
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -89,3 +134,5 @@ visible = false
 top_level = true
 z_index = 1001
 layout_mode = 1
+
+[connection signal="timeout" from="Day Complete UI/DayCompleteTimer" to="." method="_on_day_complete_timer_timeout"]
