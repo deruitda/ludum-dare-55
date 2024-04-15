@@ -2,6 +2,7 @@ extends PathFollow2D
 
 @export var speed = 100.0
 @onready var patron = $Patron
+@onready var human = $Human
 
 func _ready():
 	loop = false
@@ -18,6 +19,3 @@ func _process(delta):
 func patron_survived():
 	SurviveSignal.emit_signal("patron_survived", patron)
 	queue_free()
-	
-func patron_died():
-	SoulsCapturedSignal.emit_signal("patron_died", patron)

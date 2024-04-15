@@ -14,7 +14,8 @@ func _ready():
 	health = _total_health
 	
 func _process(delta):
-	if health <= 0:
+	if health <= 0 and currently_dying == false:
+		#pass
 		trigger_death()
 
 func _on_path_follow_area_2d_area_entered(monster_area):
@@ -31,6 +32,7 @@ func capture_souls(souls_to_capture: int)-> int:
 	return total_damage
 
 func trigger_death():
+	print('trigger death')
 	death_sound.play()
 	currently_dying = true
 	animated_sprite_2d.play("dying")
@@ -38,8 +40,12 @@ func trigger_death():
 
 func destroy():
 	get_parent().queue_free()
-
+	
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite_2d.animation == "dying":
 		destroy()
 
+
+
+func _on_death_sound_finished():
+	print('hi')

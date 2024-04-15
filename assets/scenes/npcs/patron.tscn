@@ -56,3 +56,6 @@ stream = ExtResource("10_jp3sw")
 
 [node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="PathFollowArea2D/DeathSoundContainer"]
 stream = ExtResource("11_2m7kt")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2m7kt")
