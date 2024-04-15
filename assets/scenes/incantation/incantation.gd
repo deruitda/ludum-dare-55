@@ -7,6 +7,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SummoningSignal.connect("location_selected", _on_location_selected)
+	SummoningSignal.connect("monster_summoned_canceled", _on_monster_summoned_canceled)
 
 
 func _on_line_edit_text_submitted(new_text):
@@ -20,8 +21,12 @@ func _on_line_edit_text_submitted(new_text):
 
 func _on_location_selected():
 	line_edit.grab_focus()
-	
-	
+
+
+func _on_monster_summoned_canceled():
+	line_edit.clear()
+
+
 func incantation_success():
 	SummoningSignal.emit_signal("puzzle_solved")
 	line_edit.clear()
