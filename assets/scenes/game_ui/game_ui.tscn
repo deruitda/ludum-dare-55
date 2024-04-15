@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjl612uk13l3v"]
+[gd_scene load_steps=9 format=3 uid="uid://cjl612uk13l3v"]
 
 [ext_resource type="PackedScene" uid="uid://cjsjb2ymxf0mi" path="res://assets/scenes/Hud/hud.tscn" id="1_fnaej"]
+[ext_resource type="Script" path="res://assets/scenes/game_ui/game_ui.gd" id="1_xuf83"]
 [ext_resource type="PackedScene" uid="uid://b75su1ww7nh23" path="res://assets/scenes/monster_cards/monster_cards.tscn" id="2_kysjw"]
 [ext_resource type="PackedScene" uid="uid://derq75u4a7b1o" path="res://assets/scenes/demonic_scroll/demonic_scroll.tscn" id="3_aksal"]
 [ext_resource type="PackedScene" uid="uid://jl14vggjmvva" path="res://assets/scenes/hades/hades.tscn" id="4_eq5n7"]
 [ext_resource type="PackedScene" uid="uid://ua8rx50pqtw3" path="res://assets/scenes/incantation/incantation.tscn" id="4_v4j6k"]
+[ext_resource type="PackedScene" uid="uid://7voqrntsk1y5" path="res://assets/scenes/pause_menu/pause_menu.tscn" id="6_7wxuo"]
+[ext_resource type="PackedScene" uid="uid://cs7kbcpk02p7s" path="res://assets/scenes/pause_menu/game_over_menu.tscn" id="7_g6f77"]
 
 [node name="GameControl" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+script = ExtResource("1_xuf83")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -62,3 +66,14 @@ offset_left = 648.0
 offset_top = 868.0
 offset_right = 648.0
 offset_bottom = 868.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_7wxuo")]
+visible = false
+layout_mode = 1
+
+[node name="GameOverMenu" parent="." instance=ExtResource("7_g6f77")]
+unique_name_in_owner = true
+visible = false
+top_level = true
+z_index = 1001
+layout_mode = 1
