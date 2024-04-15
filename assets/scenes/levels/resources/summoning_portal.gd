@@ -69,7 +69,6 @@ func summon_monster():
 		var new_monster = monster.duplicate()
 		if monster.choose_direction:
 			var running_direction = get_direction_line_direction()
-			print(running_direction)
 			new_monster.running_direction = get_direction_line_direction()
 		new_monster.position = position
 		free_moving_monsters.add_child(new_monster)
@@ -96,7 +95,6 @@ func _input(event):
 	if is_choosing_location:
 		set_summoning_position(event.position)
 		if is_event_mouse_button_click:
-			print(event.position)
 			SummoningSignal.emit_signal("location_selected")
 	
 	
