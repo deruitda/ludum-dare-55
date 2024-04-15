@@ -24,13 +24,10 @@ func gameOver():
 	status = "gameOver"
 	
 func _on_game_paused_updated():
-	print("game paused updated: " + str(GameState.is_paused))
 	if GameState.is_paused:
 		get_tree().paused = true
-		pause_menu.visible = true
 	else:
 		get_tree().paused = false
-		pause_menu.visible = false
 
 
 func _on_play_button_pressed():

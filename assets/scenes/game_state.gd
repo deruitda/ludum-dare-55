@@ -39,7 +39,6 @@ func reset_souls():
 
 
 func _on_game_paused():
-	print("Game state game is paused")
 	is_paused = true
 	GameSignal.emit_signal("game_paused_updated")
 	

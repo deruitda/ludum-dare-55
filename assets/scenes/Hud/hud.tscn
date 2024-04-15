@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjsjb2ymxf0mi"]
+[gd_scene load_steps=10 format=3 uid="uid://cjsjb2ymxf0mi"]
 
 [ext_resource type="Script" path="res://assets/scenes/Hud/hud.gd" id="1_w7h00"]
 [ext_resource type="Texture2D" uid="uid://bjq1j1y3r0kmg" path="res://assets/sprites/patrons/human/human-soul.png" id="2_n2wjw"]
 [ext_resource type="FontFile" uid="uid://d0twylcttk1ec" path="res://assets/fonts/Calligraffitti-Regular.ttf" id="3_81366"]
 [ext_resource type="Texture2D" uid="uid://b4ms06w67a3d5" path="res://assets/sprites/misc/icons/pause.png" id="4_lhv4w"]
+[ext_resource type="PackedScene" uid="uid://7voqrntsk1y5" path="res://assets/scenes/pause_menu/pause_menu.tscn" id="5_pkifb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_57102"]
 font = ExtResource("3_81366")
@@ -114,6 +115,7 @@ script = SubResource("GDScript_sgjkk")
 
 [node name="PauseButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 0
 offset_left = 1755.0
 offset_top = 20.0
@@ -121,5 +123,9 @@ offset_right = 1819.0
 offset_bottom = 84.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_lhv4w")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_pkifb")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
