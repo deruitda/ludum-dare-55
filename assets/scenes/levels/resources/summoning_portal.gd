@@ -83,9 +83,11 @@ func summon_monster():
 			var running_direction = get_direction_line_direction()
 			new_monster.running_direction = get_direction_line_direction()
 		new_monster.position = position
+		new_monster.set_summoned()
 		free_moving_monsters.add_child(new_monster)
 	else:
 		var new_monster_path_follow_2d = get_summoning_monster_path_follow_2d().duplicate()
+		new_monster_path_follow_2d.set_summoned()
 		new_monster_path_follow_2d.scale = Vector2(1, 1)
 		new_monster_path_follow_2d.position = position
 		paths_container.add_to_path(new_monster_path_follow_2d)

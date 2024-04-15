@@ -775,7 +775,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8nuxt")
 }],
-"loop": true,
+"loop": false,
 "name": &"charging_up",
 "speed": 60.0
 }, {
@@ -1066,12 +1066,10 @@ position = Vector2(15, 28)
 shape = SubResource("RectangleShape2D_f4ngn")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
-unique_name_in_owner = true
 position = Vector2(4, -34)
 sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"charging"
 autoplay = "idle"
-frame_progress = 0.109671
 
 [node name="ChargingUpAudio" type="AudioStreamPlayer" parent="Monster/Area2D/MonsterAnimation"]
 stream = ExtResource("7_ed5pa")
