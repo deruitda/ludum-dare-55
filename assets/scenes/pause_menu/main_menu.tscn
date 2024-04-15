@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://57h0j6hm8yk7"]
+[gd_scene load_steps=39 format=3 uid="uid://dxlb4uku856gq"]
 
 [ext_resource type="Script" path="res://assets/scenes/pause_menu/main_menu.gd" id="1_3nfib"]
 [ext_resource type="Texture2D" uid="uid://bbif7ynjrwvx1" path="res://assets/sprites/misc/icons/play.png" id="2_7mqao"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cx673co7aex2k" path="res://assets/sprites/misc/hades/hades-portrait-speaking-sheet.png" id="4_felt3"]
 [ext_resource type="Texture2D" uid="uid://djg1q6taqpkfb" path="res://assets/sprites/misc/hades/hades-portrait-idle.png" id="4_l5uvc"]
 [ext_resource type="AudioStream" uid="uid://bp8natv1ba62k" path="res://assets/audio/misc/hades/HadesFrustration1.wav" id="5_7f6ca"]
+[ext_resource type="PackedScene" uid="uid://h3d31helubiu" path="res://assets/scenes/tutorial.tscn" id="7_gulhm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lqva"]
 atlas = ExtResource("4_l5uvc")
@@ -299,10 +300,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_luq6a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5622f")
 text = "Quit"
 
+[node name="Tutorial2" type="Button" parent="ContentWrapper/MenuOptionsControl"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_luq6a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5622f")
+text = "Tutorial"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_7f6ca")
 
+[node name="Tutorial" parent="." instance=ExtResource("7_gulhm")]
+visible = false
+
 [connection signal="pressed" from="ContentWrapper/MenuOptionsControl/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="ContentWrapper/MenuOptionsControl/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ContentWrapper/MenuOptionsControl/Tutorial2" to="." method="_on_tutorial_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

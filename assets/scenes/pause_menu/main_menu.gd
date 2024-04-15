@@ -18,6 +18,9 @@ const HADES_FRUSTRATION_AUDIOS = [
 ]
 
 
+func _ready():
+	GameSignal.connect("tutorial_stopped", _on_tutorial_stopped)
+
 func _on_new_game_button_pressed():
 	if !is_playing_hades_audio:
 		is_playing_hades_audio = true
@@ -40,3 +43,12 @@ func _on_audio_stream_player_finished():
 	is_playing_hades_audio = false
 	new_game_button.disabled = false
 	GameSignal.emit_signal("new_game")
+
+
+func _on_tutorial_pressed():
+	$Tutorial.visible = true
+	$Tutorial/VideoStreamPlayer.play()
+	
+func _on_tutorial_stopped():
+	$Tutorial.visible = false
+	$Tutorial/VideoStreamPlayer.stop()
