@@ -15,7 +15,7 @@ func _process(delta):
 
 
 func _on_line_edit_text_submitted(new_text):
-	if SummoningState.current_puzzle == SummoningState.summoning_states.SUMMONING:
+	if SummoningState.current_state == SummoningState.summoning_states.SUMMONING:
 		if SummoningState.current_puzzle.does_answer_solve_puzzle(new_text):
 			incantation_success()
 		else:

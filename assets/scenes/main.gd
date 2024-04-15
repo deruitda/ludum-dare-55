@@ -41,9 +41,11 @@ func _on_game_restarted():
 
 
 func load_current_level_scene():
-	current_level_scene = load(LEVELS[current_level_index]).instantiate()
-	current_level.add_child(current_level_scene)
+	var new_scene = load(LEVELS[current_level_index]).instantiate()
+	current_level_scene = new_scene
+	current_level.add_child(new_scene)
 
 
 func remove_current_level_scene():
 	current_level.remove_child(current_level_scene)
+	current_level_scene = null
