@@ -1,6 +1,7 @@
 extends Node
 
 @export var _total_patrons_allowed_to_survive: int = 10
+@export var _reward_per_patron = 50
 var souls_captured: int = 0 # Total number of souls captured throughout level
 var souls_to_spend: int = 0 # Number of souls able to spend on summoning monsters
 var souls_survived: int = 0 # If too many souls survive then it's game over
