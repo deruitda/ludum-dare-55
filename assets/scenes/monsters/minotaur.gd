@@ -2,7 +2,7 @@ extends "res://assets/scenes/npcs/monster.gd"
 
 @onready var is_running: bool = false
 @onready var running_direction: Vector2
-@onready var charging_up_audio = $Area2D/MonsterAnimation/ChargingUpAudio
+@onready var charging_audio = $Area2D/MonsterAnimation/ChargingAudio
 
 func set_running_direction(direction: Vector2):
 	running_direction = direction
@@ -18,6 +18,7 @@ func charge_up():
 
 func _on_charging_up_animation_finished():
 	monster_animation.play("charging")
+	charging_audio.play()
 	is_running = true
 
 func _on_animated_sprite_2d_animation_finished():
