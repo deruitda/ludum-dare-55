@@ -24,7 +24,6 @@ func _ready():
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
 	SummoningSignal.connect("incantation_typing", _on_incantation_typing)
 	SummoningSignal.connect("incantation_stopped_typing", _on_incantation_stopped_typing)
-	SummoningSignal.connect("summoning_animation_finished", _on_summoning_animation_finished)
 	SummoningSignal.connect("puzzle_solved", _on_puzzle_solved)
 
 func reset_state():
