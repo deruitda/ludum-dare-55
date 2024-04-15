@@ -60,7 +60,6 @@ func get_summoning_monster_path_follow_2d():
 
 func _on_monster_summoned():
 	reset_state()
-	print("Monster summoning success")
 
 
 func _on_monster_summoned_canceled():

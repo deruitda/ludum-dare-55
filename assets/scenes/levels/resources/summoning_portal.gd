@@ -60,10 +60,17 @@ func get_monster():
 func get_summoning_monster_path_follow_2d():
 	return SummoningState.summoning_monster
 
+func get_direction_line_direction():
+	return (direction_line.get_point_position(1) - direction_line.get_point_position(0)).normalized()
+
 func summon_monster():
 	var monster = get_monster()
 	if monster.lock_to_path == false:
 		var new_monster = monster.duplicate()
+		if monster.choose_direction:
+			var running_direction = get_direction_line_direction()
+			print(running_direction)
+			new_monster.running_direction = get_direction_line_direction()
 		new_monster.position = position
 		free_moving_monsters.add_child(new_monster)
 	else:
@@ -96,6 +103,4 @@ func _input(event):
 	if is_choosing_direction:
 		set_direction_line_position(event.position)
 		if event is InputEventMouseButton:
-			print(direction_line.points[0])
-			print(direction_line.points[1])
 			SummoningSignal.emit_signal("direction_selected")

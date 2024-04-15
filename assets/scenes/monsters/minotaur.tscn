@@ -1,14 +1,63 @@
-[gd_scene load_steps=105 format=3 uid="uid://d4atuwv08cufi"]
+[gd_scene load_steps=118 format=3 uid="uid://d4atuwv08cufi"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_kaxpw"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/minotaur.gd" id="2_s4v6o"]
 [ext_resource type="JSON" uid="uid://cxfgqmuo4d0eo" path="res://assets/scenes/monsters/puzzles/puzzle_sets/backword_word_puzzles.tres" id="3_3ir7n"]
+[ext_resource type="Texture2D" uid="uid://bqoaqmc6tmduu" path="res://assets/sprites/monsters/lost-soul/lost-soul-attack.png" id="4_dta2a"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="4_x5j5r"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="5_nwu1x"]
 [ext_resource type="Texture2D" uid="uid://b1fae8clewxqw" path="res://assets/sprites/monsters/lost-soul/lost-soul-summon.png" id="6_jilg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
 size = Vector2(49, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocnj4"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1xhu"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7s12"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uudb4"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45n3q"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7if7"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty5t4"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjdpg"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeixw"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wph7w"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufqnb"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qygcx"]
+atlas = ExtResource("4_dta2a")
+region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wh0nd"]
 atlas = ExtResource("4_x5j5r")
@@ -398,6 +447,47 @@ region = Rect2(2240, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ocnj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1xhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7s12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uudb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45n3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7if7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty5t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjdpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeixw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wph7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufqnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qygcx")
+}],
+"loop": true,
+"name": &"charging_up",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wh0nd")
 }, {
 "duration": 1.0,
@@ -706,6 +796,7 @@ script = ExtResource("1_kaxpw")
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_s4v6o")
 monster_name = "minotaur"
+_speed = 100.0
 puzzle_sets = Array[Resource]([ExtResource("3_3ir7n")])
 choose_direction = true
 
@@ -717,7 +808,8 @@ shape = SubResource("RectangleShape2D_f4ngn")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
 sprite_frames = SubResource("SpriteFrames_3qrio")
-animation = &"summoning"
+animation = &"charging_up"
 autoplay = "summoning"
+frame_progress = 0.514225
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]

@@ -29,6 +29,9 @@ func _process(delta):
 	if _number_of_souls_captured == _max_souls_to_consume:
 		desummon()
 
+func _physics_process(delta):
+	pass
+
 func get_random_puzzle():
 	return puzzles.pick_random()
 
@@ -77,9 +80,11 @@ func add_puzzles():
 	for puzzle in puzzle_objects:
 		add_puzzle(puzzle["text_puzzle"], puzzle["regex_answers"])
 
+func _on_summoning_animation_finished():
+	monster_animation.play("idle")
+
 func _on_animated_sprite_2d_animation_finished():
 	if monster_animation.animation == "summoning":
-		monster_animation.play("idle")
-		print("Playing idle Soul")
+		_on_summoning_animation_finished()
 	elif monster_animation.animation == "desummoning":
 		destroy()
