@@ -19,6 +19,7 @@ extends Area2D
 func _ready():
 	visible = false
 	SummoningSignal.connect("state_changed", _on_summoning_state_changed)
+	SummoningSignal.connect("summoning_animation_finished", _on_summoning_animation_finished)
 
 func set_summoning_position(summon_monster_position):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
@@ -64,12 +65,11 @@ func _on_summoning_state_changed(state):
 	elif state == SummoningState.summoning_states.SAYING_INCANTATION:
 		show_portal()
 		portal_animation.play("active")
+		portal_sustained_audio.play()
+
 	elif state == SummoningState.summoning_states.SUMMONING:
 		hide_portal()
 		hide_line()
-		portal_animation.stop()
-		portal_sustained_audio.stop()
-		portal_close_audio.play()
 		summon_monster()
 
 
@@ -132,5 +132,18 @@ func _input(event):
 
 func _on_portal_sustained_audio_finished():
 	if SummoningState.current_state == SummoningState.summoning_states.SAYING_INCANTATION:
-		portal_sustained_audio.play()	
+		portal_sustained_audio.play()
 
+
+
+func _on_portal_animation_animation_finished():
+	portal_sustained_audio.stop()
+	portal_close_audio.play()
+
+
+func _on_portal_animation_animation_changed():
+	if portal_animation and portal_animation.animation == "active":
+		portal_sustained_audio.play()
+		
+func _on_summoning_animation_finished():
+	portal_sustained_audio.stop()

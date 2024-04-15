@@ -327,5 +327,6 @@ stream = ExtResource("4_ff7te")
 [node name="PortalCloseAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_6r0cs")
 
+[connection signal="animation_changed" from="PortalAnimation" to="." method="_on_portal_animation_animation_changed"]
 [connection signal="animation_finished" from="PortalAnimation" to="." method="_on_portal_animation_animation_finished"]
 [connection signal="finished" from="PortalSustainedAudio" to="." method="_on_portal_sustained_audio_finished"]
