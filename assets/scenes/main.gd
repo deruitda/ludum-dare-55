@@ -28,8 +28,6 @@ func _ready():
 	GameSignal.connect("game_quit", _on_game_quit)
 	GameSignal.connect("new_game", _on_new_game)
 	GameSignal.connect("game_to_main_menu", _on_game_to_main_menu)
-	main_menu.visible = false
-	load_current_level_scene()
 	get_new_background_song()
 
 
