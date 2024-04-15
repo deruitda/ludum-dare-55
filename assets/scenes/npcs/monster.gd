@@ -14,6 +14,8 @@ extends Node2D
 @onready var monster = $Monster
 
 @export var lock_to_path: bool = false
+@export var choose_direction: bool = false
+
 const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 
 @onready var puzzle_objects: Array = []

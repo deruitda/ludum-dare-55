@@ -302,6 +302,11 @@ animations = [{
 [node name="SummoningPortal" type="Area2D"]
 script = ExtResource("1_qvsdh")
 
+[node name="DirectionLine" type="Line2D" parent="."]
+z_index = 1
+points = PackedVector2Array(0, 0, 2.08165e-12, 200)
+width = 4.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(0.678431, 0, 0.717647, 1)
 self_modulate = Color(0, 0.498039, 0.498039, 1)

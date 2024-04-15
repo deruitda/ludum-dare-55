@@ -707,6 +707,7 @@ script = ExtResource("1_kaxpw")
 script = ExtResource("2_s4v6o")
 monster_name = "minotaur"
 puzzle_sets = Array[Resource]([ExtResource("3_3ir7n")])
+choose_direction = true
 
 [node name="Area2D" type="Area2D" parent="Monster"]
 collision_layer = 2
