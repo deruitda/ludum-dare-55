@@ -18,8 +18,11 @@ func _ready():
 	GameSignal.connect("game_paused", _on_game_paused)
 	GameSignal.connect("game_resumed", _on_game_resumed)
 	GameSignal.connect("souls_to_spend_updated", _on_souls_to_spend_updated)
+	GameSignal.connect("wave_updated", _on_wave_updated)
 	update_health_bar()
 
+func _on_wave_updated(current_wave: int):
+	days_text.text = "Day " + str(current_wave)
 
 func _patron_survived_updated():
 	update_health_bar()

@@ -61,14 +61,18 @@ func _on_game_paused():
 func _on_game_restarted():
 	is_paused = false
 	reset_souls()
-	current_wave = 1
+	set_wave(1)
 
 func get_current_wave()->int:
 	return current_wave
 
 func increment_wave():
-	current_wave += 1
+	set_wave(current_wave + 1)
 	
+func set_wave(_wave: int):
+	current_wave = _wave
+	GameSignal.emit_signal("wave_updated", current_wave)
+
 func _on_game_resumed():
 	is_paused = false
 	GameSignal.emit_signal("game_paused_updated")
