@@ -1,5 +1,8 @@
 extends Node2D
 signal wave_complete
+
+@export var wave_intensity_percentage_increase: float = 0.1
+
 @onready var level = get_parent()
 @onready var current_wave_index = 0
 @onready var waves_complete: bool = false
@@ -20,17 +23,17 @@ func _ready():
 func get_current_wave():
 	return get_children()[current_wave_index]
 
-func instantiate_inital_fields(level_initial_patron_respawn_cooldown_in_seconds, level_initial_wave_length_in_seconds):
-	initial_patron_respawn_cooldown_in_seconds = level_initial_patron_respawn_cooldown_in_seconds
-	initial_wave_length_in_seconds = level_initial_wave_length_in_seconds
-
-func start_waves():
+func start_waves(wave_number: int = 1):
+	reset_state()
 	get_current_wave().start_wave()
 	total_number_of_patrons += get_current_wave().get_number_of_patrons()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+func reset_state():
+	current_wave_index = 0
+	waves_complete = false
+	number_of_souls_captured_at_wave_start = GameState.souls_captured
+	number_of_souls_survived_at_wave_start = GameState.souls_survived
+	total_number_of_patrons = 0
+	
 func add_patron(patron):
 	get_parent().add_patron(patron)
 
@@ -45,3 +48,4 @@ func _on_wave_complete():
 func check_wave_complete_status():
 	if waves_complete and GameState.souls_captured + GameState.souls_survived == number_of_souls_captured_at_wave_start + number_of_souls_survived_at_wave_start + total_number_of_patrons:
 		emit_signal("wave_complete")
+

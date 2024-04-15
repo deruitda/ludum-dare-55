@@ -5,9 +5,8 @@ extends Node2D
 @onready var wave_container = $WaveContainer
 @onready var paths_container = $PathsContainer
 
-@export var initial_patron_respawn_cooldown_in_seconds = 2.0
-@export var initial_wave_length_in_seconds = 30
 
+@onready var current_wave: int = 1
 
 const WAVE = preload("res://assets/scenes/levels/wave.tscn")
 
@@ -16,14 +15,15 @@ const WAVE = preload("res://assets/scenes/levels/wave.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SummoningState.reset_state()
-	wave_container.instantiate_inital_fields(initial_patron_respawn_cooldown_in_seconds, initial_wave_length_in_seconds)
 	wave_container.start_waves()
+
 func add_patron(patron_node):
 	first_path_segment.add_child(patron_node)
 	
 func _process(delta):
 	pass
-
-
+	
 func _on_wave_container_wave_complete():
-	print('wave fully completed')
+	GameState.increment_wave()
+	wave_container.start_waves(GameState.get_current_wave())
+	print('wave ' + str(GameState.get_current_wave()))
