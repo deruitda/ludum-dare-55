@@ -15,6 +15,7 @@ process_mode = 1
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("2_dt4a3")
 autoplay = true
 
