@@ -16,6 +16,7 @@ func _ready():
 	SoulsCapturedSignal.connect("souls_captured_updated", _on_souls_captured_updated)
 	GameSignal.connect("game_paused", _on_game_paused)
 	GameSignal.connect("game_resumed", _on_game_resumed)
+	GameSignal.connect("souls_to_spend_updated", _on_souls_to_spend_updated)
 	health_bar_text.text = str(GameState.remaining_patrons_allowed_to_survive) + " Survivors Remaining"
 
 
@@ -25,7 +26,12 @@ func updated_patron_survived_hud():
 
 
 func _on_souls_captured_updated():
-	souls_text.text = str(GameState.souls_captured)
+	pass
+	# souls_text.text = str(GameState.souls_captured)
+
+
+func _on_souls_to_spend_updated():
+	souls_text.text = str(GameState.souls_to_spend)
 
 
 func _on_game_paused():

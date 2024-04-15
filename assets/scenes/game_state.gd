@@ -19,10 +19,8 @@ func _ready():
 
 
 func _on_monster_summoned(monster):
-	print("Souls to spend: " + str(souls_to_spend))
-	print("Monster soul cost:" + str(monster.soul_cost))
 	souls_to_spend -= monster.soul_cost
-	print("Remaining souls to spend: " + str(souls_to_spend))
+	GameState.emit_signal("souls_to_spend_updated")
 
 
 func on_patron_survived(patron):
@@ -39,6 +37,7 @@ func on_souls_captured(num_of_souls_captured):
 	souls_captured += num_of_souls_captured
 	souls_to_spend += num_of_souls_captured
 	SoulsCapturedSignal.emit_signal("souls_captured_updated")
+	GameSignal.emit_signal("souls_to_spend_updated")
 
 
 func set_level(level):

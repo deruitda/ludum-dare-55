@@ -910,8 +910,8 @@ metadata/_edit_vertical_guides_ = [-100.0, 100.0]
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_ca4if")
-soul_cost = 10
 stun_radius = 200.0
+soul_cost = 10
 puzzle_sets = Array[Resource]([ExtResource("3_0muyw")])
 
 [node name="Area2D" type="Area2D" parent="Monster"]
