@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://h3d31helubiu"]
+[gd_scene load_steps=3 format=3 uid="uid://d31ppyerwut7e"]
 
 [ext_resource type="VideoStream" path="res://assets/video/hades-tutorial.ogv" id="1_x3hy5"]
 [ext_resource type="Script" path="res://assets/scenes/tutorial-close-button.gd" id="2_q235e"]

@@ -48,6 +48,7 @@ func _on_audio_stream_player_finished():
 func _on_tutorial_pressed():
 	$Tutorial.visible = true
 	$Tutorial/VideoStreamPlayer.play()
+	GameSignal.emit_signal("tutorial_started")
 	
 func _on_tutorial_stopped():
 	$Tutorial.visible = false
