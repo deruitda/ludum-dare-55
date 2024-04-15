@@ -134,6 +134,7 @@ number_or_patrons_per_second = 1.0
 total_wave_length_in_seconds = 60
 
 [node name="FreeMovingMonsters" type="Node2D" parent="."]
+z_index = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5ftcq")

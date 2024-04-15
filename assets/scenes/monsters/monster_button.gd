@@ -42,5 +42,4 @@ func _on_pressed():
 	
 func _on_state_changed(new_state):
 	if new_state == SummoningState.summoning_states.IDLE:
-		print("End summon monster from on state changed")
 		end_summoning_monster()

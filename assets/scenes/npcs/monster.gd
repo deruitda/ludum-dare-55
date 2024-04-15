@@ -10,14 +10,15 @@ extends Node2D
 @export var damage: int = 1
 @onready var _number_of_souls_captured: int = 0
 @onready var area_2d = $Monster/Area2D
-
+@onready var monster_animation = $Area2D/MonsterAnimation
 @onready var monster = $Monster
 
-@onready var lock_to_path: bool = false
+@export var lock_to_path: bool = false
+@export var choose_direction: bool = false
+
 const PUZZLE = preload("res://assets/scenes/monsters/puzzles/puzzle.tscn")
 
 @onready var puzzle_objects: Array = []
-@onready var monster_animation = $Area2D/MonsterAnimation
 
 func _ready():
 	setup_puzzle_objects()
@@ -27,6 +28,9 @@ func _ready():
 func _process(delta):
 	if _number_of_souls_captured == _max_souls_to_consume:
 		desummon()
+
+func _physics_process(delta):
+	pass
 
 func get_random_puzzle():
 	return puzzles.pick_random()
@@ -76,10 +80,11 @@ func add_puzzles():
 	for puzzle in puzzle_objects:
 		add_puzzle(puzzle["text_puzzle"], puzzle["regex_answers"])
 
+func _on_summoning_animation_finished():
+	monster_animation.play("idle")
+
 func _on_animated_sprite_2d_animation_finished():
-	print("Lost Soul Animation finished: " + monster_animation.animation)
 	if monster_animation.animation == "summoning":
-		monster_animation.play("idle")
-		print("Playing idle Soul")
+		_on_summoning_animation_finished()
 	elif monster_animation.animation == "desummoning":
 		destroy()

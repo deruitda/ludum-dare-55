@@ -3,6 +3,7 @@ extends Node
 enum summoning_states {
 	IDLE,
 	CHOOSING_LOCATION,
+	CHOOSING_DIRECTION,
 	SUMMONING
 }
 
@@ -15,6 +16,7 @@ enum summoning_states {
 func _ready():
 	SummoningSignal.connect("monster_selected", _on_monster_selected)
 	SummoningSignal.connect("location_selected", _on_location_selected)
+	SummoningSignal.connect("direction_selected", _on_direction_selected)
 	SummoningSignal.connect("monster_summoned", _on_monster_summoned)
 	SummoningSignal.connect("monster_summoned_canceled", _on_monster_summoned_canceled)
 	SummoningSignal.connect("monster_summoned_failed", _on_monster_summoned_failed)
@@ -42,16 +44,25 @@ func _on_monster_selected(monster):
 
 func _on_location_selected():
 	if current_state == summoning_states.CHOOSING_LOCATION:
+		if get_monster().choose_direction:
+			set_state(summoning_states.CHOOSING_DIRECTION)
+		else:
+			set_state(summoning_states.SUMMONING)
+			set_puzzle()
+
+func _on_direction_selected():
+	if current_state == summoning_states.CHOOSING_DIRECTION:
 		set_state(summoning_states.SUMMONING)
 		set_puzzle()
-		print("Current state: ", current_state)
-	else:
-		print("Cannot summon monster, current state: ", current_state)
 
+func get_monster():
+	return get_summoning_monster_path_follow_2d().get_monster()
+	
+func get_summoning_monster_path_follow_2d():
+	return summoning_monster
 
 func _on_monster_summoned():
 	reset_state()
-	print("Monster summoning success")
 
 
 func _on_monster_summoned_canceled():

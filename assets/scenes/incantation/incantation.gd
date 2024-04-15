@@ -29,7 +29,6 @@ func _on_location_selected():
 	
 func incantation_success():
 	SummoningSignal.emit_signal("puzzle_solved")
-	print("Incantation Success")
 	line_edit.clear()
 	# TODO: Play sound, show animation
 

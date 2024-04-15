@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://vi4rrjltrjx7"]
+[gd_scene load_steps=3 format=3 uid="uid://vi4rrjltrjx7"]
 
 [ext_resource type="Script" path="res://assets/scenes/main.gd" id="1_fwahh"]
+[ext_resource type="AudioStream" uid="uid://64jg0wgxftfn" path="res://assets/audio/background_music/Transylvania.wav" id="2_dt4a3"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fwahh")
 
 [node name="CurrentLevel" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dt4a3")
+autoplay = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
