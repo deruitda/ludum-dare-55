@@ -4,12 +4,20 @@ extends Node2D
 @onready var current_level = %CurrentLevel
 @onready var current_level_scene = null
 @onready var current_level_index = 0
+@onready var audio_player = %AudioStreamPlayer
 
 
 const LEVELS = [
 	"res://assets/scenes/levels/level_1.tscn"
 ]
 
+const BG_SONGS = [
+	"res://assets/audio/background_music/A Haunting.wav",
+	"res://assets/audio/background_music/Drop Dead.wav",
+	"res://assets/audio/background_music/HeartThumper2.wav",
+	"res://assets/audio/background_music/Overstimulate.wav",
+	"res://assets/audio/background_music/Transylvania.wav"
+]
 
 func _ready():
 	GameSignal.connect("game_paused_updated", _on_game_paused_updated)
@@ -18,6 +26,8 @@ func _ready():
 	GameSignal.connect("game_resumed", _on_game_resumed)
 	GameSignal.connect("game_quit", _on_game_quit)
 	load_current_level_scene()
+	get_new_background_song()
+	
 
 
 func _input(event):
@@ -56,6 +66,7 @@ func _on_game_restarted():
 	get_tree().paused = false
 	remove_current_level_scene()
 	load_current_level_scene()
+	get_new_background_song()
 
 
 func load_current_level_scene():
@@ -67,3 +78,10 @@ func load_current_level_scene():
 func remove_current_level_scene():
 	current_level.remove_child(current_level_scene)
 	current_level_scene = null
+
+func get_new_background_song():
+	var song = BG_SONGS.pick_random()
+	print("playing song" + song)
+	
+	audio_player.stream = load(song)
+	audio_player.play()
