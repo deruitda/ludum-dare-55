@@ -24,7 +24,9 @@ func on_patron_survived(patron):
 	remaining_patrons_allowed_to_survive = total_patrons_allowed_to_survive - souls_survived
 	if remaining_patrons_allowed_to_survive <= 0:
 		remaining_patrons_allowed_to_survive = 0
+		GameSignal.emit_signal("game_over")
 	SurviveSignal.emit_signal("patron_survived_updated")
+	
 
 
 func on_souls_captured(num_of_souls_captured):
