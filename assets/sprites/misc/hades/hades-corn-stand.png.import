@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx673co7aex2k"
-path="res://.godot/imported/hades-portrait-speaking-sheet.png-c1efe5d5de84f0819062e953a7617dd9.ctex"
+uid="uid://bvi4y4rjkf2vs"
+path="res://.godot/imported/hades-corn-stand.png-0a2bc0350dce93af06ebc605976c935a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/misc/hades-portrait-speaking-sheet.png"
-dest_files=["res://.godot/imported/hades-portrait-speaking-sheet.png-c1efe5d5de84f0819062e953a7617dd9.ctex"]
+source_file="res://assets/sprites/misc/hades/hades-corn-stand.png"
+dest_files=["res://.godot/imported/hades-corn-stand.png-0a2bc0350dce93af06ebc605976c935a.ctex"]
 
 [params]
 

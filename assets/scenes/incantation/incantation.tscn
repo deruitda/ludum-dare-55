@@ -1,25 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://ua8rx50pqtw3"]
+[gd_scene load_steps=6 format=3 uid="uid://ua8rx50pqtw3"]
 
 [ext_resource type="Script" path="res://assets/scenes/incantation/incantation.gd" id="1_2nsem"]
+[ext_resource type="Texture2D" uid="uid://o7kpfsp41ghd" path="res://assets/sprites/misc/speech-bubble/speech-bubble.png" id="2_skoff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxdso"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ft2qt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11dpv"]
 
 [node name="Incantation" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_2nsem")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -179.0
-offset_right = 140.0
-offset_bottom = 179.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.11133, 1.76172)
+texture = ExtResource("2_skoff")
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 1
@@ -34,6 +31,9 @@ offset_right = 126.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wxdso")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ft2qt")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_11dpv")
 alignment = 1
 clear_button_enabled = true
 middle_mouse_paste_enabled = false
