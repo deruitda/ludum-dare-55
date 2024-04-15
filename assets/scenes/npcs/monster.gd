@@ -9,8 +9,9 @@ extends Node2D
 @onready var puzzles: Array = []
 @export var damage: int = 1
 @onready var _number_of_souls_captured: int = 0
-@onready var area_2d = $Area2D
 
+@onready var area_2d = $Area2D
+@onready var attack_collision_shape = $Area2D/AttackCollisionShape
 @onready var monster_animation = $Area2D/MonsterAnimation
 
 @export var lock_to_path: bool = false
