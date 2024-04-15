@@ -36,10 +36,14 @@ func _on_puzzle_solved():
 	set_state(summoning_states.SUMMONING)
 
 func _on_monster_selected(monster):
-	if current_state == summoning_states.IDLE:
+	if current_state == summoning_states.SAYING_INCANTATION:
+		pass
+	elif current_state == summoning_states.IDLE or (summoning_monster != null and get_monster().monster_name != monster.get_monster().monster_name):
 		set_state(summoning_states.CHOOSING_LOCATION)
 		summoning_monster = monster
+		SummoningSignal.emit_signal("monster_selected_updated")
 	else:
+		SummoningSignal.emit_signal("monster_summoned_canceled")
 		print("Cannot summon monster, current state: ", current_state)
 
 
@@ -64,7 +68,6 @@ func get_summoning_monster_path_follow_2d():
 
 func _on_monster_summoned(_monster):
 	reset_state()
-	
 
 
 func _on_monster_summoned_canceled():
@@ -106,6 +109,3 @@ func _on_incantation_typing():
 func _on_incantation_stopped_typing():
 	is_incantation_typing = false
 	SummoningSignal.emit_signal("incantation_typing_updated")
-
-func _on_summoning_animation_finished():
-	set_state(summoning_states.IDLE)

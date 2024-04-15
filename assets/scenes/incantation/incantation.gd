@@ -30,6 +30,7 @@ func _on_monster_summoned_canceled():
 func incantation_success():
 	SummoningSignal.emit_signal("puzzle_solved")
 	line_edit.clear()
+	line_edit.release_focus()
 	# TODO: Play sound, show animation
 
 

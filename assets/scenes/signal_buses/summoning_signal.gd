@@ -1,6 +1,7 @@
 extends Node
 
 signal monster_selected(monster)
+signal monster_selected_updated()
 signal location_selected()
 signal direction_selected()
 signal monster_summoned(monster)
