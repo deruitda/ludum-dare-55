@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://dqbvlws54q0y5"]
+[gd_scene load_steps=137 format=3 uid="uid://dqbvlws54q0y5"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_m8xxo"]
 [ext_resource type="Script" path="res://assets/scenes/monsters/harpy.gd" id="2_ca4if"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://be1se5c0rd5c4" path="res://assets/sprites/monsters/harpy/harpy-idle-sheet.png" id="6_5q6dd"]
 [ext_resource type="Texture2D" uid="uid://dpokc2xewnd5t" path="res://assets/sprites/monsters/harpy/harpy-scream-sheet.png" id="8_dfvmb"]
 [ext_resource type="Texture2D" uid="uid://vnx7yqe84oys" path="res://assets/sprites/monsters/harpy/harpy-summon-sheet.png" id="9_doj6s"]
-[ext_resource type="PackedScene" uid="uid://dsx68aghckgdp" path="res://assets/scenes/monsters/attack.tscn" id="9_wfcml"]
+[ext_resource type="PackedScene" uid="uid://do5jsjaipv1c8" path="res://assets/scenes/monsters/attack.tscn" id="9_wfcml"]
+[ext_resource type="AudioStream" uid="uid://bqa3vxtxutftx" path="res://assets/audio/monsters/Harpy/HarpyAttack.wav" id="11_e4wmk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hky3s"]
 radius = 291.39
@@ -937,6 +938,9 @@ texture = ExtResource("4_38ymt")
 [node name="AttackNode" parent="Monster" instance=ExtResource("9_wfcml")]
 attack_time_in_seconds = 1.0
 cooldown_in_seconds = 2.0
+
+[node name="AttackAudio" type="AudioStreamPlayer" parent="Monster"]
+stream = ExtResource("11_e4wmk")
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="attack" from="Monster/AttackNode" to="Monster" method="_on_attack_node_attack"]

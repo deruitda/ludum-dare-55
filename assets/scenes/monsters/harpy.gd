@@ -9,12 +9,15 @@ extends "res://assets/scenes/npcs/monster.gd"
 @onready var radius_container = $Area2D/RadiusContainer
 @onready var radius_sprite = $Area2D/RadiusContainer/RadiusSprite
 
+@onready var attack_audio = $AttackAudio
+
 func _on_summoning_animation_finished():
 	super()
 	attack_node.attack_radius = stun_radius
 	attack_node.start_attacking()
 
 func _on_attack_node_attack():
+	attack_audio.play()
 	attack_node.visible = true
 	attack_collision_shape.shape.radius = stun_radius
 	monster_animation.play("using_power")
