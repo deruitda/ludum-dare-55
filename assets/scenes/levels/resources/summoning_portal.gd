@@ -92,7 +92,7 @@ func summon_monster():
 		new_monster_path_follow_2d.scale = Vector2(1, 1)
 		new_monster_path_follow_2d.position = position
 		paths_container.add_to_path(new_monster_path_follow_2d)
-		SummoningSignal.emit_signal("monster_summoned", new_monster_path_follow_2d)
+		SummoningSignal.emit_signal("monster_summoned", new_monster_path_follow_2d.get_monster())
 
 func set_direction_line_position(mouse_position: Vector2):
 	var normalized_direction = (mouse_position - position).normalized()

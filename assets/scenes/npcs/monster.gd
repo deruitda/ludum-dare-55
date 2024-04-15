@@ -2,7 +2,7 @@ extends Node2D
 
 @export var monster_name: String = ""
 @export var _speed: float = 0.0
-@export var soul_spend: int = 0
+@export var soul_cost: int = 0
 
 @export var _max_souls_to_consume: int = 1
 @export var _visual_resource: Resource
@@ -12,6 +12,7 @@ extends Node2D
 @onready var _number_of_souls_captured: int = 0
 
 @onready var area_2d = $Area2D
+@onready var attack_collision_shape = $Area2D/AttackCollisionShape
 @onready var monster_animation = $Area2D/MonsterAnimation
 @onready var monster = $Monster
 

@@ -35,7 +35,7 @@ func _on_pressed():
 		
 # Check if player has captured enough souls to spend on the monster
 func attempt_to_summon_monster():
-	var monster_soul_cost = monster.soul_cost
+	var monster_soul_cost = monster.get_monster().soul_cost
 	if monster_soul_cost <= GameState.souls_to_spend:
 		begin_summoning_monster()
 	else:

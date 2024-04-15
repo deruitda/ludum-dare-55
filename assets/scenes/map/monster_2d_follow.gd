@@ -2,7 +2,6 @@ extends PathFollow2D
 
 
 @export var speed = 20.0
-@export var soul_cost: int = 0
 
 @onready var monster = $Monster
 @onready var is_summoned: bool

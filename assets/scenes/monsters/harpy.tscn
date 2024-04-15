@@ -905,21 +905,19 @@ animations = [{
 
 [node name="HarpyPathFollow2D" type="PathFollow2D"]
 script = ExtResource("1_m8xxo")
-soul_cost = 10
+metadata/_edit_horizontal_guides_ = [-100.0, 100.0]
+metadata/_edit_vertical_guides_ = [-100.0, 100.0]
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_ca4if")
+stun_radius = 300.0
+soul_cost = 10
 puzzle_sets = Array[Resource]([ExtResource("3_0muyw")])
 
 [node name="Area2D" type="Area2D" parent="Monster"]
 collision_layer = 4
 
-[node name="radius" type="Sprite2D" parent="Monster/Area2D"]
-position = Vector2(-0.999996, 1)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("4_38ymt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Monster/Area2D"]
+[node name="AttackCollisionShape" type="CollisionShape2D" parent="Monster/Area2D"]
 shape = SubResource("CircleShape2D_hky3s")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
@@ -929,8 +927,15 @@ sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="radius_container" type="Node2D" parent="Monster/Area2D"]
+
+[node name="radius" type="Sprite2D" parent="Monster/Area2D/radius_container"]
+position = Vector2(1.12057e-05, 7.62939e-06)
+scale = Vector2(1.5625, 1.5625)
+texture = ExtResource("4_38ymt")
+
 [node name="AttackNode" parent="Monster" instance=ExtResource("9_wfcml")]
-attack_time_in_seconds = 10.0
+attack_time_in_seconds = 1.0
 cooldown_in_seconds = 2.0
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]

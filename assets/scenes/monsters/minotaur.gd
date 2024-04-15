@@ -4,9 +4,6 @@ extends "res://assets/scenes/npcs/monster.gd"
 @onready var running_direction: Vector2
 @onready var charging_up_audio = $Area2D/MonsterAnimation/ChargingUpAudio
 
-func _ready():
-	soul_spend = 4
-
 func set_running_direction(direction: Vector2):
 	running_direction = direction
 
