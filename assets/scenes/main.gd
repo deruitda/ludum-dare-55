@@ -91,7 +91,7 @@ func load_current_level_scene():
 
 
 func remove_current_level_scene():
-	current_level.remove_child(current_level_scene)
+	current_level_scene.queue_free()
 	current_level_scene = null
 
 
