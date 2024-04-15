@@ -6,6 +6,7 @@ var souls_to_spend: int = 0 # Number of souls able to spend on summoning monster
 var souls_survived: int = 0 # If too many souls survive then it's game over
 var remaining_patrons_allowed_to_survive: int
 var is_paused: bool = false
+var is_game_over: bool = false
 
 
 func _ready():
@@ -25,6 +26,7 @@ func on_patron_survived(patron):
 	remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive - souls_survived
 	if remaining_patrons_allowed_to_survive <= 0:
 		remaining_patrons_allowed_to_survive = 0
+		is_game_over = true
 		GameSignal.emit_signal("game_over")
 	SurviveSignal.emit_signal("patron_survived_updated")
 	

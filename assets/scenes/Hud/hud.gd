@@ -28,7 +28,9 @@ func _on_souls_captured_updated():
 
 func _on_pause_button_pressed():
 	print("Pause button clicked, game is paused " + str(GameState.is_paused))
-	if GameState.is_paused:
+	if GameState.is_game_over:
+		pass
+	elif GameState.is_paused:
 		# Game is paused, resume the game
 		GameSignal.emit_signal("game_resumed")
 		pause_button.texture_normal = pause_button_texture
