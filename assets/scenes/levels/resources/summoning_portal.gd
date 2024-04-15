@@ -7,7 +7,6 @@ extends Area2D
 @onready var direction_line = $DirectionLine
 
 @onready var portal_sustained_audio = $PortalSustainedAudio
-@onready var portal_close_audio = $PortalCloseAudio
 
 @export var direction_line_length: float = 1000000.0
 @export var threshold_length: float = 100.0
@@ -19,7 +18,6 @@ extends Area2D
 func _ready():
 	visible = false
 	SummoningSignal.connect("state_changed", _on_summoning_state_changed)
-	SummoningSignal.connect("summoning_animation_finished", _on_summoning_animation_finished)
 
 func set_summoning_position(summon_monster_position):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
@@ -55,6 +53,7 @@ func _on_summoning_state_changed(state):
 		hide_portal()
 		hide_line()
 		portal_animation.stop()
+		portal_sustained_audio.stop()
 	elif state == SummoningState.summoning_states.CHOOSING_LOCATION:
 		show_portal()
 		hide_line()
@@ -130,20 +129,8 @@ func _input(event):
 			SummoningSignal.emit_signal("direction_selected")
 
 
-func _on_portal_sustained_audio_finished():
-	if SummoningState.current_state == SummoningState.summoning_states.SAYING_INCANTATION:
-		portal_sustained_audio.play()
-
-
-
-func _on_portal_animation_animation_finished():
-	portal_sustained_audio.stop()
-	portal_close_audio.play()
-
 
 func _on_portal_animation_animation_changed():
 	if portal_animation and portal_animation.animation == "active":
 		portal_sustained_audio.play()
 		
-func _on_summoning_animation_finished():
-	portal_sustained_audio.stop()
