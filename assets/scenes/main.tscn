@@ -20,3 +20,4 @@ stream = ExtResource("2_dt4a3")
 autoplay = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
