@@ -59,6 +59,7 @@ func stop_timer():
 	respawn_timer.stop()
 
 func complete_wave():
+	print("wave completed")
 	wave_completed = true
 	get_parent()._on_wave_complete()
 	

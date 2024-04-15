@@ -28,3 +28,7 @@ func _on_wave_container_wave_complete():
 	wave_container.start_waves()
 	print('wave ' + str(GameState.get_current_wave()))
 
+
+
+func _on_wave_complete():
+	pass # Replace with function body.

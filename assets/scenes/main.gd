@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var current_level = %CurrentLevel
 @onready var current_level_scene = null
-@onready var current_level_index = 0
+@onready var current_level_index = 1
 @onready var audio_player = %AudioStreamPlayer
 @onready var main_menu = %MainMenu
 
@@ -11,7 +11,8 @@ extends Node2D
 
 
 const LEVELS = [
-	"res://assets/scenes/levels/level_1.tscn"
+	"res://assets/scenes/levels/level_1.tscn",
+	"res://assets/scenes/levels/level_2.tscn",
 ]
 
 const BG_SONGS = [
