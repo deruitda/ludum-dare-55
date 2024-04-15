@@ -3,6 +3,8 @@ extends Control
 
 @onready var audio_player = %AudioStreamPlayer
 @onready var hades_animation = %HadesAnimation
+@onready var new_game_button = %NewGameButton
+@onready var is_playing_hades_audio = false
 
 
 const HADES_FRUSTRATION_AUDIOS = [
@@ -17,8 +19,11 @@ const HADES_FRUSTRATION_AUDIOS = [
 
 
 func _on_new_game_button_pressed():
-	hades_animation.play("speaking")
-	play_random_hades_frustration_audio()
+	if !is_playing_hades_audio:
+		is_playing_hades_audio = true
+		new_game_button.disabled = true
+		hades_animation.play("speaking")
+		play_random_hades_frustration_audio()
 
 
 func _on_quit_button_pressed():
@@ -32,4 +37,6 @@ func play_random_hades_frustration_audio():
 
 
 func _on_audio_stream_player_finished():
+	is_playing_hades_audio = false
+	new_game_button.disabled = false
 	GameSignal.emit_signal("new_game")
