@@ -13,6 +13,7 @@ func _ready():
 	SurviveSignal.connect("patron_survived", on_patron_survived)
 	SoulsCapturedSignal.connect("souls_captured", on_souls_captured)
 	GameSignal.connect("game_paused", _on_game_paused)
+	GameSignal.connect("game_restarted", _on_game_restarted)
 	GameSignal.connect("game_resumed", _on_game_resumed)
 	SummoningSignal.connect("monster_summoned", _on_monster_summoned)
 	remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive - souls_survived
@@ -53,6 +54,9 @@ func reset_souls():
 func _on_game_paused():
 	is_paused = true
 	GameSignal.emit_signal("game_paused_updated")
+
+func _on_game_restarted():
+	reset_souls()
 	
 func _on_game_resumed():
 	is_paused = false

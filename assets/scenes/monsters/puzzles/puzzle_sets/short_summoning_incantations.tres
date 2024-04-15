@@ -1,45 +1,34 @@
 [gd_resource type="JSON" format=3 uid="uid://dnw8ao1paiqt7"]
 
 [resource]
-data = [
-    {
-        "regex_answers": ["^awaken!?$"],
-        "text_puzzle": "Say: 'Awaken!'"
-    },
-    {
-        "regex_answers": ["^arise!?$"],
-        "text_puzzle": "Repeat: 'Arise!'"
-    },
-    {
-        "regex_answers": ["^come forth!?$"],
-        "text_puzzle": "Chant: 'Come forth!'"
-    },
-    {
-        "regex_answers": ["^by my command!?$"],
-        "text_puzzle": "Recite: 'By my command!'"
-    },
-    {
-        "regex_answers": ["^rise!?$"],
-        "text_puzzle": "Say: 'Rise!'"
-    },
-    {
-        "regex_answers": ["^awake!?$"],
-        "text_puzzle": "Say: 'Awake!'"
-    },
-    {
-        "regex_answers": ["^awake from slumber!?$"],
-        "text_puzzle": "Say: 'Awake from slumber!'"
-    },
-    {
-        "regex_answers": ["^come to me!?$"],
-        "text_puzzle": "Chant: 'Come to me!'"
-    },
-    {
-        "regex_answers": ["^obey!?$"],
-        "text_puzzle": "Recite: 'Obey!'"
-    },
-    {
-        "regex_answers": ["^be summoned!?$"],
-        "text_puzzle": "Say: 'Be summoned!'"
-    }
-]
+data = [{
+"regex_answers": ["^awaken!?$"],
+"text_puzzle": "Say: 'Awaken!'"
+}, {
+"regex_answers": ["^arise!?$"],
+"text_puzzle": "Repeat: 'Arise!'"
+}, {
+"regex_answers": ["^come forth!?$"],
+"text_puzzle": "Chant: 'Come forth!'"
+}, {
+"regex_answers": ["^by my command!?$"],
+"text_puzzle": "Recite: 'By my command!'"
+}, {
+"regex_answers": ["^rise!?$"],
+"text_puzzle": "Say: 'Rise!'"
+}, {
+"regex_answers": ["^awake!?$"],
+"text_puzzle": "Say: 'Awake!'"
+}, {
+"regex_answers": ["^awake from slumber!?$"],
+"text_puzzle": "Say: 'Awake from slumber!'"
+}, {
+"regex_answers": ["^come to me!?$"],
+"text_puzzle": "Chant: 'Come to me!'"
+}, {
+"regex_answers": ["^obey!?$"],
+"text_puzzle": "Recite: 'Obey!'"
+}, {
+"regex_answers": ["^be summoned!?$"],
+"text_puzzle": "Say: 'Be summoned!'"
+}]

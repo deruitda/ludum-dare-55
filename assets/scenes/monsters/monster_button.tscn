@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtraghpckn3ks"]
+[gd_scene load_steps=13 format=3 uid="uid://dtraghpckn3ks"]
 
 [ext_resource type="Script" path="res://assets/scenes/monsters/monster_button.gd" id="1_ecrrc"]
 [ext_resource type="Texture2D" uid="uid://qpvkmtvt7dbn" path="res://assets/sprites/monsters/borders/border-inactive.png" id="1_v8x20"]
 [ext_resource type="Texture2D" uid="uid://da2cmbqhaci15" path="res://assets/sprites/monsters/borders/border-active-sheet.png" id="3_v8ce6"]
 [ext_resource type="AudioStream" uid="uid://bbwxfy8ayw15g" path="res://assets/audio/misc/SelectionSound.wav" id="4_81tnv"]
+[ext_resource type="Texture2D" uid="uid://bjq1j1y3r0kmg" path="res://assets/sprites/patrons/human/human-soul.png" id="5_fcbxc"]
+[ext_resource type="FontFile" uid="uid://d0twylcttk1ec" path="res://assets/fonts/Calligraffitti-Regular.ttf" id="6_erl5v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hievu"]
 atlas = ExtResource("3_v8ce6")
@@ -41,6 +43,12 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_rqtlj"]
+font = ExtResource("6_erl5v")
+font_size = 64
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="MonsterButton" type="Button"]
 custom_minimum_size = Vector2(64, 128)
 offset_right = 64.0
@@ -60,4 +68,42 @@ autoplay = "default"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_81tnv")
 
+[node name="SoulCostWrapper" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 25.0
+offset_right = 24.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HumanSoul" type="Sprite2D" parent="SoulCostWrapper"]
+position = Vector2(20, 17)
+scale = Vector2(0.289063, 0.289063)
+texture = ExtResource("5_fcbxc")
+
+[node name="SoulCost" type="Label" parent="SoulCostWrapper/HumanSoul"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.7568
+offset_top = -102.054
+offset_right = 52.7568
+offset_bottom = -2.05408
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_rqtlj")
+vertical_alignment = 2
+
+[node name="ErrorTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="ErrorTimer" to="." method="_on_error_timer_timeout"]
