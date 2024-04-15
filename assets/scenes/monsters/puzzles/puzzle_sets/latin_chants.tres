@@ -26,7 +26,7 @@ data = [{
 "regex_answers": ["^e,? pluribus,? unum$"],
 "text_puzzle": "Chant after me: 'E Pluribus Unum'"
 }, {
-"regex_answers": ["^cogito,? ergo,? sum$"],
+"regex_answers": ["^cogito,? ergo,? sum$", "^cogita,? ergo,? sum$"],
 "text_puzzle": "Say it: 'Cogito, Ergo Sum'"
 }, {
 "regex_answers": ["^alea,? iacta,? est$"],
