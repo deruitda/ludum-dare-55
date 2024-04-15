@@ -9,6 +9,7 @@ var pause_button_texture = preload("res://assets/sprites/misc/icons/pause.png")
 @onready var health_bar_text = %PatronsSurvivedLabel
 @onready var souls_text = %Souls
 @onready var pause_button = %PauseButton
+@onready var days_text = %DaysText
 
 
 func _ready(): 
