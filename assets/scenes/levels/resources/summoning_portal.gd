@@ -49,7 +49,7 @@ func get_summoning_monster_path_follow_2d():
 
 func summon_monster():
 	var monster = get_monster()
-	if monster.lock_to_path:
+	if monster.lock_to_path == false:
 		var new_monster = monster.duplicate()
 		new_monster.position = position
 		free_moving_monsters.add_child(new_monster)
