@@ -13,11 +13,12 @@ func _ready():
 
 func set_summoning_position(summon_monster_position):
 	if SummoningState.current_state == SummoningState.summoning_states.CHOOSING_LOCATION:
-		position = paths_container.get_closest_position_on_path(summon_monster_position)
-		#if summon_monster().lock_to_path:
-			#position = paths_container.get_closest_position(mouse_position)
-		#else:
-			#position = mouse_position
+		var monster = get_monster()
+		print(monster.monster_name)
+		if monster.lock_to_path:
+			position = paths_container.get_closest_position_on_path(summon_monster_position)
+		else:
+			position = summon_monster_position		
 
 	
 func show_portal():

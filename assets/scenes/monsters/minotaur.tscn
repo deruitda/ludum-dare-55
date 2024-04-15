@@ -1,8 +1,8 @@
 [gd_scene load_steps=105 format=3 uid="uid://d4atuwv08cufi"]
 
 [ext_resource type="Script" path="res://assets/scenes/map/monster_2d_follow.gd" id="1_kaxpw"]
-[ext_resource type="Script" path="res://assets/scenes/npcs/monster.gd" id="2_3rn5c"]
-[ext_resource type="JSON" uid="uid://ck6qps3ymmnit" path="res://assets/scenes/monsters/puzzles/puzzle_sets/latin_chants.tres" id="3_362cs"]
+[ext_resource type="Script" path="res://assets/scenes/monsters/minotaur.gd" id="2_s4v6o"]
+[ext_resource type="JSON" uid="uid://cxfgqmuo4d0eo" path="res://assets/scenes/monsters/puzzles/puzzle_sets/backword_word_puzzles.tres" id="3_3ir7n"]
 [ext_resource type="Texture2D" uid="uid://codecqtmkhcta" path="res://assets/sprites/monsters/lost-soul/lost-soul-unsummon.png" id="4_x5j5r"]
 [ext_resource type="Texture2D" uid="uid://ccq5nml0tlj6e" path="res://assets/sprites/monsters/lost-soul/lost-soul-idle.png" id="5_nwu1x"]
 [ext_resource type="Texture2D" uid="uid://b1fae8clewxqw" path="res://assets/sprites/monsters/lost-soul/lost-soul-summon.png" id="6_jilg4"]
@@ -704,8 +704,9 @@ animations = [{
 script = ExtResource("1_kaxpw")
 
 [node name="Monster" type="Node2D" parent="."]
-script = ExtResource("2_3rn5c")
-puzzle_sets = Array[Resource]([ExtResource("3_362cs")])
+script = ExtResource("2_s4v6o")
+monster_name = "minotaur"
+puzzle_sets = Array[Resource]([ExtResource("3_3ir7n")])
 
 [node name="Area2D" type="Area2D" parent="Monster"]
 collision_layer = 2
