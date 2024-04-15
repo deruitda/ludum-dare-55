@@ -914,6 +914,7 @@ script = ExtResource("2_ca4if")
 stun_radius = 200.0
 monster_name = "harpy"
 soul_cost = 10
+key_to_summon = "3"
 puzzle_sets = Array[Resource]([ExtResource("3_0vxwd")])
 
 [node name="Area2D" type="Area2D" parent="Monster"]

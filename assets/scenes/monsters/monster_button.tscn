@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtraghpckn3ks"]
+[gd_scene load_steps=14 format=3 uid="uid://dtraghpckn3ks"]
 
 [ext_resource type="Script" path="res://assets/scenes/monsters/monster_button.gd" id="1_ecrrc"]
 [ext_resource type="Texture2D" uid="uid://qpvkmtvt7dbn" path="res://assets/sprites/monsters/borders/border-inactive.png" id="1_v8x20"]
@@ -43,11 +43,13 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_rqtlj"]
+[sub_resource type="LabelSettings" id="LabelSettings_wg5v8"]
 font = ExtResource("6_erl5v")
-font_size = 64
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_rvklb"]
+font = ExtResource("6_erl5v")
+font_size = 56
 
 [node name="MonsterButton" type="Button"]
 custom_minimum_size = Vector2(64, 128)
@@ -68,6 +70,20 @@ autoplay = "default"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_81tnv")
+
+[node name="KeyToSummonWrapper" type="Node2D" parent="."]
+position = Vector2(6, 6)
+scale = Vector2(0.25, 0.25)
+
+[node name="KeyToSummon" type="Label" parent="KeyToSummonWrapper"]
+unique_name_in_owner = true
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 46.0
+offset_bottom = 96.0
+text = "0"
+label_settings = SubResource("LabelSettings_wg5v8")
+vertical_alignment = 2
 
 [node name="SoulCostWrapper" type="Control" parent="."]
 layout_mode = 1
@@ -94,12 +110,12 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 20.7568
-offset_top = -102.054
+offset_top = -105.513
 offset_right = 52.7568
-offset_bottom = -2.05408
+offset_bottom = -5.51355
 grow_vertical = 0
 text = "0"
-label_settings = SubResource("LabelSettings_rqtlj")
+label_settings = SubResource("LabelSettings_rvklb")
 vertical_alignment = 2
 
 [node name="ErrorTimer" type="Timer" parent="."]

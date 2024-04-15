@@ -7,6 +7,7 @@ const Monster = preload("res://assets/scenes/npcs/monster.gd")
 
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var soul_cost_text = %SoulCost
+@onready var key_to_summon_text = %KeyToSummon
 @onready var error_timer = %ErrorTimer
 @onready var monster_soul_cost = 0
 
@@ -17,6 +18,7 @@ func _ready():
 	GameSignal.connect("souls_to_spend_updated", _on_souls_to_spend_updated)
 	monster_soul_cost = monster.get_monster().soul_cost
 	soul_cost_text.text = str(monster_soul_cost)
+	key_to_summon_text.text = monster.get_monster().key_to_summon
 	set_souls_cost_styling()
 
 func _process(delta):
