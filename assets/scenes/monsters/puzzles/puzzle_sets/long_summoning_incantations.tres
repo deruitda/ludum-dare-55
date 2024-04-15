@@ -2,18 +2,33 @@
 
 [resource]
 data = [{
-"regex_answers": ["^by the power of the ancient ones, awaken!$"],
-"text_puzzle": "Repeat after me: 'By the power of the ancient ones, awaken!'"
+"regex_answers": ["^by the power of the ancient ones awaken!?{0,2}$"],
+"text_puzzle": "Repeat after me: 'By the power of the ancient ones awaken!'"
 }, {
-"regex_answers": ["^from the depths of the abyss, come forth!$"],
-"text_puzzle": "Say: 'From the depths of the abyss, come forth!'"
+"regex_answers": ["^from the depths of the abyss come forth!?{0,2}$"],
+"text_puzzle": "Say: 'From the depths of the abyss come forth!'"
 }, {
-"regex_answers": ["^with the rising of the moon, be summoned!$"],
-"text_puzzle": "Recite: 'With the rising of the moon, be summoned!'"
+"regex_answers": ["^with the rising of the moon be summoned!?{0,2}$"],
+"text_puzzle": "Recite: 'With the rising of the moon be summoned!'"
 }, {
-"regex_answers": ["^by the light of the stars, i command thee!$"],
-"text_puzzle": "Chant: 'By the light of the stars, I command thee!'"
+"regex_answers": ["^by the light of the stars I command thee!?{0,2}$"],
+"text_puzzle": "Chant: 'By the light of the stars I command thee!'"
 }, {
-"regex_answers": ["^in the name of magic, arise!$"],
-"text_puzzle": "Repeat: 'In the name of magic, arise!'"
+"regex_answers": ["^in the name of magic arise!?{0,2}$"],
+"text_puzzle": "Repeat: 'In the name of magic arise!'"
+}, {
+"regex_answers": ["^by the power of the elements awaken!?{0,2}$"],
+"text_puzzle": "Recite: 'By the power of the elements awaken!'"
+}, {
+"regex_answers": ["^from the shadows come forth!?{0,2}$"],
+"text_puzzle": "Say: 'From the shadows come forth!'"
+}, {
+"regex_answers": ["^with the whisper of the wind be summoned!?{0,2}$"],
+"text_puzzle": "Chant: 'With the whisper of the wind be summoned!'"
+}, {
+"regex_answers": ["^by the might of the earth I command thee!?{0,2}$"],
+"text_puzzle": "Repeat after me: 'By the might of the earth I command thee!'"
+}, {
+"regex_answers": ["^in the silence of the night arise!?{0,2}$"],
+"text_puzzle": "Recite: 'In the silence of the night arise!'"
 }]
