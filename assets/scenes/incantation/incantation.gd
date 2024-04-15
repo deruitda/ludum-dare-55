@@ -9,11 +9,6 @@ func _ready():
 	SummoningSignal.connect("location_selected", _on_location_selected)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_line_edit_text_submitted(new_text):
 	if SummoningState.current_state == SummoningState.summoning_states.SUMMONING:
 		if SummoningState.current_puzzle.does_answer_solve_puzzle(new_text):
