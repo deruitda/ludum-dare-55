@@ -2,7 +2,6 @@ extends "res://assets/scenes/npcs/monster.gd"
 @onready var attack_node = $AttackNode
 @export var stun_percentage: float = 80.0
 @export var stun_duration_in_seconds: float = 5.0
-@onready var stun_area_2d = $StunArea2D
 
 func _on_summoning_animation_finished():
 	super()

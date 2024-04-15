@@ -9,7 +9,6 @@ signal area_entered(area)
 @export var cooldown_in_seconds: float = 4.0
 
 @onready var attack_timer = $AttackTimer
-@onready var attack_area = $AttackArea
 @onready var attack_cooldown_timer = $AttackCooldownTimer
 
 @onready var currently_attacking: bool = false
@@ -26,7 +25,6 @@ func start_attacking():
 	can_attack = true
 
 func make_attack():
-	#attack_area.visible = true
 	attack_timer.start(attack_time_in_seconds)
 	attack.emit()
 	
