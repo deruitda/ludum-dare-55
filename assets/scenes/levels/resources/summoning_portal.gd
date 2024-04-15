@@ -2,6 +2,8 @@ extends Area2D
 
 @onready var portal_animation = $PortalAnimation
 @onready var paths_container = $"../PathsContainer"
+@onready var summoning_mouse_position_threshold: float = 100.0
+@onready var free_moving_monsters = $"../FreeMovingMonsters"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,15 +47,16 @@ func get_summoning_monster_path_follow_2d():
 	return SummoningState.summoning_monster
 
 func summon_monster():
-	var new_monster_path_follow_2d = get_summoning_monster_path_follow_2d().duplicate()
-	new_monster_path_follow_2d.scale = Vector2(1, 1)
-	new_monster_path_follow_2d.position = position
-	paths_container.add_to_path(new_monster_path_follow_2d)
-	#if new_monster_path_follow_2d.get_monster().lock_to_path:
-		#get_parent().add_to_path(new_monster_path_follow_2d) 
-	#else:
-		#get_parent().add_monster_path_follow_2d_to_free_moving_monsters(new_monster_path_follow_2d)
-
+	var monster = get_monster()
+	if monster.lock_to_path:
+		var new_monster = monster.duplicate()
+		new_monster.position = position
+		free_moving_monsters.add_child(new_monster)
+	else:
+		var new_monster_path_follow_2d = get_summoning_monster_path_follow_2d().duplicate()
+		new_monster_path_follow_2d.scale = Vector2(1, 1)
+		new_monster_path_follow_2d.position = position
+		paths_container.add_to_path(new_monster_path_follow_2d)
 	SummoningSignal.emit_signal("monster_summoned")
 
 func _input(event):

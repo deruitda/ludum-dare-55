@@ -706,7 +706,8 @@ script = ExtResource("1_ivoc6")
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_4fnxo")
-puzzle_sets = Array[Resource]([ExtResource("3_0kkoh"), ExtResource("4_u1cv0")])
+_visual_resource = ExtResource("4_u1cv0")
+puzzle_sets = Array[Resource]([ExtResource("4_u1cv0"), ExtResource("3_0kkoh")])
 
 [node name="Area2D" type="Area2D" parent="Monster"]
 collision_layer = 2
@@ -715,6 +716,7 @@ collision_layer = 2
 shape = SubResource("RectangleShape2D_f4ngn")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"summoning"
 autoplay = "summoning"
