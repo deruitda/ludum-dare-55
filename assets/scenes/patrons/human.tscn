@@ -1,8 +1,76 @@
-[gd_scene load_steps=54 format=3 uid="uid://cxttpm7edmq2w"]
+[gd_scene load_steps=80 format=3 uid="uid://cxttpm7edmq2w"]
 
 [ext_resource type="Script" path="res://assets/scenes/npcs/patron.gd" id="1_4angd"]
 [ext_resource type="Script" path="res://assets/scenes/map/patron_2d_follow.gd" id="1_w1l26"]
+[ext_resource type="Texture2D" uid="uid://udyxx48g37tl" path="res://assets/sprites/patrons/human/human-death-sheet.png" id="2_6t2gb"]
 [ext_resource type="Texture2D" uid="uid://dtibq7a8ntui5" path="res://assets/sprites/patrons/human/human-bald-light-run.png" id="3_ughat"]
+[ext_resource type="AudioStream" uid="uid://nswmmlq0ysal" path="res://assets/audio/patrons/HumanDeath1.wav" id="6_17koo"]
+[ext_resource type="Script" path="res://assets/scenes/npcs/sound_container.gd" id="6_twbmu"]
+[ext_resource type="AudioStream" uid="uid://dpyxg1hrh45pu" path="res://assets/audio/patrons/HumanDeath2.wav" id="7_i8a0c"]
+[ext_resource type="AudioStream" uid="uid://dayjd0ixpb6wn" path="res://assets/audio/patrons/HumanDeath3.wav" id="8_7bfbc"]
+[ext_resource type="AudioStream" uid="uid://datybcktucr4u" path="res://assets/audio/patrons/HumanDeath4.wav" id="9_vww2o"]
+[ext_resource type="AudioStream" uid="uid://b7bhwar31kt2v" path="res://assets/audio/patrons/HumanDeath5.wav" id="10_wpd51"]
+[ext_resource type="AudioStream" uid="uid://5xw8r1atdnvf" path="res://assets/audio/patrons/HumanDeath6.wav" id="11_oekh0"]
+[ext_resource type="AudioStream" uid="uid://c4pee4mwdofwg" path="res://assets/audio/patrons/HumanDeath7.wav" id="12_y7xqc"]
+[ext_resource type="AudioStream" uid="uid://dogyhjxi5lo1o" path="res://assets/audio/patrons/HumanDeath10.wav" id="13_he2bs"]
+[ext_resource type="AudioStream" uid="uid://bixk4nreebx04" path="res://assets/audio/patrons/HumanDeath8.wav" id="13_qwvk2"]
+[ext_resource type="AudioStream" uid="uid://bchv5umahrj4y" path="res://assets/audio/patrons/HumanDeath9.wav" id="14_2s5fq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5hjc"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0y4u"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whk33"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r20bh"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ct43"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(512, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ll14"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(640, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cetq"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(768, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmiyf"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(896, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n124o"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(1024, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxpui"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(1152, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fluga"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(1280, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su1uu"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(1408, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nj1s"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(1536, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48c44"]
+atlas = ExtResource("2_6t2gb")
+region = Rect2(1664, 0, 128, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plhkj"]
 atlas = ExtResource("3_ughat")
@@ -200,6 +268,53 @@ region = Rect2(3008, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e5hjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0y4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whk33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r20bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ct43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ll14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cetq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmiyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n124o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxpui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fluga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su1uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nj1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48c44")
+}],
+"loop": false,
+"name": &"dying",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_plhkj")
 }, {
 "duration": 1.0,
@@ -344,31 +459,71 @@ animations = [{
 "texture": SubResource("AtlasTexture_si30j")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walking",
 "speed": 24.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgelr"]
 size = Vector2(153.125, 284.375)
 
-[node name="Human" type="PathFollow2D"]
+[node name="Human2DFollow" type="PathFollow2D"]
 script = ExtResource("1_w1l26")
-
-[node name="PathFollowArea2D" type="Area2D" parent="."]
-scale = Vector2(0.2, 0.2)
-collision_mask = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollowArea2D"]
-scale = Vector2(4.49512, 4.49512)
-sprite_frames = SubResource("SpriteFrames_u7rv0")
-autoplay = "default"
-frame_progress = 0.804902
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowArea2D"]
-position = Vector2(10, 4.99999)
-shape = SubResource("RectangleShape2D_qgelr")
 
 [node name="Patron" type="Node2D" parent="."]
 script = ExtResource("1_4angd")
 
-[connection signal="area_entered" from="PathFollowArea2D" to="Patron" method="_on_path_follow_area_2d_area_entered"]
+[node name="PathFollowArea2D" type="Area2D" parent="Patron"]
+scale = Vector2(0.2, 0.2)
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Patron/PathFollowArea2D"]
+scale = Vector2(4.49512, 4.49512)
+sprite_frames = SubResource("SpriteFrames_u7rv0")
+animation = &"dying"
+autoplay = "walking"
+frame = 13
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Patron/PathFollowArea2D"]
+position = Vector2(10, 4.99999)
+shape = SubResource("RectangleShape2D_qgelr")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="Patron"]
+stream = ExtResource("13_he2bs")
+
+[node name="DeathSoundContainer" type="Node" parent="Patron"]
+script = ExtResource("6_twbmu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("6_17koo")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("7_i8a0c")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("8_7bfbc")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("9_vww2o")
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("10_wpd51")
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("11_oekh0")
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("12_y7xqc")
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("13_qwvk2")
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("14_2s5fq")
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="Patron/DeathSoundContainer"]
+stream = ExtResource("13_he2bs")
+
+[connection signal="area_entered" from="Patron/PathFollowArea2D" to="Patron" method="_on_path_follow_area_2d_area_entered"]
+[connection signal="animation_finished" from="Patron/PathFollowArea2D/AnimatedSprite2D" to="Patron" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="finished" from="Patron/DeathSound" to="Patron" method="_on_death_sound_finished"]

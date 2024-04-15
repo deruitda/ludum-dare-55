@@ -4,14 +4,12 @@ extends TextureButton
 const Monster = preload("res://assets/scenes/npcs/monster.gd")
 @export var monster: Node2D = null
 @export var summon_monster_input_action_number: int = 1
+@onready var select_sound = $SelectSound
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#texture_normal = monster._visual_resource
-	#custom_minimum_size = monster._visual_resource.get_size()
-	# Center the texture within the button
-	#stretch_mode = TextureButton.STRETCH_KEEP_CENTERED
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,4 +36,6 @@ func begin_summoning_monster():
 
 
 func _on_pressed():
+	select_sound.play()
 	begin_summoning_monster()
+	

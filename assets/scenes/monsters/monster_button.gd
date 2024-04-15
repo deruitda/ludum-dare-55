@@ -5,6 +5,8 @@ const Monster = preload("res://assets/scenes/npcs/monster.gd")
 @export var monster: Node2D = Monster.new()
 @export var summon_monster_input_action_number: int = 1
 
+@onready var audio_stream_player = $AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SummoningSignal.connect("state_changed", _on_state_changed)
@@ -33,6 +35,7 @@ func end_summoning_monster():
 
 
 func _on_pressed():
+	audio_stream_player.play()
 	if SummoningState.current_state == SummoningState.summoning_states.IDLE:
 		print("Beginnin summon monster")
 		begin_summoning_monster()

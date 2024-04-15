@@ -1,12 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://vi4rrjltrjx7"]
 
 [ext_resource type="Script" path="res://assets/scenes/main.gd" id="1_fwahh"]
-[ext_resource type="AudioStream" uid="uid://64jg0wgxftfn" path="res://assets/audio/background_music/Transylvania.wav" id="2_dt4a3"]
+[ext_resource type="AudioStream" uid="uid://bo3d7bv6cxeuq" path="res://assets/audio/background_music/A Haunting.wav" id="2_dt4a3"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fwahh")
 
 [node name="CurrentLevel" type="Node" parent="."]
+unique_name_in_owner = true
+process_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_dt4a3")

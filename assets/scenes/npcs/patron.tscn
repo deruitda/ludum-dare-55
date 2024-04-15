@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4fqttt4jgfx1"]
+[gd_scene load_steps=4 format=3 uid="uid://d4fqttt4jgfx1"]
 
 [ext_resource type="Script" path="res://assets/scenes/npcs/patron.gd" id="1_v83sx"]
+[ext_resource type="AudioStream" uid="uid://dogyhjxi5lo1o" path="res://assets/audio/patrons/HumanDeath10.wav" id="11_2m7kt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yma8x"]
 
@@ -14,3 +15,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowArea2D"]
 shape = SubResource("RectangleShape2D_yma8x")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2m7kt")
