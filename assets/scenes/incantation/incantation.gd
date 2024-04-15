@@ -2,7 +2,7 @@ extends Control
 
 @onready var line_edit = $LineEdit
 @onready var timer = %Timer
-@export var _speaking_animation_wait_time: int = 0.5
+@export var _speaking_animation_wait_time: float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
