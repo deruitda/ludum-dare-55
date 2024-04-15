@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://vnx7yqe84oys" path="res://assets/sprites/monsters/harpy/harpy-summon-sheet.png" id="9_doj6s"]
 [ext_resource type="PackedScene" uid="uid://dsx68aghckgdp" path="res://assets/scenes/monsters/attack.tscn" id="9_wfcml"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ngn"]
-size = Vector2(49, 59)
+[sub_resource type="CircleShape2D" id="CircleShape2D_hky3s"]
+radius = 291.39
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ocnj4"]
 atlas = ExtResource("4_xcfj0")
@@ -718,7 +718,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -910,19 +910,20 @@ script = ExtResource("2_ca4if")
 puzzle_sets = Array[Resource]([ExtResource("3_0muyw")])
 
 [node name="Area2D" type="Area2D" parent="Monster"]
-collision_layer = 2
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monster/Area2D"]
-scale = Vector2(1e-05, 1e-05)
-shape = SubResource("RectangleShape2D_f4ngn")
+shape = SubResource("CircleShape2D_hky3s")
 
 [node name="MonsterAnimation" type="AnimatedSprite2D" parent="Monster/Area2D"]
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_3qrio")
 animation = &"using_power"
 autoplay = "summoning"
-frame_progress = 0.233184
 
 [node name="AttackNode" parent="Monster" instance=ExtResource("9_wfcml")]
+attack_time_in_seconds = 10.0
+cooldown_in_seconds = 2.0
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="attack" from="Monster/AttackNode" to="Monster" method="_on_attack_node_attack"]

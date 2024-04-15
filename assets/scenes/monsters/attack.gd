@@ -2,6 +2,7 @@ extends Node
 
 signal attack
 signal attack_finished
+signal area_entered(area)
 
 @export var attack_time_in_seconds: float = 0.25
 @export var attack_radius: float = 1.0
@@ -41,3 +42,7 @@ func _on_attack_timer_timeout():
 func _on_attack_cooldown_timer_timeout():
 	attack_cooldown_timer.stop()
 	make_attack()
+
+
+func _on_attack_area_area_entered(area):
+	area_entered.emit(area)
