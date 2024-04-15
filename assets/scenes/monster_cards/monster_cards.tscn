@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b75su1ww7nh23"]
+[gd_scene load_steps=5 format=3 uid="uid://b75su1ww7nh23"]
 
 [ext_resource type="PackedScene" uid="uid://dtraghpckn3ks" path="res://assets/scenes/monsters/monster_button.tscn" id="1_r70cb"]
 [ext_resource type="PackedScene" uid="uid://ca4732islbtvc" path="res://assets/scenes/monsters/lost_soul.tscn" id="2_5qwcl"]
 [ext_resource type="PackedScene" uid="uid://d4atuwv08cufi" path="res://assets/scenes/monsters/minotaur.tscn" id="3_v0pvs"]
+[ext_resource type="PackedScene" uid="uid://dqbvlws54q0y5" path="res://assets/scenes/monsters/harpy.tscn" id="4_3p2eh"]
 
 [node name="MonsterCards" type="HBoxContainer"]
 offset_right = 64.0
@@ -26,4 +27,8 @@ scale = Vector2(0.8, 0.8)
 
 [node name="Harpy" parent="." node_paths=PackedStringArray("monster") instance=ExtResource("1_r70cb")]
 layout_mode = 2
-monster = NodePath("../LostSoulButton/LostSoul")
+monster = NodePath("HarpyPathFollow2D")
+
+[node name="HarpyPathFollow2D" parent="Harpy" instance=ExtResource("4_3p2eh")]
+position = Vector2(31, 54)
+scale = Vector2(0.4, 0.4)

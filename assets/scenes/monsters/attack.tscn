@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsx68aghckgdp"]
+
+[ext_resource type="Script" path="res://assets/scenes/monsters/attack.gd" id="1_pavxb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h76ht"]
+radius = 251.149
+
+[node name="Attack" type="Node2D"]
+script = ExtResource("1_pavxb")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="AttackAreaCollision" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_h76ht")
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
