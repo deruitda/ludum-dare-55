@@ -12,7 +12,7 @@ unique_name_in_owner = true
 process_mode = 1
 
 [node name="MainMenu" parent="." instance=ExtResource("2_44vq7")]
-visible = false
+unique_name_in_owner = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

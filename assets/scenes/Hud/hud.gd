@@ -48,6 +48,7 @@ func _on_pause_button_pressed():
 		# Game is playing, pause the game
 		GameSignal.emit_signal("game_paused")
 		set_play_button()
+	get_tree().get_root().set_input_as_handled()
 
 
 func set_play_button():

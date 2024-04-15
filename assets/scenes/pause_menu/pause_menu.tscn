@@ -34,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -228.5
-offset_top = -275.5
-offset_right = 228.5
-offset_bottom = 275.5
+offset_left = -180.0
+offset_top = -315.0
+offset_right = 180.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c7g0u")
@@ -72,6 +72,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_p5mr1")
 text = "Paused"
 label_settings = SubResource("LabelSettings_37238")
+horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="MainPauseMenu"]
 layout_mode = 2
@@ -97,6 +98,14 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
 text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="MainPauseMenu"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qib0a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kew6o")
+text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="MainPauseMenu"]
 layout_mode = 2
@@ -140,5 +149,6 @@ text = "Back"
 [connection signal="pressed" from="MainPauseMenu/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MainPauseMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainPauseMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MainPauseMenu/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="MainPauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="OptionsPauseMenu/BackButton" to="." method="_on_back_button_pressed"]
