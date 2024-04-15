@@ -4,6 +4,7 @@ extends Node2D
 @onready var free_moving_monsters = $FreeMovingMonsters
 @onready var wave_container = $WaveContainer
 @onready var paths_container = $PathsContainer
+@onready var wave_cooldown = $WaveCooldown
 
 
 @onready var current_wave: int = 1
@@ -16,6 +17,7 @@ const WAVE = preload("res://assets/scenes/levels/wave.tscn")
 func _ready():
 	SummoningState.reset_state()
 	wave_container.start_waves()
+	GameSignal.connect("day_complete_ui_closed", _on_day_complete_ui_closed)
 
 func add_patron(patron_node):
 	first_path_segment.add_child(patron_node)
@@ -24,7 +26,18 @@ func _process(delta):
 	pass
 	
 func _on_wave_container_wave_complete():
-	GameState.increment_wave()
-	wave_container.start_waves()
-	print('wave ' + str(GameState.get_current_wave()))
+	GameSignal.emit_signal("wave_completed")
+	
 
+func start_next_wave():
+	wave_cooldown.start()	
+	wave_container.start_waves()
+
+func open_wave_cooldown_hud():
+	pass
+
+func _on_wave_cooldown_timeout():
+	start_next_wave()
+
+func _on_day_complete_ui_closed():
+	start_next_wave()
