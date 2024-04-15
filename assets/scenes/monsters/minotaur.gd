@@ -17,7 +17,7 @@ func charge_up():
 	#charging_up_audio.play()
 
 func _on_charging_up_animation_finished():
-	monster_animation.play("idle")
+	monster_animation.play("charging")
 	is_running = true
 
 func _on_animated_sprite_2d_animation_finished():
