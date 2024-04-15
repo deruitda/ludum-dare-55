@@ -21,7 +21,7 @@ func _ready():
 
 func _on_monster_summoned(monster):
 	souls_to_spend -= monster.soul_cost
-	GameState.emit_signal("souls_to_spend_updated")
+	GameSignal.emit_signal("souls_to_spend_updated")
 
 
 func on_patron_survived(patron):

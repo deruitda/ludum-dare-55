@@ -708,6 +708,7 @@ script = ExtResource("1_ivoc6")
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_pa6o1")
+monster_name = "lost_soul"
 puzzle_sets = Array[Resource]([ExtResource("4_u1cv0"), ExtResource("3_0kkoh")])
 lock_to_path = true
 
