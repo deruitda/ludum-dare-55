@@ -2,6 +2,7 @@ extends Control
 
 @onready var line_edit = $LineEdit
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SummoningSignal.connect("location_selected", _on_location_selected)
@@ -44,6 +45,7 @@ func _on_line_edit_focus_exited():
 
 func _on_line_edit_gui_input(event):
 	if SummoningState.current_state == SummoningState.summoning_states.SUMMONING:
+		
 		var new_text = line_edit.text
 		if SummoningState.current_puzzle.does_answer_solve_puzzle(new_text):
 			incantation_success()
