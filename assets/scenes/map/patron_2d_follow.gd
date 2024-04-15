@@ -2,12 +2,11 @@ extends PathFollow2D
 
 @export var speed = 100.0
 @onready var patron = $Patron
-@onready var human = $Human
 
 @onready var stunned_effect_timer = $Patron/StunnedEffectTimer
 @onready var stun_percentage: float = 0.0
+
 func _ready():
-	
 	loop = false
 
 func _physics_process(delta):
