@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cx673co7aex2k" path="res://assets/sprites/misc/hades/hades-portrait-speaking-sheet.png" id="4_felt3"]
 [ext_resource type="Texture2D" uid="uid://djg1q6taqpkfb" path="res://assets/sprites/misc/hades/hades-portrait-idle.png" id="4_l5uvc"]
 [ext_resource type="AudioStream" uid="uid://bp8natv1ba62k" path="res://assets/audio/misc/hades/HadesFrustration1.wav" id="5_7f6ca"]
-[ext_resource type="PackedScene" uid="uid://h3d31helubiu" path="res://assets/scenes/tutorial.tscn" id="7_gulhm"]
+[ext_resource type="PackedScene" uid="uid://d31ppyerwut7e" path="res://assets/scenes/tutorial.tscn" id="7_gulhm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lqva"]
 atlas = ExtResource("4_l5uvc")

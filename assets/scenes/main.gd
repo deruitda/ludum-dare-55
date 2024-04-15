@@ -31,6 +31,9 @@ func _ready():
 	GameSignal.connect("game_quit", _on_game_quit)
 	GameSignal.connect("new_game", _on_new_game)
 	GameSignal.connect("game_to_main_menu", _on_game_to_main_menu)
+	
+	GameSignal.connect('tutorial_started', _on_tutorial_started)
+	GameSignal.connect('tutorial_stopped', _on_tutorial_stopped)
 	GameState.set_is_testing(is_testing)
 	get_new_background_song()
 
@@ -105,3 +108,9 @@ func get_new_background_song():
 
 func _on_audio_stream_player_finished():
 	get_new_background_song()
+
+func _on_tutorial_started():
+	audio_player.stop()
+	
+func _on_tutorial_stopped():
+	audio_player.play()
