@@ -9,20 +9,29 @@ var pause_button_texture = preload("res://assets/sprites/misc/icons/pause.png")
 @onready var health_bar_text = %PatronsSurvivedLabel
 @onready var souls_text = %Souls
 @onready var pause_button = %PauseButton
+@onready var days_text = %DaysText
 
 
 func _ready(): 
-	SurviveSignal.connect("patron_survived_updated", updated_patron_survived_hud)
+	SurviveSignal.connect("patron_survived_updated", _patron_survived_updated)
 	SoulsCapturedSignal.connect("souls_captured_updated", _on_souls_captured_updated)
 	GameSignal.connect("game_paused", _on_game_paused)
 	GameSignal.connect("game_resumed", _on_game_resumed)
 	GameSignal.connect("souls_to_spend_updated", _on_souls_to_spend_updated)
-	health_bar_text.text = str(GameState.remaining_patrons_allowed_to_survive) + " Survivors Remaining"
+	update_health_bar()
 
 
-func updated_patron_survived_hud():
-	health_bar.value = 100 * GameState.remaining_patrons_allowed_to_survive / GameState._total_patrons_allowed_to_survive
-	health_bar_text.text = str(GameState.remaining_patrons_allowed_to_survive) + " Survivors Remaining"
+func _patron_survived_updated():
+	update_health_bar()
+
+
+func update_health_bar():
+	if GameState.remaining_patrons_allowed_to_survive > 0:
+		health_bar.value = 100 * GameState.remaining_patrons_allowed_to_survive / GameState._total_patrons_allowed_to_survive
+		health_bar_text.text = "$" + str(GameState._reward_per_patron * GameState.remaining_patrons_allowed_to_survive) + " Left"
+	else:
+		health_bar.value = 0
+		health_bar_text.text = "Congratulations, you are bankrupt!"
 
 
 func _on_souls_captured_updated():
