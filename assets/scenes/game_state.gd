@@ -26,7 +26,6 @@ func _ready():
 
 func _on_wave_completed():
 	increment_wave()
-	GameSignal.emit_signal("wave_updated", current_wave)
 
 func _on_monster_summoned(monster):
 	souls_to_spend -= monster.soul_cost
@@ -79,7 +78,7 @@ func increment_wave():
 	
 func set_wave(_wave: int):
 	current_wave = _wave
-	GameSignal.emit_signal("wave_updated", current_wave)
+	GameSignal.emit_signal("wave_updated", _wave)
 
 func _on_game_resumed():
 	is_paused = false
