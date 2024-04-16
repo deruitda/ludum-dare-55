@@ -2,8 +2,8 @@ extends PathFollow2D
 
 @export var speed = 100.0
 @onready var patron = $Patron
+@onready var stunned_effect_timer = $StunnedEffectTimer
 
-@onready var stunned_effect_timer = $Patron/StunnedEffectTimer
 @onready var stun_percentage: float = 0.0
 
 func _ready():
@@ -28,7 +28,6 @@ func patron_survived():
 func set_stun(new_stun_percentage: float, stun_duration_in_seconds: float):
 	stun_percentage = new_stun_percentage
 	stunned_effect_timer.start(stun_duration_in_seconds)
-
 
 func _on_stunned_effect_timer_timeout():
 	stunned_effect_timer.stop()
