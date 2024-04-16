@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://be1se5c0rd5c4" path="res://assets/sprites/monsters/harpy/harpy-idle-sheet.png" id="6_5q6dd"]
 [ext_resource type="Texture2D" uid="uid://dpokc2xewnd5t" path="res://assets/sprites/monsters/harpy/harpy-scream-sheet.png" id="8_dfvmb"]
 [ext_resource type="Texture2D" uid="uid://vnx7yqe84oys" path="res://assets/sprites/monsters/harpy/harpy-summon-sheet.png" id="9_doj6s"]
-[ext_resource type="PackedScene" uid="uid://do5jsjaipv1c8" path="res://assets/scenes/monsters/attack.tscn" id="9_wfcml"]
+[ext_resource type="PackedScene" uid="uid://dsx68aghckgdp" path="res://assets/scenes/monsters/attack.tscn" id="9_wfcml"]
 [ext_resource type="AudioStream" uid="uid://bqa3vxtxutftx" path="res://assets/audio/monsters/Harpy/HarpyAttack.wav" id="11_e4wmk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hky3s"]
@@ -911,7 +911,9 @@ metadata/_edit_vertical_guides_ = [-100.0, 100.0]
 
 [node name="Monster" type="Node2D" parent="."]
 script = ExtResource("2_ca4if")
+stun_percentage = 50.0
 stun_radius = 200.0
+monster_name = "harpy"
 soul_cost = 10
 key_to_summon = "3"
 puzzle_sets = Array[Resource]([ExtResource("3_0vxwd")])
