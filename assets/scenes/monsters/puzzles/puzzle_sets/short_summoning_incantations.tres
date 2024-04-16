@@ -2,39 +2,30 @@
 
 [resource]
 data = [{
-"regex_answers": ["!?nekawa$"],
-"text_puzzle": "Type 'Awaken!' backwards."
+"regex_answers": ["^awaken my undead darling!?$"],
+"text_puzzle": "Say: 'Awaken my undead darling!'"
 }, {
-"regex_answers": ["!?esira$"],
-"text_puzzle": "Type 'Arise!' backwards."
+"regex_answers": ["^arise my ghoulish being!?$"],
+"text_puzzle": "Repeat: 'Arise my ghoulish being!'"
 }, {
-"regex_answers": ["!?htrof emoc$"],
-"text_puzzle": "Type 'Come forth!' backwards."
+"regex_answers": ["^come forth from whence you came!?$"],
+"text_puzzle": "Chant: 'Come forth from whence you came!'"
 }, {
-"regex_answers": ["!?dnammoc ym yb$"],
-"text_puzzle": "Type 'By my command!' backwards."
+"regex_answers": ["^by my command please conjure!?$"],
+"text_puzzle": "Recite: 'By my command, please conjure!'"
 }, {
-"regex_answers": ["!?esir$"],
-"text_puzzle": "Type 'Rise!' backwards."
+"regex_answers": ["^rise and prosper,? lost soul!?$"],
+"text_puzzle": "Say: 'Rise and prosper, Lost Soul!'"
 }, {
-"regex_answers": ["!?ekawa$"],
-"text_puzzle": "Type 'Awake!' backwards."
+"regex_answers": ["^awake from your slumber!?$"],
+"text_puzzle": "Say: 'Awake from your slumber!'"
 }, {
-"regex_answers": ["!?rebmuls morf ekawa$"],
-"text_puzzle": "Type 'Awake from slumber!' backwards."
+"regex_answers": ["^come to me my ghost child!?$"],
+"text_puzzle": "Chant: 'Come to me my ghost child!'"
 }, {
-"regex_answers": ["!?em ot emoc$"],
-"text_puzzle": "Type 'Come to me!' backwards."
+"regex_answers": ["^obey me and rise!?$"],
+"text_puzzle": "Recite: 'Obey me and rise!'"
 }, {
-"regex_answers": ["!?yebo$"],
-"text_puzzle": "Type 'Obey!' backwards."
-}, {
-"regex_answers": ["!?denommus eb$"],
-"text_puzzle": "Type 'Be summoned!' backwards."
-}, {
-"regex_answers": ["!?yrarbil cigam ,?em ot emoc$"],
-"text_puzzle": "Recite 'Come to me, magic library!' backwards."
-}, {
-"regex_answers": ["!?dnats ,?dnammoc i sa$"],
-"text_puzzle": "Say 'As I command, stand!' backwards."
+"regex_answers": ["^be summoned and scare!?$"],
+"text_puzzle": "Say: 'Be summoned and scare!'"
 }]

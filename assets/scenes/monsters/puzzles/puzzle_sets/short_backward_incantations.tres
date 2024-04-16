@@ -1,0 +1,40 @@
+[gd_resource type="JSON" format=3 uid="uid://dnw8ao1paiqt7"]
+
+[resource]
+data = [{
+"regex_answers": ["!?nekawa$"],
+"text_puzzle": "Type 'Awaken!' backwards."
+}, {
+"regex_answers": ["!?esira$"],
+"text_puzzle": "Type 'Arise!' backwards."
+}, {
+"regex_answers": ["!?htrof emoc$"],
+"text_puzzle": "Type 'Come forth!' backwards."
+}, {
+"regex_answers": ["!?dnammoc ym yb$"],
+"text_puzzle": "Type 'By my command!' backwards."
+}, {
+"regex_answers": ["!?esir$"],
+"text_puzzle": "Type 'Rise!' backwards."
+}, {
+"regex_answers": ["!?ekawa$"],
+"text_puzzle": "Type 'Awake!' backwards."
+}, {
+"regex_answers": ["!?rebmuls morf ekawa$"],
+"text_puzzle": "Type 'Awake from slumber!' backwards."
+}, {
+"regex_answers": ["!?em ot emoc$"],
+"text_puzzle": "Type 'Come to me!' backwards."
+}, {
+"regex_answers": ["!?yebo$"],
+"text_puzzle": "Type 'Obey!' backwards."
+}, {
+"regex_answers": ["!?denommus eb$"],
+"text_puzzle": "Type 'Be summoned!' backwards."
+}, {
+"regex_answers": ["!?yrarbil cigam ,?em ot emoc$"],
+"text_puzzle": "Recite 'Come to me, magic library!' backwards."
+}, {
+"regex_answers": ["!?dnats ,?dnammoc i sa$"],
+"text_puzzle": "Say 'As I command, stand!' backwards."
+}]
