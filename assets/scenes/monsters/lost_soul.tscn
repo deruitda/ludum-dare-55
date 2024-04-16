@@ -931,6 +931,7 @@ one_shot = true
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="Monster"]
 stream = ExtResource("11_4ym7g")
+volume_db = -5.0
 
 [connection signal="animation_finished" from="Monster/Area2D/MonsterAnimation" to="Monster" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Monster/AttackCooldown" to="Monster" method="_on_attack_cooldown_timeout"]
