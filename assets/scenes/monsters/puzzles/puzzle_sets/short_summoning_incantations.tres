@@ -2,33 +2,33 @@
 
 [resource]
 data = [{
-"regex_answers": ["^awaken!?$"],
-"text_puzzle": "Say: 'Awaken!'"
+"regex_answers": ["!?nekawa$"],
+"text_puzzle": "Type 'Awaken!' backwards."
 }, {
-"regex_answers": ["^arise!?$"],
-"text_puzzle": "Repeat: 'Arise!'"
+"regex_answers": ["!?esira$"],
+"text_puzzle": "Type 'Arise!' backwards."
 }, {
-"regex_answers": ["^come forth!?$"],
-"text_puzzle": "Chant: 'Come forth!'"
+"regex_answers": ["!?htrof emoc$"],
+"text_puzzle": "Type 'Come forth!' backwards."
 }, {
-"regex_answers": ["^by my command!?$"],
-"text_puzzle": "Recite: 'By my command!'"
+"regex_answers": ["!?dnammoc ym yb$"],
+"text_puzzle": "Type 'By my command!' backwards."
 }, {
-"regex_answers": ["^rise!?$"],
-"text_puzzle": "Say: 'Rise!'"
+"regex_answers": ["!?esir$"],
+"text_puzzle": "Type 'Rise!' backwards."
 }, {
-"regex_answers": ["^awake!?$"],
-"text_puzzle": "Say: 'Awake!'"
+"regex_answers": ["!?ekawa$"],
+"text_puzzle": "Type 'Awake!' backwards."
 }, {
-"regex_answers": ["^awake from slumber!?$"],
-"text_puzzle": "Say: 'Awake from slumber!'"
+"regex_answers": ["!?rebmuls morf ekawa$"],
+"text_puzzle": "Type 'Awake from slumber!' backwards."
 }, {
-"regex_answers": ["^come to me!?$"],
-"text_puzzle": "Chant: 'Come to me!'"
+"regex_answers": ["!?em ot emoc$"],
+"text_puzzle": "Type 'Come to me!' backwards."
 }, {
-"regex_answers": ["^obey!?$"],
-"text_puzzle": "Recite: 'Obey!'"
+"regex_answers": ["!?yebo$"],
+"text_puzzle": "Type 'Obey!' backwards."
 }, {
-"regex_answers": ["^be summoned!?$"],
-"text_puzzle": "Say: 'Be summoned!'"
+"regex_answers": ["!?denommus eb$"],
+"text_puzzle": "Type 'Be summoned!' backwards."
 }]
