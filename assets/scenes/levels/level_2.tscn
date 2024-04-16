@@ -121,8 +121,8 @@ is_ending_path = true
 script = ExtResource("6_5r8fl")
 
 [node name="Wave" parent="WaveContainer" instance=ExtResource("7_xiut3")]
-base_number_of_patrons = 1
-length_of_time_in_seconds = 2
+base_number_of_patrons = 12
+length_of_time_in_seconds = 30
 
 [node name="FreeMovingMonsters" type="Node2D" parent="."]
 z_index = 2
