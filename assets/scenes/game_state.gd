@@ -23,7 +23,6 @@ func _ready():
 	GameSignal.connect("wave_completed", _on_wave_completed)
 	remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive - souls_survived
 
-
 func _on_wave_completed():
 	increment_wave()
 
@@ -57,6 +56,8 @@ func reset_souls():
 	souls_captured = 0
 	souls_survived = 0
 	souls_to_spend = 0
+	remaining_patrons_allowed_to_survive = _total_patrons_allowed_to_survive
+	# GameSignal.emit_signal('game_state_reset')
 
 func _on_game_to_main_menu():
 	reset_souls()
@@ -67,8 +68,8 @@ func _on_game_paused():
 
 func _on_game_restarted():
 	is_paused = false
-	reset_souls()
 	set_wave(1)
+	reset_souls()
 
 func get_current_wave()->int:
 	return current_wave
