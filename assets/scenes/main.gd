@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var current_level = %CurrentLevel
 @onready var current_level_scene = null
-@onready var current_level_index = 1
+@onready var current_level_index = 2
 @onready var audio_player = %AudioStreamPlayer
 @onready var main_menu = %MainMenu
 
@@ -13,6 +13,7 @@ extends Node2D
 const LEVELS = [
 	"res://assets/scenes/levels/level_1.tscn",
 	"res://assets/scenes/levels/level_2.tscn",
+	"res://assets/scenes/levels/level_3.tscn",
 ]
 
 const BG_SONGS = [
@@ -81,11 +82,12 @@ func _on_game_to_main_menu():
 	main_menu.visible = true
 
 
-func _on_new_game():
+func _on_new_game(levelIndex):
 	if current_level_scene != null:
 		remove_current_level_scene()
 	get_tree().paused = false
 	main_menu.visible = false
+	current_level_index = levelIndex
 	load_current_level_scene()
 
 
