@@ -85,6 +85,8 @@ func _on_game_to_main_menu():
 func _on_new_game(levelIndex):
 	if current_level_scene != null:
 		remove_current_level_scene()
+	GameState.reset_souls()
+	SummoningState.reset_state()
 	get_tree().paused = false
 	main_menu.visible = false
 	current_level_index = levelIndex
