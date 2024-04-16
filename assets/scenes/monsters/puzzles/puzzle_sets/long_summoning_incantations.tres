@@ -14,7 +14,7 @@ data = [{
 "regex_answers": ["^with the rising of the moon,? gather strength and be summoned!?"],
 "text_puzzle": "Recite: 'With the rising of the moon, gather strength and be summoned!'"
 }, {
-"regex_answers": ["^by the light of the stars in the sky I command thee!?"],
+"regex_answers": ["^by the light of the stars in the sky i command thee!?"],
 "text_puzzle": "Chant: 'By the light of the stars in the sky I command thee!'"
 }, {
 "regex_answers": ["^in the name of all that is unholy and evil,? arise!?"],
