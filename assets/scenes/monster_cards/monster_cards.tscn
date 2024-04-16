@@ -20,6 +20,7 @@ scale = Vector2(0.8, 0.8)
 [node name="MinotaurButton" parent="." node_paths=PackedStringArray("monster") instance=ExtResource("1_r70cb")]
 layout_mode = 2
 monster = NodePath("MinotaurPathFollow2D")
+summon_monster_input_action_number = 2
 
 [node name="MinotaurPathFollow2D" parent="MinotaurButton" instance=ExtResource("3_v0pvs")]
 position = Vector2(31, 65)
@@ -28,6 +29,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Harpy" parent="." node_paths=PackedStringArray("monster") instance=ExtResource("1_r70cb")]
 layout_mode = 2
 monster = NodePath("HarpyPathFollow2D")
+summon_monster_input_action_number = 3
 
 [node name="HarpyPathFollow2D" parent="Harpy" instance=ExtResource("4_3p2eh")]
 position = Vector2(31, 54)

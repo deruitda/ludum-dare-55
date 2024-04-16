@@ -131,8 +131,8 @@ script = ExtResource("6_iy6oq")
 wave_intensity_percentage_increase = 0.2
 
 [node name="Wave" parent="WaveContainer" instance=ExtResource("3_pm4jn")]
-base_number_of_patrons = 2
-length_of_time_in_seconds = 6
+base_number_of_patrons = 10
+length_of_time_in_seconds = 30
 
 [node name="FreeMovingMonsters" type="Node2D" parent="."]
 z_index = 2
