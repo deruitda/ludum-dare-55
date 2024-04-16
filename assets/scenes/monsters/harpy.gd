@@ -33,6 +33,7 @@ func attack(patron):
 
 func _ready():
 	super()
+	attack_collision_shape.shape.radius = 0.0
 	radius_container.visible = false
 	attack_node.set_attack_radius(stun_radius)
 	set_radius_container()
