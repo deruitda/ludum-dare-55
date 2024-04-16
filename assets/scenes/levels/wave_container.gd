@@ -26,10 +26,10 @@ func get_current_wave():
 func start_waves():
 	reset_state()
 	start_wave()
-	total_number_of_patrons += get_current_wave().get_number_of_patrons()
 	
 func start_wave():
 	get_current_wave().start_wave((GameState.get_current_wave() - 1) * wave_intensity_percentage_increase)
+	total_number_of_patrons += get_current_wave().get_number_of_patrons()
 	
 func reset_state():
 	current_wave_index = 0
