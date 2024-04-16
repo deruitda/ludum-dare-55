@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dtraghpckn3ks"]
 
 [ext_resource type="Script" path="res://assets/scenes/monsters/monster_button.gd" id="1_ecrrc"]
-[ext_resource type="Texture2D" uid="uid://qpvkmtvt7dbn" path="res://assets/sprites/monsters/borders/border-inactive.png" id="1_v8x20"]
+[ext_resource type="Texture2D" uid="uid://1tugror362id" path="res://assets/sprites/monsters/borders/border-inactive.png" id="1_v8x20"]
 [ext_resource type="Texture2D" uid="uid://da2cmbqhaci15" path="res://assets/sprites/monsters/borders/border-active-sheet.png" id="3_v8ce6"]
 [ext_resource type="AudioStream" uid="uid://bbwxfy8ayw15g" path="res://assets/audio/misc/SelectionSound.wav" id="4_81tnv"]
 [ext_resource type="Texture2D" uid="uid://bjq1j1y3r0kmg" path="res://assets/sprites/patrons/human/human-soul.png" id="5_fcbxc"]
