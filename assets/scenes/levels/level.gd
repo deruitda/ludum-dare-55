@@ -26,18 +26,20 @@ func _process(delta):
 	pass
 	
 func _on_wave_container_wave_complete():
+	desummon_all_monsters()
 	GameSignal.emit_signal("wave_completed")
 	
 
 func start_next_wave():
-	wave_cooldown.start()	
 	wave_container.start_waves()
 
 func open_wave_cooldown_hud():
 	pass
 
-func _on_wave_cooldown_timeout():
-	start_next_wave()
-
 func _on_day_complete_ui_closed():
 	start_next_wave()
+
+func desummon_all_monsters():
+	for monster_node in free_moving_monsters.get_children():
+		monster_node.queue_free()
+	paths_container.desummon_all_monsters()

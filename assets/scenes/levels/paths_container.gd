@@ -20,3 +20,7 @@ func add_to_path(path_follow_2d: PathFollow2D):
 func get_closest_position_on_path(p_position: Vector2):
 	var closest_path = get_closest_path(p_position)
 	return closest_path.curve.get_closest_point(p_position)
+
+func desummon_all_monsters():
+	for path in get_children():
+		path.desummon_all_monsters()
