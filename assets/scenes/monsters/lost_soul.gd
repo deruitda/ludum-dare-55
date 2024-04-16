@@ -33,5 +33,7 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _on_attack_cooldown_timeout():
+	if is_desummoning:
+		return
 	attack_is_cooling_down = false
 	monster_animation.play("idle")
