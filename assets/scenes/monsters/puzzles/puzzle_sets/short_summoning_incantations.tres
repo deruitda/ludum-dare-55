@@ -31,12 +31,10 @@ data = [{
 }, {
 "regex_answers": ["!?denommus eb$"],
 "text_puzzle": "Type 'Be summoned!' backwards."
-},
-{
-    "regex_answers": ["!?yrarbil cigam ,?em ot emoc$"],
-    "text_puzzle": "Recite 'Come to me, magic library!' backwards."
 }, {
-    "regex_answers": ["!?dnats ,?dnammoc i sa$"],
-    "text_puzzle": "Say 'As I command, stand!' backwards."
-}, 
-]
+"regex_answers": ["!?yrarbil cigam ,?em ot emoc$"],
+"text_puzzle": "Recite 'Come to me, magic library!' backwards."
+}, {
+"regex_answers": ["!?dnats ,?dnammoc i sa$"],
+"text_puzzle": "Say 'As I command, stand!' backwards."
+}]

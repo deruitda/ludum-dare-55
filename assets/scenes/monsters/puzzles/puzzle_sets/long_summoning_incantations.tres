@@ -31,6 +31,4 @@ data = [{
 }, {
 "regex_answers": ["^in the silence of the night in this here field arise!?"],
 "text_puzzle": "Recite: 'In the silence of the night in this here field arise!'"
-},
-
-]
+}]
