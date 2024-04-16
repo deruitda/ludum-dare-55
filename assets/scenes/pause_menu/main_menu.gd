@@ -35,7 +35,7 @@ func start_new_game(levelIndex):
 	if !is_playing_hades_audio:
 		selected_level_index = levelIndex
 		is_playing_hades_audio = true
-		disable_buttons()
+		toggle_buttons()
 		hades_animation.play("speaking")
 		play_random_hades_frustration_audio()
 
@@ -52,8 +52,9 @@ func play_random_hades_frustration_audio():
 
 func _on_audio_stream_player_finished():
 	is_playing_hades_audio = false
-	disable_buttons()
+	toggle_buttons()
 	GameSignal.emit_signal("new_game", selected_level_index)
+	
 
 
 func _on_tutorial_pressed():
@@ -65,7 +66,7 @@ func _on_tutorial_stopped():
 	$Tutorial.visible = false
 	$Tutorial/VideoStreamPlayer.stop()
 	
-func disable_buttons():
-	%EasyButton.disabled = true
-	%Medium.disabled = true
-	%Hard.disabled = true
+func toggle_buttons():
+	%EasyButton.disabled = !%EasyButton.disabled
+	%Medium.disabled = !%Medium.disabled
+	%Hard.disabled = !%Hard.disabled

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://boy1lorron0ar"]
+[gd_scene load_steps=18 format=3 uid="uid://op60lahjulgd"]
 
 [ext_resource type="Script" path="res://assets/scenes/levels/level.gd" id="1_60mwu"]
 [ext_resource type="PackedScene" uid="uid://cjl612uk13l3v" path="res://assets/scenes/game_ui/game_ui.tscn" id="2_tc034"]

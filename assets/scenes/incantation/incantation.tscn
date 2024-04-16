@@ -31,6 +31,7 @@ offset_right = 126.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wxdso")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ft2qt")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_11dpv")
