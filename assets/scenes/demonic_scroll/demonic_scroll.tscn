@@ -1,7 +1,6 @@
 [gd_scene load_steps=44 format=3 uid="uid://derq75u4a7b1o"]
 
 [ext_resource type="Script" path="res://assets/scenes/demonic_scroll/demonic_scroll.gd" id="1_imh54"]
-[ext_resource type="FontFile" uid="uid://d0twylcttk1ec" path="res://assets/fonts/Calligraffitti-Regular.ttf" id="3_w6xs3"]
 [ext_resource type="Texture2D" uid="uid://c2yd3t6m4vkx6" path="res://assets/sprites/misc/scroll/scroll-closing-sheet.png" id="4_ouajg"]
 [ext_resource type="Texture2D" uid="uid://djt4ndwpj8idc" path="res://assets/sprites/misc/scroll/scroll-opening-sheet.png" id="5_ig38i"]
 
@@ -284,6 +283,8 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="SystemFont" id="SystemFont_ymb6e"]
+
 [node name="DemonicScroll" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -301,7 +302,8 @@ offset_top = -132.0
 offset_right = 150.0
 offset_bottom = 132.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_w6xs3")
+theme_override_colors/font_outline_color = Color(0.976471, 0.976471, 0.976471, 1)
+theme_override_fonts/font = SubResource("SystemFont_ymb6e")
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1
